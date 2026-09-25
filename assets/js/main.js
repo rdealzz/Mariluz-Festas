@@ -442,6 +442,8 @@
     navLinks.forEach(function (a) { var s = $(a.getAttribute('href')); if (s) { var r = s.getBoundingClientRect(); if (r.top < mid && r.bottom > mid) current = a; } });
     navLinks.forEach(function (a) { a.setAttribute('aria-current', a === current); });
   };
+  var orb = $('.orb');
+  if (!hasGsap) orb.classList.add('is-on');
   var onScroll = function () { updateNavTheme(); updateCurrent(); };
   if (lenis) lenis.on('scroll', onScroll); else window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -484,7 +486,7 @@
   } else {
     $('.loader').remove();
   }
-  intro.add(function () { goTo(0); play(); });
+  intro.add(function () { goTo(0); play(); if (split) split.revert(); /* devolve o texto ao fluxo normal para acompanhar redimensionamentos */ });
 
   /* Hero ao rolar: profundidade */
   gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
@@ -498,7 +500,7 @@
     $$('.title').forEach(function (t) {
       t.removeAttribute('data-reveal'); t.style.opacity = 1;
       var s = new SplitText(t, { type: 'lines', linesClass: 'split-line', mask: 'lines' });
-      gsap.from(s.lines, { yPercent: 105, duration: 1.3, stagger: .1, scrollTrigger: { trigger: t, start: 'top 85%', once: true } });
+      gsap.from(s.lines, { yPercent: 105, duration: 1.3, stagger: .1, onComplete: function () { s.revert(); }, scrollTrigger: { trigger: t, start: 'top 85%', once: true } });
     });
   }
 
@@ -581,7 +583,7 @@
   if (!reduced) gsap.from('.footer-word', { yPercent: 40, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'bottom bottom', scrub: 1 } });
 
   /* Esfera do WhatsApp surge após o hero */
-  gsap.from('.orb', { scale: 0, opacity: 0, duration: 1, ease: 'back.out(1.8)', delay: reduced ? 0 : 3.4 });
+  ScrollTrigger.create({ trigger: '.hero', start: 'bottom 70%', onEnter: function () { orb.classList.add('is-on'); }, onLeaveBack: function () { orb.classList.remove('is-on'); } });
 
   ScrollTrigger.refresh();
   placePill($('.tab[aria-selected="true"]'), true);
