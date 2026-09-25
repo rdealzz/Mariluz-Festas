@@ -516,15 +516,6 @@
     gsap.to(ms.words, { opacity: 1, stagger: .1, ease: 'none', scrollTrigger: { trigger: mt, start: 'top 75%', end: 'bottom 45%', scrub: .6 } });
   }
 
-  /* Cinema: a imagem se abre até a tela cheia */
-  if (!reduced) {
-    gsap.timeline({ scrollTrigger: { trigger: '.cinema', start: 'top top', end: '+=120%', scrub: 1, pin: true, anticipatePin: 1 } })
-      .to('.cinema-frame', { clipPath: window.innerWidth > 900 ? 'inset(7% 12% 7% 12% round 28px)' : 'inset(0% 0% 0% 0% round 0px)', ease: 'none' }, 0)
-      .to('.cinema-frame img', { scale: 1, ease: 'none' }, 0)
-      .to('.cinema-caption', { opacity: 1, y: 0, ease: 'none', duration: .35 }, .6)
-      .from('.cinema-caption', { y: 40, ease: 'none', duration: .35 }, .6);
-  }
-
   /* Galeria: entrada em cascata + parallax interno */
   gsap.set('[data-tile]', { opacity: 0, y: 80, scale: .96 });
   ScrollTrigger.batch('[data-tile]', {
