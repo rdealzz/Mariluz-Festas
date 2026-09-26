@@ -33,8 +33,11 @@ assets/img/             fotos das decorações
   descrição, modalidade, quantidade, referência e o link da foto (o WhatsApp mostra a prévia da
   imagem quando o site está publicado no domínio). O link `wa.me` só aceita texto, então o arquivo
   da foto em si não pode ser anexado.
-- **Depoimentos:** são ilustrativos. Edite a lista `TESTIMONIALS` no início de `assets/js/main.js`
-  com avaliações reais (e remova o aviso `.sample-note` em `index.html`).
+- **Preços:** cada peça pode ter `preco`. Os valores preenchidos vieram da loja online antiga e só
+  aparecem no site com `MOSTRAR_PRECOS = true` (início de `assets/js/catalogo.js`), depois de
+  confirmados pela Mariluz. `DESTAQUES` define as 12 peças da vitrine inicial.
+- **Depoimentos:** avaliações reais publicadas no Casamentos.com.br. Para incluir as do Google, edite
+  a lista `TESTIMONIALS` no início de `assets/js/main.js` com o texto exato e o nome da cliente.
 - **Vídeo do hero (opcional):** coloque um vídeo em `assets/video/hero.mp4` e preencha
   `data-src="assets/video/hero.mp4"` na tag `<video class="hero-video">`.
 - **Números:** a seção "Em números" usa dados públicos (14 anos, 67 avaliações, nota 4,5,

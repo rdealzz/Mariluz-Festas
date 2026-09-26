@@ -18,14 +18,13 @@
 
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-  /* ---------- Depoimentos (ilustrativos: trocar pelos reais) ---------- */
+  /* ---------- Depoimentos: avaliações reais publicadas no Casamentos.com.br ----------
+     Para incluir avaliações do Google, acrescente { nome, fonte, texto } com o texto exato. */
   var TESTIMONIALS = [
-    { nome: 'Cliente Mariluz', evento: 'Chá de bebê', texto: 'Cada detalhe estava exatamente como sonhei. As flores, as cores e o arco de balões deixaram tudo delicado e elegante.' },
-    { nome: 'Cliente Mariluz', evento: 'Aniversário infantil', texto: 'Meu filho ficou encantado com a mesa do tema. Atendimento carinhoso do começo ao fim e montagem impecável.' },
-    { nome: 'Cliente Mariluz', evento: 'Casamento', texto: 'O muro inglês e as mesas espelhadas transformaram o salão. Os convidados não paravam de elogiar.' },
-    { nome: 'Cliente Mariluz', evento: '15 anos', texto: 'O cenário das fotos ficou lindo. Pontualidade na montagem e muito cuidado com cada peça.' },
-    { nome: 'Cliente Mariluz', evento: 'Evento corporativo', texto: 'Sofisticação e organização. Entenderam a nossa marca e entregaram uma composição de alto nível.' },
-    { nome: 'Cliente Mariluz', evento: 'Aniversário adulto', texto: 'Acervo enorme e muito bem cuidado. Dá gosto visitar o showroom e escolher peça por peça.' }
+    { nome: 'Cliente', fonte: 'Casamentos.com.br', texto: 'Ótimo atendimento e ótimos profissionais, fui super bem atendida e superou minhas expectativas, preço acessível e qualidade.' },
+    { nome: 'Cliente', fonte: 'Casamentos.com.br', texto: 'Excelentes profissionais, negociáveis, pontuais, produtos lindos, ótima organização.' },
+    { nome: 'Cliente', fonte: 'Casamentos.com.br', texto: 'Obrigada Mariluz por tudo, recomendarei sempre!' },
+    { nome: 'Cliente', fonte: 'Casamentos.com.br', texto: 'Sem dúvida recomendo!' }
   ];
   var rows = $('[data-testimonials]');
   if (rows) {
@@ -37,14 +36,16 @@
       $('blockquote', f).textContent = '“' + t.texto + '”';
       $('.avatar', f).textContent = initials;
       $('figcaption b', f).textContent = t.nome;
-      $('figcaption span span', f).textContent = t.evento;
+      $('figcaption span span', f).textContent = 'Avaliação no ' + t.fonte;
       return f;
     };
     [TESTIMONIALS, TESTIMONIALS.slice().reverse()].forEach(function (list, i) {
       var row = document.createElement('div');
       row.className = 'row' + (i ? ' rev' : '');
       row.style.setProperty('--dur', (i ? 84 : 72) + 's');
-      list.concat(list).forEach(function (t, k) {
+      var half = list.slice();
+      while (half.length < 8) half = half.concat(list); /* cada metade da faixa precisa ser mais larga que a tela */
+      half.concat(half).forEach(function (t, k) {
         var c = card(t);
         if (k >= list.length) c.setAttribute('aria-hidden', 'true');
         row.appendChild(c);
@@ -209,12 +210,12 @@
 
   /* ---------- Portfólio: abas ---------- */
   var THEMES = {
-    casamentos: { bg: '#F4EFE7', fg: '#141415', acc: '#B89A64', dark: false },
-    quinze: { bg: '#EFE5E0', fg: '#141415', acc: '#A7867B', dark: false },
     infantil: { bg: '#E9EDEE', fg: '#141415', acc: '#7F8E92', dark: false },
-    corporativo: { bg: '#2A2A2C', fg: '#FFFFFF', acc: '#C9B48C', dark: true },
-    formaturas: { bg: '#111112', fg: '#FFFFFF', acc: '#B89A64', dark: true },
-    adultos: { bg: '#E6DED3', fg: '#141415', acc: '#8C7A64', dark: false }
+    minitable: { bg: '#ECEBE4', fg: '#141415', acc: '#8C8A6E', dark: false },
+    cha: { bg: '#F1E7E2', fg: '#141415', acc: '#B08A7E', dark: false },
+    adultos: { bg: '#2A2A2C', fg: '#FFFFFF', acc: '#C9B48C', dark: true },
+    quinze: { bg: '#EFE5E0', fg: '#141415', acc: '#A7867B', dark: false },
+    casamentos: { bg: '#F4EFE7', fg: '#141415', acc: '#B89A64', dark: false }
   };
   var portfolio = $('.portfolio'), tabs = $$('.tab'), pill = $('.tab-pill');
   var placePill = function (tab, instant) {

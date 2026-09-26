@@ -326,6 +326,8 @@ button { background: none; border: 0; cursor: pointer; }
 .product-art { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(120% 90% at 30% 20%, #FBF8F3, #E6D9C3); }
 .product-art[data-cat="moveis"] { background: radial-gradient(120% 90% at 30% 20%, #F8F9F9, #D9DEE0); }
 .product-art[data-cat="baloes"] { background: radial-gradient(120% 90% at 30% 20%, #F9F3F0, #DCC8C0); }
+.product-art[data-cat="minitable"] { background: radial-gradient(120% 90% at 30% 20%, #F8F7F2, #DEDCCF); }
+.product-art[data-cat="kits"] { background: radial-gradient(120% 90% at 30% 20%, #F6F1F4, #DDD0D6); }
 .product-art::after { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 40% at 70% 10%, rgba(255, 255, 255, .7), transparent 70%); pointer-events: none; }
 .product-art svg { width: 64%; height: 64%; fill: none; stroke: var(--ink); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; transition: transform 1.4s var(--lux); }
 .product article:hover .product-art svg { transform: scale(1.05) translateY(-2px); }
@@ -334,11 +336,19 @@ button { background: none; border: 0; cursor: pointer; }
 .product-art .g { fill: var(--gold); stroke: none; opacity: .6; }
 .product-art .leaf { fill: rgba(126, 140, 110, .35); stroke: none; }
 .product-art .soft { opacity: .45; }
+.product-art .tree { fill: rgba(126, 140, 110, .3); }
+.product-art .thick { stroke-width: 5; stroke: var(--ink); opacity: .82; }
+.drawer-thumb .product-art .thick { stroke-width: 7; }
 .product-badge { position: absolute; z-index: 2; left: 10px; top: 10px; padding: .38rem .7rem; border-radius: 999px; font-size: .62rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-ink); background: rgba(250, 249, 247, .8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .9), 0 8px 18px -12px rgba(20, 20, 21, .4); }
 .product-body { flex: 1; display: flex; flex-direction: column; gap: .4rem; padding: 1.1rem 1.2rem 1.2rem; }
 .product-cat { font-size: .64rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-ink); }
 .product h3 { font-weight: 400; font-size: 1.1rem; line-height: 1.25; letter-spacing: -.02em; }
 .product p { font-size: .86rem; line-height: 1.5; color: var(--ink-2); }
+.product-price { font-size: .8rem; color: var(--ink-3); }
+.product-price b { font-weight: 500; font-size: 1rem; color: var(--ink); }
+.catalog-more { display: flex; justify-content: center; margin-top: clamp(1.8rem, 3.5vw, 2.8rem); }
+.catalog-more[hidden] { display: none; }
+.catalog-more small { font-size: .78rem; opacity: .5; font-variant-numeric: tabular-nums; }
 .product-tag { display: inline-flex; align-items: center; gap: .45rem; font-size: .74rem; color: var(--ink-3); }
 .product-tag::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
 .product-foot { margin-top: auto; padding-top: .9rem; display: flex; align-items: center; gap: .5rem; }
@@ -495,8 +505,9 @@ button { background: none; border: 0; cursor: pointer; }
 .sculpture[data-v="casamentos"] { --s1: #FBF8F3; --s2: #E6D9C3; --s3: #fff; --s4: #E4D3B4; --s5: #B89A64; --s6: #7E6640; }
 .sculpture[data-v="casamentos"] .ring.a { left: 28%; } .sculpture[data-v="casamentos"] .ring.b { left: 42%; }
 .sculpture[data-v="quinze"] { --s1: #F6EFEC; --s2: #DCC8C0; --s3: #fff; --s4: #D9C0B6; --s5: #A7867B; --s6: #6F5549; }
-.sculpture[data-v="corporativo"] { --s1: #3A3A3D; --s2: #19191A; --s3: #6A6A6E; --s4: #2A2A2C; --s5: #C9B48C; --s6: #C9B48C; }
-.sculpture[data-v="formaturas"] { --s1: #262627; --s2: #0B0B0C; --s3: #D8C29A; --s4: #7C6642; --s5: #B89A64; --s6: #B89A64; }
+.sculpture[data-v="adultos"] { --s1: #262627; --s2: #0B0B0C; --s3: #D8C29A; --s4: #7C6642; --s5: #B89A64; --s6: #B89A64; }
+.sculpture[data-v="minitable"] { --s1: #F8F7F2; --s2: #DEDCCF; --s3: #fff; --s4: #D9D5C2; --s5: #8C8A6E; --s6: #5E5C45; }
+.sculpture[data-v="minitable"] .slab { background: linear-gradient(180deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .35)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .9), 0 20px 30px -18px rgba(0, 0, 0, .3); }
 @media (max-width: 900px) { .panel { grid-template-columns: 1fr; } .panel-visual { order: -1; } }
 
 /* ---------- Galeria ---------- */

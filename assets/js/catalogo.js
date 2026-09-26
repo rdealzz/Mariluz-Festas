@@ -17,37 +17,70 @@
   /* ---------- Catálogo: edite aqui ----------
      img: foto em assets/img (opcional). Sem foto, o card usa a ilustração em "art".
      badge: selo opcional ("Mais procurado").
-     tag: como a peça sai da loja. */
+     tag: como a peça sai da loja.
+     preco: valor em reais (só aparece no site com MOSTRAR_PRECOS = true).
+     Os valores abaixo vieram da loja online antiga (mariluzfestas.com.br) e precisam ser
+     confirmados pela Mariluz antes de serem exibidos. */
+  var MOSTRAR_PRECOS = false;
   var CATEGORIES = [
+    { id: 'minitable', label: 'Mini tables' },
     { id: 'kits', label: 'Kits temáticos' },
     { id: 'doces', label: 'Suportes para doces' },
     { id: 'moveis', label: 'Mesas e painéis' },
-    { id: 'baloes', label: 'Balões' }
+    { id: 'baloes', label: 'Balões' },
+    { id: 'detalhes', label: 'Detalhes' }
   ];
   var PEGUE = 'Pegue e monte', MONTAGEM = 'Montagem no local';
   var CATALOG = [
+    { id: 'mini-table-jardim-encantado', cat: 'minitable', nome: 'Mini Table Jardim Encantado', desc: 'Tema jardim encantado em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 399 },
+    { id: 'mini-table-wandinha', cat: 'minitable', nome: 'Mini Table Wandinha', desc: 'Tema Wandinha em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 420 },
+    { id: 'mini-table-circo-rosa', cat: 'minitable', nome: 'Mini Table Circo Rosa', desc: 'Tema circo em tons de rosa, numa mesa pequena e delicada.', art: 'minitable', tag: PEGUE, preco: 320 },
+    { id: 'mini-table-mundo-bita', cat: 'minitable', nome: 'Mini Table Mundo Bita', desc: 'Tema Mundo Bita para os pequenos, pronto para retirar e montar.', art: 'minitable', tag: PEGUE, preco: 320 },
+    { id: 'mini-table-dpa', cat: 'minitable', nome: 'Mini Table DPA', desc: 'Tema Detetives do Prédio Azul em versão compacta.', art: 'minitable', tag: PEGUE, preco: 340 },
+    { id: 'mini-table-ariel', cat: 'minitable', nome: 'Mini Table Ariel', desc: 'Tema Pequena Sereia em composição leve e enxuta.', art: 'minitable', tag: PEGUE, preco: 420 },
+    { id: 'mini-table-barbie', cat: 'minitable', nome: 'Mini Table Barbie', desc: 'Tema Barbie numa mesa pequena e marcante.', art: 'minitable', tag: PEGUE, preco: 420 },
+
     { id: 'kit-oh-baby', cat: 'kits', nome: 'Kit Oh Baby', desc: 'Chá de bebê em rosé, verde e dourado, com flores e arco de balões.', img: 'assets/img/tema-oh-baby.webp', tag: PEGUE, badge: 'Mais procurado' },
     { id: 'kit-futebol', cat: 'kits', nome: 'Kit Futebol', desc: 'Bola gigante, gramado e balões nas cores do time.', img: 'assets/img/tema-futebol.webp', tag: PEGUE, badge: 'Mais procurado' },
     { id: 'kit-batman', cat: 'kits', nome: 'Kit Batman', desc: 'Tonel, plantas e personagem para uma mesa marcante.', img: 'assets/img/tema-batman.webp', tag: PEGUE },
     { id: 'kit-praia', cat: 'kits', nome: 'Kit Praia e surf', desc: 'Prancha, remo e boia para uma festa leve e solar.', img: 'assets/img/tema-praia.webp', tag: PEGUE },
     { id: 'kit-fundo-do-mar', cat: 'kits', nome: 'Kit Fundo do mar', desc: 'Tons de azul e personagens do oceano.', img: 'assets/img/tema-fundo-do-mar.webp', tag: PEGUE },
     { id: 'kit-star-wars', cat: 'kits', nome: 'Kit Star Wars', desc: 'Personagens e peças da galáxia para os pequenos fãs.', img: 'assets/img/tema-star-wars.webp', tag: PEGUE },
+    { id: 'kit-cha-fraldas-menina', cat: 'kits', nome: 'Kit chá de fraldas menina (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas da menina.', art: 'minitable', tag: PEGUE },
+    { id: 'kit-cha-fraldas-menino', cat: 'kits', nome: 'Kit chá de fraldas menino (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas do menino.', art: 'minitable', tag: PEGUE },
+    { id: 'kit-batizado', cat: 'kits', nome: 'Kit Batizado ou 1ª Comunhão', desc: 'Composição delicada para batizados e primeira comunhão.', art: 'minitable', tag: PEGUE },
+    { id: 'kit-galinha-pintadinha', cat: 'kits', nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
 
     { id: 'suporte-colonial', cat: 'doces', nome: 'Suporte para doces pé colonial', desc: 'Branco e liso, em alturas variadas para compor a mesa.', art: 'stand', tag: PEGUE, badge: 'Mais procurado' },
+    { id: 'kit-porcelana', cat: 'doces', nome: 'Kit suportes de porcelana', desc: 'Suportes de porcelana para doces, em alturas variadas.', art: 'trio', tag: PEGUE, preco: 90 },
     { id: 'trio-suportes', cat: 'doces', nome: 'Trio de suportes para doces', desc: 'Três alturas, ideal para mesas pequenas e composições enxutas.', art: 'trio', tag: PEGUE },
     { id: 'bandejas-espelhadas', cat: 'doces', nome: 'Bandejas espelhadas', desc: 'Reflexo delicado para doces finos e lembrancinhas.', art: 'tray', tag: PEGUE },
     { id: 'bolo-cenografico', cat: 'doces', nome: 'Bolo cenográfico', desc: 'Andares decorados para o centro da mesa e para as fotos.', art: 'cake', tag: PEGUE },
+    { id: 'kit-ceramica', cat: 'doces', nome: 'Kit decorativo de cerâmica', desc: 'Peças de cerâmica para completar a mesa do bolo.', art: 'ceramic', tag: PEGUE },
 
     { id: 'mesa-provencal', cat: 'moveis', nome: 'Mesa provençal', desc: 'Pés torneados e acabamento clássico, o centro da composição.', art: 'provencal', tag: PEGUE, badge: 'Mais procurado' },
     { id: 'mesa-espelhada', cat: 'moveis', nome: 'Mesa espelhada', desc: 'Linhas retas e brilho discreto para festas modernas.', art: 'mirror', tag: PEGUE },
+    { id: 'aparador-azul', cat: 'moveis', nome: 'Aparador envelhecido azul', desc: 'Acabamento envelhecido com charme provençal.', art: 'sideboard', tag: PEGUE },
+    { id: 'estante-lembrancinhas', cat: 'moveis', nome: 'Estante shabby chic para lembrancinhas', desc: 'Para expor as lembrancinhas com charme.', art: 'shelf', tag: PEGUE },
+    { id: 'lounge-luis-xv', cat: 'moveis', nome: 'Lounge decorativo Luís XV', desc: 'Estofados clássicos para um canto de estar elegante.', art: 'sofa', tag: PEGUE },
     { id: 'trio-cilindros', cat: 'moveis', nome: 'Trio de cilindros', desc: 'Três alturas para apoiar o bolo, os doces e os personagens.', art: 'cylinders', tag: PEGUE },
     { id: 'painel-redondo', cat: 'moveis', nome: 'Painel redondo', desc: 'Fundo neutro que recebe balões, flores e o nome do homenageado.', art: 'round', tag: PEGUE },
+    { id: 'painel-floresta', cat: 'moveis', nome: 'Painel sublimado 3D floresta', desc: 'Fundo de floresta para festas de safári, jardim e aventura.', art: 'forest', tag: PEGUE },
+    { id: 'colunas-espelhadas', cat: 'moveis', nome: 'Par de colunas espelhadas com arranjo', desc: 'Colunas espelhadas com arranjo artificial para entradas e corredores.', art: 'mirrorColumns', tag: PEGUE },
+    { id: 'cortinado', cat: 'moveis', nome: 'Cortinado com estrutura', desc: 'Tecido em várias cores, com a estrutura para sustentar.', art: 'curtain', tag: PEGUE },
     { id: 'muro-ingles', cat: 'moveis', nome: 'Muro inglês', desc: 'Parede verde para cenários de fotos e mini weddings.', art: 'hedge', tag: PEGUE },
 
     { id: 'arco-desconstruido', cat: 'baloes', nome: 'Arco de balões desconstruído', desc: 'Montado no local, nas cores da sua festa.', art: 'arch', tag: MONTAGEM, badge: 'Mais procurado' },
     { id: 'painel-com-baloes', cat: 'baloes', nome: 'Painel redondo com balões', desc: 'Painel com arranjo orgânico de balões, pronto para as fotos.', art: 'roundBalloons', tag: MONTAGEM },
-    { id: 'coluna-baloes', cat: 'baloes', nome: 'Par de colunas de balões', desc: 'Para a entrada ou para emoldurar a mesa principal.', art: 'column', tag: MONTAGEM }
+    { id: 'coluna-baloes', cat: 'baloes', nome: 'Par de colunas de balões', desc: 'Para a entrada ou para emoldurar a mesa principal.', art: 'column', tag: MONTAGEM },
+    { id: 'suporte-chao-baloes', cat: 'baloes', nome: 'Suporte de chão para balões', desc: 'Estrutura de metal para montar colunas e buquês de balões.', art: 'balloonStand', tag: PEGUE },
+
+    { id: 'letras-mdf', cat: 'detalhes', nome: 'Letras em MDF', desc: 'Iniciais e palavras em MDF para noivados e aniversários.', art: 'letters', tag: PEGUE },
+    { id: 'arranjo-orquideas', cat: 'detalhes', nome: 'Arranjo de orquídeas para mesa', desc: 'Arranjo para as mesas dos convidados.', art: 'orchid', tag: PEGUE },
+    { id: 'suqueira', cat: 'detalhes', nome: 'Suqueira 5 litros', desc: 'Para sucos e drinks na mesa de bebidas.', art: 'jar', tag: PEGUE }
   ];
+  /* Ordem da vitrine "Todos" (as demais peças aparecem em "Ver todas") */
+  var DESTAQUES = ['mini-table-jardim-encantado', 'kit-oh-baby', 'mini-table-wandinha', 'suporte-colonial', 'kit-batman', 'arco-desconstruido', 'mini-table-circo-rosa', 'mesa-provencal', 'kit-futebol', 'lounge-luis-xv', 'kit-cha-fraldas-menina', 'painel-redondo'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
   var circles = function (pts, cls) {
@@ -82,6 +115,20 @@
       return circles(p) + circles([[33, 52, 3], [84, 46, 3.4], [70, 34, 2.6]], 'g');
     })(),
     roundBalloons: '<circle class="f" cx="62" cy="50" r="32"/><path d="M50 80l-4 16M74 80l4 16"/>' + circles([[34, 78, 8.5], [26, 66, 6], [44, 88, 6.5], [30, 90, 5], [22, 80, 4.5], [88, 26, 6], [96, 36, 4.5]]) + circles([[40, 70, 3]], 'g'),
+    minitable: '<circle class="f" cx="64" cy="48" r="28"/>' + circles([[38, 32, 7.5], [30, 44, 5.5], [46, 24, 5], [90, 60, 5]]) + circles([[40, 40, 2.4], [86, 34, 2.6]], 'g') + '<rect class="f" x="54" y="62" width="16" height="12" rx="2"/><path class="f" d="M34 74h56v4H34z"/><path d="M40 78v16M84 78v16"/><path class="f" d="M20 82v12a7 2 0 0 0 14 0V82"/><ellipse class="f" cx="27" cy="82" rx="7" ry="2"/>',
+    sofa: '<path class="f" d="M28 62q0-14 14-14h36q14 0 14 14v8H28z"/><path class="f" d="M18 72q0-7 7-7t7 7v10h56V72q0-7 7-7t7 7v16H18z"/><path d="M24 88l-2 7M96 88l2 7"/>' + circles([[60, 56, 2]], 'g'),
+    sideboard: '<path class="f" d="M46 50q-5-10 2-18h8q7 8 2 18z"/><rect class="f" x="22" y="50" width="76" height="34" rx="3"/><path d="M60 50v34M26 84l-2 10M94 84l2 10"/>' + circles([[55, 67, 1.8], [65, 67, 1.8]], 'g'),
+    shelf: '<rect class="f" x="34" y="20" width="52" height="74" rx="3"/><path d="M34 44h52M34 68h52M40 94v4M80 94v4"/><rect class="f" x="41" y="33" width="10" height="11"/><rect class="f" x="55" y="35" width="9" height="9"/><rect class="f" x="68" y="32" width="11" height="12"/><rect class="f" x="44" y="57" width="12" height="11"/><rect class="f" x="62" y="58" width="10" height="10"/>',
+    forest: '<rect class="f" x="24" y="20" width="72" height="68" rx="3"/><path class="tree" d="M34 80l11-30 11 30zM52 80l13-40 13 40zM72 80l8-22 8 22z"/><path d="M34 88l-4 8M86 88l4 8"/>',
+    mirrorColumns: [38, 82].map(function (x) {
+      return '<rect class="f" x="' + (x - 9) + '" y="52" width="18" height="42" rx="1"/><path class="soft" d="M' + (x - 5) + ' 90l8-34"/>' + circles([[x - 6, 46, 4.5], [x + 5, 45, 5], [x, 40, 4.5]]) + circles([[x, 46, 1.8]], 'g');
+    }).join(''),
+    curtain: '<path d="M18 22h84M20 22v76M100 22v76"/><path class="f" d="M24 22q5 40-2 74h20q-10-34 2-74zM96 22q-5 40 2 74H78q10-34-2-74z"/>',
+    balloonStand: '<path d="M60 46v46"/><path class="f" d="M46 96q14-8 28 0z"/>' + circles([[60, 34, 10], [47, 42, 7], [73, 42, 7], [53, 22, 6.5], [68, 22, 6.5]]),
+    jar: '<path class="f" d="M42 30h36v6q10 10 10 26v26a6 6 0 0 1-6 6H38a6 6 0 0 1-6-6V62q0-16 10-26z"/><path class="soft" d="M34 58h52"/><path d="M60 86v6h6"/>' + circles([[48, 72, 3.5], [62, 76, 3], [72, 68, 3.5]], 'g'),
+    orchid: '<path class="f" d="M50 76h20l-3 20H53z"/><path d="M60 76q-2-22 8-40M60 76q-8-14-20-18"/>' + circles([[68, 34, 5.5], [76, 44, 5], [60, 42, 4.5], [40, 56, 5]]) + circles([[68, 34, 1.8], [76, 44, 1.6], [40, 56, 1.8]], 'g'),
+    letters: '<path class="thick" d="M20 40v40h14"/><ellipse class="thick" cx="50" cy="60" rx="10" ry="20"/><path class="thick" d="M66 40l8 40 8-40M92 40h14M92 40v40h14M92 60h10"/>',
+    ceramic: '<path class="f" d="M28 94q-8-16 2-30h12q10 14 2 30z"/><path class="f" d="M52 94q-6-26 4-44h8q10 18 4 44z"/><path class="f" d="M80 94q-6-12 2-22h10q8 10 2 22z"/><path d="M26 94h72"/>',
     column: [38, 82].map(function (x) {
       var p = [];
       for (var k = 0; k < 6; k++) p.push([x + (k % 2 ? 3 : -3), 92 - k * 10, 6.5]);
@@ -143,13 +190,18 @@
       '*Descrição:* ' + p.desc,
       '*Modalidade:* ' + p.tag,
       '*Quantidade:* 1',
-      '*Ref.:* ' + ref(p),
-      '', '*Data da festa:* a definir',
+      '*Ref.:* ' + ref(p));
+    if (MOSTRAR_PRECOS && p.preco) msg.push('*Valor de referência:* ' + brl(p.preco));
+    msg.push('', '*Data da festa:* a definir',
       'Pode me confirmar valores e disponibilidade? Obrigada!');
     return waUrl(msg);
   };
+  var brl = function (v) { return 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2 }); };
   var plus = '<svg class="i-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="i-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
-  CATALOG.forEach(function (p) {
+  /* Vitrine: destaques primeiro, depois o restante na ordem do catálogo */
+  var ordered = DESTAQUES.map(function (id) { return byId[id]; }).filter(Boolean);
+  CATALOG.forEach(function (p) { if (ordered.indexOf(p) < 0) ordered.push(p); });
+  ordered.forEach(function (p) {
     var li = document.createElement('li');
     li.className = 'product'; li.dataset.cat = p.cat; li.dataset.id = p.id;
     li.innerHTML =
@@ -158,6 +210,7 @@
         '<div class="product-body">' +
           '<span class="product-cat">' + esc(catLabel(p.cat)) + '</span>' +
           '<h3>' + esc(p.nome) + '</h3>' +
+          (MOSTRAR_PRECOS && p.preco ? '<span class="product-price">a partir de <b>' + brl(p.preco) + '</b></span>' : '') +
           '<p>' + esc(p.desc) + '</p>' +
           '<span class="product-tag">' + esc(p.tag) + '</span>' +
           '<div class="product-foot">' +
@@ -183,28 +236,50 @@
   });
   var chips = $$('.chip', chipsEl);
   var setCount = function (n) { countEl.textContent = n + (n === 1 ? ' peça' : ' peças'); };
-  setCount(CATALOG.length);
+  var LIMITE = DESTAQUES.length, expanded = false;
+  var more = document.createElement('div');
+  more.className = 'catalog-more';
+  more.innerHTML = '<button type="button" class="btn btn-outline" data-magnetic>Ver todas as peças <small>' + CATALOG.length + '</small></button>';
+  grid.parentNode.insertBefore(more, grid.nextSibling);
 
   var revealIn = function (els, stagger) {
     els.forEach(function (el) { el.classList.add('is-in'); });
-    if (!hasGsap || reduced) return;
+    if (!hasGsap || reduced || !els.length) return;
     gsap.fromTo(els, { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, stagger: stagger, ease: 'expo.out', clearProps: 'transform' });
+  };
+  var apply = function (animate) {
+    var shown = [], fresh = [], k = 0;
+    cards.forEach(function (c) {
+      var on = active === 'all' || c.dataset.cat === active;
+      if (on && active === 'all' && !expanded) on = k++ < LIMITE;
+      if (on && c.hidden) fresh.push(c);
+      c.hidden = !on;
+      if (on) shown.push(c);
+    });
+    if (active === 'all' && !expanded) countEl.textContent = shown.length + ' de ' + CATALOG.length + ' peças';
+    else setCount(shown.length);
+    more.hidden = !(active === 'all' && !expanded);
+    if (animate) revealIn(animate === 'fresh' ? fresh : shown, .045);
+    if (window.ScrollTrigger) window.ScrollTrigger.refresh();
   };
   var filter = function (id) {
     if (id === active) return;
     active = id;
     chips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === id); });
-    var shown = [];
-    cards.forEach(function (c) {
-      var on = id === 'all' || c.dataset.cat === id;
-      c.hidden = !on;
-      if (on) shown.push(c);
-    });
-    setCount(shown.length);
-    revealIn(shown, .045);
-    if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+    apply('all');
   };
   chips.forEach(function (c) { c.addEventListener('click', function () { filter(c.dataset.filter); }); });
+  $('button', more).addEventListener('click', function () {
+    expanded = true;
+    var first = cards.filter(function (c) { return c.hidden; })[0];
+    apply('fresh');
+    if (first) { first.setAttribute('tabindex', '-1'); first.focus({ preventScroll: true }); }
+  });
+  /* Atalhos de outras seções (ex.: portfólio "Ver mini tables") */
+  $$('[data-catalog-filter]').forEach(function (a) {
+    a.addEventListener('click', function () { filter(a.dataset.catalogFilter); });
+  });
+  apply(false);
 
   /* Entrada dos cards ao rolar */
   if (hasGsap && !reduced && 'IntersectionObserver' in window) {
