@@ -139,18 +139,6 @@
     $$('[data-tilt]').forEach(function (el) { tilt(el, +el.dataset.tilt || 6); });
     $$('[data-tile]').forEach(function (el) { tilt(el, 4); });
 
-    /* Cursor */
-    var cur = $('.cursor');
-    if (hasGsap) {
-      var cx = gsap.quickTo(cur, 'x', { duration: .45, ease: 'power3.out' });
-      var cy = gsap.quickTo(cur, 'y', { duration: .45, ease: 'power3.out' });
-      window.addEventListener('pointermove', function (e) { cur.classList.add('is-on'); cx(e.clientX); cy(e.clientY); }, { passive: true });
-      document.addEventListener('pointerleave', function () { cur.classList.remove('is-on'); });
-      $$('a, button, [data-tile], select, input, textarea').forEach(function (el) {
-        el.addEventListener('pointerenter', function () { cur.classList.add('is-hover'); });
-        el.addEventListener('pointerleave', function () { cur.classList.remove('is-hover'); });
-      });
-    }
   }
 
   /* ---------- Hero: sequência de decorações ---------- */

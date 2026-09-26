@@ -705,12 +705,6 @@ button { background: none; border: 0; cursor: pointer; }
 @keyframes breathe { 50% { transform: translateY(-3px); } }
 @keyframes glow { 50% { transform: scale(1.25); opacity: .5; } }
 
-/* ---------- Cursor ---------- */
-.cursor { position: fixed; left: 0; top: 0; z-index: 400; width: 36px; height: 36px; margin: -18px 0 0 -18px; border-radius: 50%; pointer-events: none; border: 1px solid rgba(20, 20, 21, .35); mix-blend-mode: difference; border-color: rgba(255, 255, 255, .8); transition: width .5s var(--lux), height .5s var(--lux), margin .5s var(--lux), background .4s, opacity .4s; opacity: 0; }
-.cursor.is-on { opacity: 1; }
-.cursor.is-hover { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(255, 255, 255, .9); }
-@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
-
 /* ---------- Estados de entrada (JS) ---------- */
 .js [data-reveal] { opacity: 0; }
 .reduced [data-reveal], .no-gsap [data-reveal] { opacity: 1 !important; transform: none !important; }
