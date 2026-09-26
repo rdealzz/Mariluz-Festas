@@ -29,6 +29,10 @@ assets/img/             fotos das decorações
   ilustração em linha; para usar a foto real, coloque o arquivo em `assets/img/` e preencha `img`
   (ex.: `img: 'assets/img/suporte-colonial.webp'`). Não há preços no site: valores e
   disponibilidade são confirmados pelo WhatsApp conforme a data.
+  O botão **Pedir** de cada peça abre o WhatsApp da loja com a mensagem pronta: nome, categoria,
+  descrição, modalidade, quantidade, referência e o link da foto (o WhatsApp mostra a prévia da
+  imagem quando o site está publicado no domínio). O link `wa.me` só aceita texto, então o arquivo
+  da foto em si não pode ser anexado.
 - **Depoimentos:** são ilustrativos. Edite a lista `TESTIMONIALS` no início de `assets/js/main.js`
   com avaliações reais (e remova o aviso `.sample-note` em `index.html`).
 - **Vídeo do hero (opcional):** coloque um vídeo em `assets/video/hero.mp4` e preencha

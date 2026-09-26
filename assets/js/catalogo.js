@@ -105,7 +105,24 @@
   Object.keys(list).forEach(function (id) { if (!byId[id] || !(list[id] > 0)) delete list[id]; });
   var save = function () { try { localStorage.setItem(STORE, JSON.stringify(list)); } catch (e) { /* sem armazenamento: a lista vale só nesta visita */ } };
   var count = function () { return Object.keys(list).reduce(function (n, id) { return n + list[id]; }, 0); };
-  var lines = function () { return CATALOG.filter(function (p) { return list[p.id]; }).map(function (p) { return list[p.id] + 'x ' + p.nome; }); };
+  var inList = function () { return CATALOG.filter(function (p) { return list[p.id]; }); };
+  var lines = function () { return inList().map(function (p) { return list[p.id] + 'x ' + p.nome; }); };
+
+  /* ---------- Mensagens para o WhatsApp: levam todos os dados da peça ---------- */
+  var ref = function (p) { return p.id.toUpperCase(); };
+  var absUrl = function (path) {
+    if (!/^https?:$/.test(location.protocol)) return '';
+    try { return new URL(path, location.href).href; } catch (e) { return ''; }
+  };
+  var photo = function (p) { return p.img ? absUrl(p.img) : ''; };
+  /* Uma linha por peça, usada na lista e no formulário (main.js) */
+  var detailLines = function () {
+    return inList().map(function (p) {
+      var l = list[p.id] + 'x ' + p.nome + ' · ' + catLabel(p.cat) + ' · ' + p.tag + ' · Ref. ' + ref(p);
+      return photo(p) ? l + '\n   Foto: ' + photo(p) : l;
+    });
+  };
+  var waUrl = function (lines) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n')); };
 
   var live = document.createElement('div');
   live.className = 'sr-only'; live.setAttribute('aria-live', 'polite');
@@ -114,6 +131,23 @@
   /* ---------- Cards ---------- */
   var grid = $('[data-products]'), chipsEl = $('[data-chips]'), countEl = $('[data-catalog-count]');
   if (!grid) return;
+  var waIcon = '<svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 0 1-12.4 7.5L3.5 21l1.6-4.4A8.5 8.5 0 1 1 20.5 12z"/><path d="M9 9.2c.3 2.5 2.2 4.5 4.8 5l1-1 1.7.8c-.3 1-1.2 1.6-2.3 1.5-3.4-.4-6.1-3.1-6.5-6.5-.1-1.1.5-2 1.5-2.3l.8 1.7z"/></svg>';
+  /* Pedido direto de uma peça: abre o WhatsApp já com o nome dela */
+  var waLink = function (p) {
+    var link = photo(p) || absUrl('#catalogo');
+    var msg = ['Olá, Mariluz! Tudo bem? Vi a decoração *' + p.nome + '* no site e quero fazer o pedido de locação para a minha festa.'];
+    if (link) msg.push(link);
+    msg.push('',
+      '*Produto:* ' + p.nome,
+      '*Categoria:* ' + catLabel(p.cat),
+      '*Descrição:* ' + p.desc,
+      '*Modalidade:* ' + p.tag,
+      '*Quantidade:* 1',
+      '*Ref.:* ' + ref(p),
+      '', '*Data da festa:* a definir',
+      'Pode me confirmar valores e disponibilidade? Obrigada!');
+    return waUrl(msg);
+  };
   var plus = '<svg class="i-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="i-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
   CATALOG.forEach(function (p) {
     var li = document.createElement('li');
@@ -125,9 +159,10 @@
           '<span class="product-cat">' + esc(catLabel(p.cat)) + '</span>' +
           '<h3>' + esc(p.nome) + '</h3>' +
           '<p>' + esc(p.desc) + '</p>' +
+          '<span class="product-tag">' + esc(p.tag) + '</span>' +
           '<div class="product-foot">' +
-            '<span class="product-tag">' + esc(p.tag) + '</span>' +
-            '<button type="button" class="btn btn-outline btn-sm product-add" aria-pressed="false" data-add="' + p.id + '">' + plus + '<span data-add-label>Adicionar</span><span class="sr-only"> ' + esc(p.nome) + ' à lista</span></button>' +
+            '<a class="btn btn-dark btn-sm product-wa" href="' + waLink(p) + '" target="_blank" rel="noopener">' + waIcon + '<span class="long">Pedir no WhatsApp</span><span class="short">Pedir</span><span class="sr-only"> ' + esc(p.nome) + '</span></a>' +
+            '<button type="button" class="product-add" aria-pressed="false" data-add="' + p.id + '" aria-label="Adicionar ' + esc(p.nome) + ' à lista" title="Adicionar à lista">' + plus + '</button>' +
           '</div>' +
         '</div>' +
       '</article>';
@@ -202,7 +237,9 @@
     $$('[data-add]', grid).forEach(function (b) {
       var on = !!list[b.dataset.add];
       b.setAttribute('aria-pressed', on);
-      $('[data-add-label]', b).textContent = on ? 'Na lista' : 'Adicionar';
+      var nome = byId[b.dataset.add].nome;
+      b.setAttribute('aria-label', on ? nome + ' está na lista. Remover da lista' : 'Adicionar ' + nome + ' à lista');
+      b.title = on ? 'Na lista (clique para remover)' : 'Adicionar à lista';
     });
 
     itemsEl.innerHTML = '';
@@ -296,10 +333,10 @@
 
   sendBtn.addEventListener('click', function () {
     if (!count()) return;
-    var msg = ['Olá, Mariluz! Vim pelo site e gostaria de um orçamento de locação:', ''].concat(lines().map(function (l) { return '• ' + l; }), ['', '*Data da festa:* a definir']);
-    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg.join('\n')), '_blank', 'noopener');
+    var msg = ['Olá, Mariluz! Tudo bem? Montei minha lista no site e quero fazer este pedido de locação para a minha festa:', ''].concat(detailLines().map(function (l) { return '• ' + l; }), ['', '*Total de peças:* ' + count(), '*Data da festa:* a definir', 'Pode me confirmar valores e disponibilidade? Obrigada!']);
+    window.open(waUrl(msg), '_blank', 'noopener');
   });
 
-  window.MariluzLista = { lines: lines, open: openDrawer };
+  window.MariluzLista = { lines: detailLines, open: openDrawer };
   render();
 })();
