@@ -1,6 +1,7 @@
 # Mariluz Festas · site
 
-Site institucional da **Mariluz Festas** (decoração de eventos e locação de peças, Curitiba).
+Site institucional da **Mariluz Festas** (locação de peças pegue e monte, kits temáticos e pequenas
+montagens com balões, Curitiba). O catálogo permite montar uma lista de locação e enviá-la pelo WhatsApp.
 Página estática, sem etapa de build: publique a pasta inteira (Vercel, Netlify ou qualquer hospedagem).
 
 ## Estrutura
@@ -11,6 +12,8 @@ assets/css/style.css    identidade visual (paleta neutra de luxo, vidro, sombras
 assets/js/main.js       GSAP + ScrollTrigger + SplitText + Lenis: scroll cinematográfico,
                         portfólio por categoria, galeria em tela cheia, timeline, contadores,
                         formulário com validação que envia pelo WhatsApp
+assets/js/catalogo.js   catálogo de locação (lista CATALOG), filtros, lista de orçamento
+                        persistida no navegador e envio pelo WhatsApp
 assets/js/hero-gl.js    cena Three.js do hero (carregada só em aparelhos com WebGL)
 assets/vendor/          bibliotecas hospedadas localmente (gsap 3.13, three 0.170, lenis 1.3)
 assets/fonts/           Inter variável (fallback do SF Pro)
@@ -21,6 +24,11 @@ assets/img/             fotos das decorações
 
 - **Fotos:** as imagens atuais foram recortadas de capturas de tela do Google. Substitua pelos
   arquivos originais em alta resolução mantendo os mesmos nomes em `assets/img/`.
+- **Catálogo:** os produtos ficam na lista `CATALOG` no início de `assets/js/catalogo.js`
+  (nome, categoria, descrição, selo "Mais procurado" e forma de retirada). Peças sem foto usam uma
+  ilustração em linha; para usar a foto real, coloque o arquivo em `assets/img/` e preencha `img`
+  (ex.: `img: 'assets/img/suporte-colonial.webp'`). Não há preços no site: valores e
+  disponibilidade são confirmados pelo WhatsApp conforme a data.
 - **Depoimentos:** são ilustrativos. Edite a lista `TESTIMONIALS` no início de `assets/js/main.js`
   com avaliações reais (e remova o aviso `.sample-note` em `index.html`).
 - **Vídeo do hero (opcional):** coloque um vídeo em `assets/video/hero.mp4` e preencha

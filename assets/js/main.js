@@ -70,6 +70,7 @@
   var lenis = null;
   if (hasGsap && !reduced && typeof window.Lenis !== 'undefined') {
     lenis = new window.Lenis({ duration: 1.25, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
+    window.__lenis = lenis; /* usado pela lista do catálogo (catalogo.js) */
   }
   $$('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
@@ -288,6 +289,8 @@
   var select = form.elements.evento;
   var markSelect = function () { select.classList.toggle('has-value', !!select.value); };
   select.addEventListener('change', markSelect);
+  var entrega = form.elements.entrega;
+  entrega.addEventListener('change', function () { entrega.classList.toggle('has-value', !!entrega.value); });
   $$('[data-evento]').forEach(function (a) {
     a.addEventListener('click', function () {
       for (var i = 0; i < select.options.length; i++) if (select.options[i].text === a.dataset.evento) select.selectedIndex = i;
@@ -332,9 +335,12 @@
     }
     var f = form.elements;
     var data = f.data.value ? f.data.value.split('-').reverse().join('/') : 'a definir';
-    var lines = ['Olá, Mariluz! Vim pelo site e gostaria de solicitar um projeto.', '', '*Nome:* ' + f.nome.value.trim(), '*WhatsApp:* ' + f.telefone.value, '*Evento:* ' + f.evento.value, '*Data:* ' + data];
+    var lines = ['Olá, Mariluz! Vim pelo site e gostaria de um orçamento.', '', '*Nome:* ' + f.nome.value.trim(), '*WhatsApp:* ' + f.telefone.value, '*Evento:* ' + f.evento.value, '*Data:* ' + data];
+    if (f.entrega.value) lines.push('*Retirada ou entrega:* ' + f.entrega.value);
     if (f.convidados.value) lines.push('*Convidados:* ' + f.convidados.value);
     if (f.local.value.trim()) lines.push('*Local:* ' + f.local.value.trim());
+    var itens = window.MariluzLista ? window.MariluzLista.lines() : [];
+    if (itens.length) { lines.push('', '*Itens da lista:*'); itens.forEach(function (l) { lines.push('• ' + l); }); }
     if (f.mensagem.value.trim()) lines.push('', f.mensagem.value.trim());
     status.textContent = 'Abrindo o WhatsApp com a sua mensagem…';
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
@@ -557,6 +563,7 @@
 
   /* Ambiente: a luz muda conforme a seção */
   var ambientTones = [
+    { sel: '#catalogo', c1: '#F1E9DC', c2: '#EEF0F1' },
     { sel: '#portfolio', c1: '#EDE3D2', c2: '#E4E8EA' },
     { sel: '#galeria', c1: '#F1E9DC', c2: '#EEF0F1' },
     { sel: '#processo', c1: '#EEF0F1', c2: '#EFE6D6' },
