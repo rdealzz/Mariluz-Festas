@@ -1,7 +1,7 @@
 /* =========================================================
    Mariluz Festas — experiência digital
-   Paleta neutra de luxo: branco, gelo, off-white, champagne,
-   bege, grafite, preto fosco e um dourado discreto.
+   Paleta da logo: pérola, rosé aquarela, champagne, rose gold,
+   dourado e grafite.
    ========================================================= */
 
 @font-face {
@@ -18,19 +18,22 @@
 }
 
 :root {
+  /* Paleta da logo: rosé aquarela, dourado, champagne, pérola e grafite */
   --white: #FFFFFF;
-  --ice: #EEF0F1;
-  --off: #F7F5F1;
-  --champagne: #E9DDC8;
-  --beige: #D7C6AD;
-  --graphite: #2A2A2C;
-  --matte: #111112;
-  --gold: #B89A64;
-  --gold-ink: #7E6640;        /* dourado com contraste AA para texto pequeno */
-  --ink: #141415;
-  --ink-2: #5A5A5E;
-  --ink-3: #8D8D92;
-  --hair: rgba(20, 20, 21, .1);
+  --ice: #F8EEEC;             /* rosé bem claro */
+  --off: #FCF8F6;             /* pérola */
+  --champagne: #F0E2C6;       /* dourado pálido dos balões */
+  --beige: #EBCBC5;           /* rosé */
+  --blush: #F4DAD6;           /* aquarela da logo */
+  --rose: #E3AFA8;            /* estrela rose gold */
+  --graphite: #3A3536;
+  --matte: #1D191A;
+  --gold: #C6A15B;            /* moldura dourada */
+  --gold-ink: #85672E;        /* dourado com contraste AA para texto pequeno */
+  --ink: #2E2B2C;             /* grafite do "Life" */
+  --ink-2: #605859;
+  --ink-3: #8F8587;
+  --hair: rgba(46, 43, 44, .1);
   --hair-light: rgba(255, 255, 255, .14);
 
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter var", "Neue Haas Grotesk Display Pro", "Helvetica Neue", Arial, sans-serif;
@@ -84,8 +87,8 @@ button { background: none; border: 0; cursor: pointer; }
   line-height: .98;
   letter-spacing: -.045em;
 }
-.display em, .title em { font-style: normal; font-weight: 200; color: var(--ink-3); }
-.is-dark .display em, .is-dark .title em { color: rgba(255, 255, 255, .5); }
+.display em, .title em { font-style: normal; font-weight: 200; color: #B98078; } /* rose gold da logo */
+.is-dark .display em, .is-dark .title em { color: var(--rose); }
 .title { font-weight: 250; font-size: clamp(2.2rem, 5vw, 5rem); line-height: 1.02; letter-spacing: -.04em; }
 .lede { font-size: clamp(1.02rem, 1.25vw, 1.2rem); font-weight: 350; line-height: 1.65; color: var(--ink-2); max-width: 36rem; }
 .is-dark .lede { color: rgba(255, 255, 255, .66); }
@@ -96,7 +99,7 @@ button { background: none; border: 0; cursor: pointer; }
 .ambient i { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .7; will-change: transform; }
 .ambient .a1 { width: 60vmax; height: 60vmax; left: -18vmax; top: -22vmax; background: radial-gradient(circle, var(--champagne), transparent 65%); animation: drift1 28s var(--silk) infinite alternate; }
 .ambient .a2 { width: 55vmax; height: 55vmax; right: -20vmax; top: 18vh; background: radial-gradient(circle, var(--ice), transparent 65%); animation: drift2 34s var(--silk) infinite alternate; }
-.ambient .a3 { width: 48vmax; height: 48vmax; left: 20vw; bottom: -26vmax; background: radial-gradient(circle, #F1E9DC, transparent 65%); animation: drift3 40s var(--silk) infinite alternate; }
+.ambient .a3 { width: 48vmax; height: 48vmax; left: 20vw; bottom: -26vmax; background: radial-gradient(circle, #F4DAD6, transparent 65%); animation: drift3 40s var(--silk) infinite alternate; }
 @keyframes drift1 { to { transform: translate3d(12vw, 10vh, 0) scale(1.1); } }
 @keyframes drift2 { to { transform: translate3d(-14vw, -8vh, 0) scale(.92); } }
 @keyframes drift3 { to { transform: translate3d(10vw, -12vh, 0) scale(1.08); } }
@@ -134,12 +137,12 @@ button { background: none; border: 0; cursor: pointer; }
 .btn .arrow { width: 18px; height: 18px; transition: transform .6s var(--lux); }
 .btn:hover .arrow { transform: translateX(4px); }
 .btn-light {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F3EEE6 100%); color: var(--ink);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8EEEC 100%); color: var(--ink);
   box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(20, 20, 21, .08), 0 1px 2px rgba(0, 0, 0, .2), 0 10px 26px -10px rgba(0, 0, 0, .45), 0 30px 60px -30px rgba(0, 0, 0, .55);
 }
 .btn-light:hover { box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(20, 20, 21, .08), 0 2px 4px rgba(0, 0, 0, .2), 0 18px 38px -12px rgba(0, 0, 0, .5), 0 44px 80px -36px rgba(0, 0, 0, .6); }
 .btn-dark {
-  background: linear-gradient(180deg, #333336 0%, #121213 100%); color: var(--white);
+  background: linear-gradient(180deg, #4A4344 0%, #1D191A 100%); color: var(--white);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16), inset 0 -1px 0 rgba(0, 0, 0, .5), 0 1px 2px rgba(0, 0, 0, .25), 0 12px 26px -12px rgba(20, 20, 21, .6), 0 34px 64px -32px rgba(20, 20, 21, .6);
 }
 .btn-dark::before { background: radial-gradient(160px circle at var(--x) var(--y), rgba(233, 221, 200, .35), transparent 55%); }
@@ -187,7 +190,7 @@ button { background: none; border: 0; cursor: pointer; }
 .nav-end { display: flex; justify-content: flex-end; align-items: center; gap: .4rem; }
 .nav .btn { height: 48px; transition: height .9s var(--lux), box-shadow .6s, background-color .4s; }
 .nav.is-compact .btn { height: 40px; }
-.nav:not(.is-light) .btn-dark { background: linear-gradient(180deg, #fff, #EFE9DF); color: var(--ink); }
+.nav:not(.is-light) .btn-dark { background: linear-gradient(180deg, #fff, #F4E6E2); color: var(--ink); }
 .nav-toggle { display: none; width: 44px; height: 44px; border-radius: 50%; position: relative; }
 .nav-toggle span { position: absolute; left: 13px; right: 13px; height: 1px; background: currentColor; transition: transform .6s var(--lux), top .6s var(--lux); }
 .nav-toggle span:nth-child(1) { top: 18px; } .nav-toggle span:nth-child(2) { top: 25px; }
@@ -301,7 +304,7 @@ button { background: none; border: 0; cursor: pointer; }
 .chip { height: 44px; padding: 0 1.2rem; border-radius: 999px; font-size: .86rem; font-weight: 450; opacity: .7; white-space: nowrap; transition: opacity .4s, background .5s var(--lux), box-shadow .5s var(--lux); }
 .chip:hover { opacity: 1; }
 .chip small { margin-left: .45rem; font-size: .74rem; opacity: .5; font-variant-numeric: tabular-nums; }
-.chip[aria-pressed="true"] { opacity: 1; background: linear-gradient(180deg, #fff, #F4F0EA); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 0, 0, .08), 0 8px 20px -10px rgba(20, 20, 21, .35); }
+.chip[aria-pressed="true"] { opacity: 1; background: linear-gradient(180deg, #fff, #FBF1EE); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 0, 0, .08), 0 8px 20px -10px rgba(20, 20, 21, .35); }
 .catalog-count { font-size: .86rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 /* Subfiltro dos kits pegue e monte */
 .subchips { order: 3; flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.4rem; }
@@ -332,11 +335,11 @@ button { background: none; border: 0; cursor: pointer; }
 .product-media { position: relative; aspect-ratio: 1; margin: 10px 10px 0; border-radius: 16px; overflow: hidden; background: var(--ice); }
 .product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--lux); }
 .product article:hover .product-media img { transform: scale(1.05); }
-.product-art { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(120% 90% at 30% 20%, #FBF8F3, #E6D9C3); }
-.product-art[data-cat="moveis"] { background: radial-gradient(120% 90% at 30% 20%, #F8F9F9, #D9DEE0); }
-.product-art[data-cat="baloes"] { background: radial-gradient(120% 90% at 30% 20%, #F9F3F0, #DCC8C0); }
-.product-art[data-cat="minitable"] { background: radial-gradient(120% 90% at 30% 20%, #F8F7F2, #DEDCCF); }
-.product-art[data-cat="kits"] { background: radial-gradient(120% 90% at 30% 20%, #F6F1F4, #DDD0D6); }
+.product-art { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(120% 90% at 30% 20%, #FDF6F0, #EFDDBF); }
+.product-art[data-cat="moveis"] { background: radial-gradient(120% 90% at 30% 20%, #FCF8F6, #E9DCD6); }
+.product-art[data-cat="baloes"] { background: radial-gradient(120% 90% at 30% 20%, #FCF3F1, #EBC3BD); }
+.product-art[data-cat="minitable"] { background: radial-gradient(120% 90% at 30% 20%, #FCF5F2, #EDD3CD); }
+.product-art[data-cat="kits"] { background: radial-gradient(120% 90% at 30% 20%, #FCF3F1, #EECDC7); }
 .product-art::after { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 40% at 70% 10%, rgba(255, 255, 255, .7), transparent 70%); pointer-events: none; }
 .product-art svg { width: 64%; height: 64%; fill: none; stroke: var(--ink); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; transition: transform 1.4s var(--lux); }
 .product article:hover .product-art svg { transform: scale(1.05) translateY(-2px); }
@@ -406,7 +409,7 @@ button { background: none; border: 0; cursor: pointer; }
 }
 .bag.is-on { opacity: 1; visibility: visible; transform: none; }
 .bag svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
-.bag b { min-width: 34px; height: 34px; padding: 0 .55rem; border-radius: 999px; display: grid; place-items: center; font-size: .8rem; font-weight: 600; color: var(--white); background: linear-gradient(180deg, #333336, #121213); font-variant-numeric: tabular-nums; }
+.bag b { min-width: 34px; height: 34px; padding: 0 .55rem; border-radius: 999px; display: grid; place-items: center; font-size: .8rem; font-weight: 600; color: var(--white); background: linear-gradient(180deg, #4A4344, #1D191A); font-variant-numeric: tabular-nums; }
 .bag.bump b { animation: bump .7s var(--lux); }
 @keyframes bump { 30% { transform: scale(1.3); } }
 .menu-open .bag, .drawer-open .bag { opacity: 0; visibility: hidden; }
@@ -464,16 +467,16 @@ button { background: none; border: 0; cursor: pointer; }
 .form-list-items li { padding: .35rem .8rem; border-radius: 999px; font-size: .82rem; background: var(--off); box-shadow: inset 0 0 0 1px var(--hair); }
 
 /* ---------- Portfólio ---------- */
-.portfolio { --pbg: #F4EFE7; --pink: var(--ink); --pacc: var(--gold); background: var(--pbg); color: var(--pink); transition: background-color 1.1s var(--lux), color 1.1s var(--lux); overflow: hidden; }
+.portfolio { --pbg: #FBF1EE; --pink: var(--ink); --pacc: var(--gold); background: var(--pbg); color: var(--pink); transition: background-color 1.1s var(--lux), color 1.1s var(--lux); overflow: hidden; }
 .portfolio.on-dark .eyebrow { color: var(--beige); }
 .portfolio.on-dark .lede { color: rgba(255, 255, 255, .66); }
-.portfolio.on-dark .title em { color: rgba(255, 255, 255, .45); }
+.portfolio.on-dark .title em { color: var(--rose); }
 .tabs { display: flex; gap: .4rem; flex-wrap: wrap; padding: 6px; border-radius: 999px; width: fit-content; max-width: 100%; background: rgba(255, 255, 255, .35); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: inset 0 0 0 1px var(--hair), 0 20px 40px -30px rgba(20, 20, 21, .35); position: relative; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 .on-dark .tabs { background: rgba(255, 255, 255, .06); box-shadow: inset 0 0 0 1px var(--hair-light); }
 .tab { position: relative; z-index: 1; height: 44px; padding: 0 1.2rem; border-radius: 999px; font-size: .86rem; font-weight: 450; opacity: .7; transition: opacity .4s, color .5s; }
 .tab:hover { opacity: 1; }
 .tab[aria-selected="true"] { opacity: 1; color: var(--ink); }
-.tab-pill { position: absolute; z-index: 0; top: 6px; left: 0; height: 44px; border-radius: 999px; background: linear-gradient(180deg, #fff, #F4F0EA); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 0, 0, .08), 0 8px 20px -10px rgba(20, 20, 21, .35); transition: transform .8s var(--lux), width .8s var(--lux); }
+.tab-pill { position: absolute; z-index: 0; top: 6px; left: 0; height: 44px; border-radius: 999px; background: linear-gradient(180deg, #fff, #FBF1EE); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 0, 0, .08), 0 8px 20px -10px rgba(20, 20, 21, .35); transition: transform .8s var(--lux), width .8s var(--lux); }
 @media (max-width: 760px) {
   .tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; border-radius: 22px; width: 100%; }
   .tabs::-webkit-scrollbar { display: none; }
@@ -511,11 +514,11 @@ button { background: none; border: 0; cursor: pointer; }
 .sculpture .orb { width: 12%; aspect-ratio: 1; border-radius: 50%; right: 16%; top: 18%; background: radial-gradient(circle at 30% 30%, #fff, rgba(255, 255, 255, .15) 60%); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7), 0 20px 30px -12px rgba(0, 0, 0, .3); }
 .sculpture .slab { width: 18%; bottom: 14%; border-radius: 10px; background: linear-gradient(180deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, .05)); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .3); }
 .sculpture .label { left: 7%; bottom: 7%; font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--s6); }
-.sculpture[data-v="casamentos"] { --s1: #FBF8F3; --s2: #E6D9C3; --s3: #fff; --s4: #E4D3B4; --s5: #B89A64; --s6: #7E6640; }
+.sculpture[data-v="casamentos"] { --s1: #FDF6F0; --s2: #EFDDBF; --s3: #fff; --s4: #E8D2A8; --s5: #C6A15B; --s6: #85672E; }
 .sculpture[data-v="casamentos"] .ring.a { left: 28%; } .sculpture[data-v="casamentos"] .ring.b { left: 42%; }
 .sculpture[data-v="quinze"] { --s1: #F6EFEC; --s2: #DCC8C0; --s3: #fff; --s4: #D9C0B6; --s5: #A7867B; --s6: #6F5549; }
-.sculpture[data-v="adultos"] { --s1: #262627; --s2: #0B0B0C; --s3: #D8C29A; --s4: #7C6642; --s5: #B89A64; --s6: #B89A64; }
-.sculpture[data-v="minitable"] { --s1: #F8F7F2; --s2: #DEDCCF; --s3: #fff; --s4: #D9D5C2; --s5: #8C8A6E; --s6: #5E5C45; }
+.sculpture[data-v="adultos"] { --s1: #3A3536; --s2: #1D191A; --s3: #E3C98F; --s4: #85672E; --s5: #C6A15B; --s6: #C6A15B; }
+.sculpture[data-v="minitable"] { --s1: #FCF5F2; --s2: #EDD3CD; --s3: #fff; --s4: #F0E2C6; --s5: #C6A15B; --s6: #85672E; }
 .sculpture[data-v="minitable"] .slab { background: linear-gradient(180deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .35)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .9), 0 20px 30px -18px rgba(0, 0, 0, .3); }
 @media (max-width: 900px) { .panel { grid-template-columns: 1fr; } .panel-visual { order: -1; } }
 

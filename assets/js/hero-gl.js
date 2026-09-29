@@ -28,7 +28,7 @@ async function start() {
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio, mobile ? 1.25 : 1.5));
-  renderer.setClearColor(0x111112, 1);
+  renderer.setClearColor(0x1D191A, 1);
 
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);

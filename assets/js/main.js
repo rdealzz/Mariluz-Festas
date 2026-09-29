@@ -201,7 +201,7 @@
       openEl.style.setProperty('--dot', open ? '#6E9C7A' : '#B4574A');
     } else if (day === 'Sat') {
       openEl.textContent = mins >= 540 ? 'Sábado · aberto a partir das 9h' : 'Abre hoje às 9h';
-      openEl.style.setProperty('--dot', mins >= 540 ? '#6E9C7A' : '#B89A64');
+      openEl.style.setProperty('--dot', mins >= 540 ? '#6E9C7A' : '#C6A15B');
     } else {
       openEl.textContent = 'Fechado hoje · seg a sex, 9h às 18h';
       openEl.style.setProperty('--dot', '#B4574A');
@@ -210,12 +210,12 @@
 
   /* ---------- Portfólio: abas ---------- */
   var THEMES = {
-    infantil: { bg: '#E9EDEE', fg: '#141415', acc: '#7F8E92', dark: false },
-    minitable: { bg: '#ECEBE4', fg: '#141415', acc: '#8C8A6E', dark: false },
-    cha: { bg: '#F1E7E2', fg: '#141415', acc: '#B08A7E', dark: false },
-    adultos: { bg: '#2A2A2C', fg: '#FFFFFF', acc: '#C9B48C', dark: true },
-    quinze: { bg: '#EFE5E0', fg: '#141415', acc: '#A7867B', dark: false },
-    casamentos: { bg: '#F4EFE7', fg: '#141415', acc: '#B89A64', dark: false }
+    infantil: { bg: '#F8EEEC', fg: '#2E2B2C', acc: '#C58F87', dark: false },
+    minitable: { bg: '#F7EBDD', fg: '#2E2B2C', acc: '#C6A15B', dark: false },
+    cha: { bg: '#F4DAD6', fg: '#2E2B2C', acc: '#B07A72', dark: false },
+    adultos: { bg: '#3A3536', fg: '#FFFFFF', acc: '#E3C98F', dark: true },
+    quinze: { bg: '#F2E1DD', fg: '#2E2B2C', acc: '#B07A72', dark: false },
+    casamentos: { bg: '#FBF3E8', fg: '#2E2B2C', acc: '#C6A15B', dark: false }
   };
   var portfolio = $('.portfolio'), tabs = $$('.tab'), pill = $('.tab-pill');
   var placePill = function (tab, instant) {
@@ -552,12 +552,12 @@
 
   /* Ambiente: a luz muda conforme a seção */
   var ambientTones = [
-    { sel: '#catalogo', c1: '#F1E9DC', c2: '#EEF0F1' },
-    { sel: '#portfolio', c1: '#EDE3D2', c2: '#E4E8EA' },
-    { sel: '#galeria', c1: '#F1E9DC', c2: '#EEF0F1' },
-    { sel: '#processo', c1: '#EEF0F1', c2: '#EFE6D6' },
-    { sel: '#diferenciais', c1: '#E9DDC8', c2: '#F3F1EC' },
-    { sel: '#contato', c1: '#E9DDC8', c2: '#EFE7DC' }
+    { sel: '#catalogo', c1: '#F4DAD6', c2: '#FCF8F6' },
+    { sel: '#portfolio', c1: '#F0E2C6', c2: '#F8EEEC' },
+    { sel: '#galeria', c1: '#F4DAD6', c2: '#FCF8F6' },
+    { sel: '#processo', c1: '#F8EEEC', c2: '#F0E2C6' },
+    { sel: '#diferenciais', c1: '#F0E2C6', c2: '#FCF3F1' },
+    { sel: '#contato', c1: '#F4DAD6', c2: '#F0E2C6' }
   ];
   ambientTones.forEach(function (t) {
     ScrollTrigger.create({ trigger: t.sel, start: 'top 60%', end: 'bottom 40%', onToggle: function (st) {
