@@ -38,6 +38,7 @@
     { id: 'feminino', grupo: 'Adulto', label: 'Feminino' }
   ];
   var PEGUE = 'Pegue e monte', MONTAGEM = 'Montagem no local';
+  var RETIRA = 'Retire na loja'; /* suportes para doces: não usar "Pegue e monte" para não confundir com os kits */
   var CATALOG = [
     /* Kits pegue e monte · infantil */
     { id: 'mini-table-jardim-encantado', cat: 'kits', publico: ['menina'], nome: 'Kit Jardim Encantado', desc: 'Tema jardim encantado em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 399 },
@@ -59,23 +60,23 @@
     { id: 'kit-galinha-pintadinha', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
 
     /* Suportes para doces · kits com foto (infantil e adulto) */
-    { id: 'kit-patrulha-canina', cat: 'doces', publico: ['menino'], nome: 'Kit de suportes Patrulha Canina', desc: 'Marshall, Rubble e Chase com vasos vermelhos, topiarias, suportes e bandejas em vermelho, azul e amarelo.', img: 'assets/img/kit-patrulha-canina.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-realeza-rosa', cat: 'doces', publico: ['menina'], nome: 'Kit de suportes Realeza rosa', desc: 'Suportes, bandejas, vasos e pratos de coração em rosa, com coroa para o bolo e cestas floridas.', img: 'assets/img/kit-realeza-rosa.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-ursinhos-lilas', cat: 'doces', publico: ['menina'], nome: 'Kit de suportes Ursinhos lilás', desc: 'Ursinhos de vestido e de terno, boleiras rendadas, bandejas e cachepôs lilás com lavandas.', img: 'assets/img/kit-ursinhos-lilas.webp', pos: 'center 88%', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-dourado-rosas', cat: 'doces', publico: ['feminino'], nome: 'Kit de suportes Dourado com rosas', desc: 'Vasos dourados com arranjos de rosas, suportes, bandejas de folha e caixas geométricas de vidro.', img: 'assets/img/kit-dourado-rosas.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-azul-amarelo', cat: 'doces', publico: ['masculino'], nome: 'Kit de suportes Azul marinho e amarelo', desc: 'Suportes e bandejas em azul marinho e amarelo, com vasos amarelos e topiarias.', img: 'assets/img/kit-azul-amarelo.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-azul-marinho-dourado', cat: 'doces', publico: ['masculino'], nome: 'Kit de suportes Azul marinho e dourado', desc: 'Vasos, boleiras e pratos azul marinho com bandejas espelhadas, suportes dourados e porcelana azul e branca.', img: 'assets/img/kit-azul-marinho-dourado.webp', pos: 'center 80%', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-terracota-preto', cat: 'doces', publico: ['masculino'], nome: 'Kit de suportes Terracota e preto', desc: 'Vasos pretos com pinheiros, boleiras terracota e nude, vasos terracota com folhagens e bandeja.', img: 'assets/img/kit-terracota-preto.webp', pos: 'center 82%', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-cristal', cat: 'doces', publico: ['feminino', 'masculino'], nome: 'Kit de suportes Cristal', desc: 'Boleira, bandejas com e sem pé, taças, vasinhos e cúpulas em vidro lapidado, para mesas clássicas e elegantes.', img: 'assets/img/kit-cristal.webp', pos: 'center 85%', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-rustico-madeira', cat: 'doces', publico: ['masculino', 'feminino'], nome: 'Kit de suportes Rústico madeira', desc: 'Suportes de madeira e ferro, cesto de fibra, corações e tábua de madeira, com vasos de palhinha.', img: 'assets/img/kit-rustico-madeira.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-madeira-ferro', cat: 'doces', publico: ['masculino', 'feminino'], nome: 'Kit de suportes Madeira e ferro', desc: 'Suportes de madeira e de ferro preto, cesto de fibra, corações e tábua de madeira sobre trilho de juta.', img: 'assets/img/kit-madeira-ferro.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-patrulha-canina', cat: 'doces', publico: ['menino'], nome: 'Kit de suportes Patrulha Canina', desc: 'Marshall, Rubble e Chase com vasos vermelhos, topiarias, suportes e bandejas em vermelho, azul e amarelo.', img: 'assets/img/kit-patrulha-canina.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'kit-realeza-rosa', cat: 'doces', publico: ['menina'], nome: 'Kit de suportes Realeza rosa', desc: 'Suportes, bandejas, vasos e pratos de coração em rosa, com coroa para o bolo e cestas floridas.', img: 'assets/img/kit-realeza-rosa.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'kit-ursinhos-lilas', cat: 'doces', publico: ['menina'], nome: 'Kit de suportes Ursinhos lilás', desc: 'Ursinhos de vestido e de terno, boleiras rendadas, bandejas e cachepôs lilás com lavandas.', img: 'assets/img/kit-ursinhos-lilas.webp', pos: 'center 88%', tag: RETIRA, badge: 'Novidade' },
+    { id: 'kit-dourado-rosas', cat: 'doces', publico: ['feminino'], nome: 'Kit de suportes Dourado com rosas', desc: 'Vasos dourados com arranjos de rosas, suportes, bandejas de folha e caixas geométricas de vidro.', img: 'assets/img/kit-dourado-rosas.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'kit-azul-amarelo', cat: 'doces', publico: ['masculino'], nome: 'Kit de suportes Azul marinho e amarelo', desc: 'Suportes e bandejas em azul marinho e amarelo, com vasos amarelos e topiarias.', img: 'assets/img/kit-azul-amarelo.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'kit-azul-marinho-dourado', cat: 'doces', publico: ['masculino'], nome: 'Kit de suportes Azul marinho e dourado', desc: 'Vasos, boleiras e pratos azul marinho com bandejas espelhadas, suportes dourados e porcelana azul e branca.', img: 'assets/img/kit-azul-marinho-dourado.webp', pos: 'center 80%', tag: RETIRA, badge: 'Novidade' },
+    { id: 'kit-terracota-preto', cat: 'doces', publico: ['masculino'], nome: 'Kit de suportes Terracota e preto', desc: 'Vasos pretos com pinheiros, boleiras terracota e nude, vasos terracota com folhagens e bandeja.', img: 'assets/img/kit-terracota-preto.webp', pos: 'center 82%', tag: RETIRA, badge: 'Novidade' },
+    { id: 'kit-cristal', cat: 'doces', publico: ['feminino', 'masculino'], nome: 'Kit de suportes Cristal', desc: 'Boleira, bandejas com e sem pé, taças, vasinhos e cúpulas em vidro lapidado, para mesas clássicas e elegantes.', img: 'assets/img/kit-cristal.webp', pos: 'center 85%', tag: RETIRA, badge: 'Novidade' },
+    { id: 'kit-rustico-madeira', cat: 'doces', publico: ['masculino', 'feminino'], nome: 'Kit de suportes Rústico madeira', desc: 'Suportes de madeira e ferro, cesto de fibra, corações e tábua de madeira, com vasos de palhinha.', img: 'assets/img/kit-rustico-madeira.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'kit-madeira-ferro', cat: 'doces', publico: ['masculino', 'feminino'], nome: 'Kit de suportes Madeira e ferro', desc: 'Suportes de madeira e de ferro preto, cesto de fibra, corações e tábua de madeira sobre trilho de juta.', img: 'assets/img/kit-madeira-ferro.webp', tag: RETIRA, badge: 'Novidade' },
     /* Suportes para doces · peças avulsas */
-    { id: 'suporte-colonial', cat: 'doces', nome: 'Suporte para doces pé colonial', desc: 'Branco e liso, em alturas variadas para compor a mesa.', art: 'stand', tag: PEGUE, badge: 'Mais procurado' },
-    { id: 'kit-porcelana', cat: 'doces', nome: 'Kit suportes de porcelana', desc: 'Suportes de porcelana para doces, em alturas variadas.', art: 'trio', tag: PEGUE, preco: 90 },
-    { id: 'trio-suportes', cat: 'doces', nome: 'Trio de suportes para doces', desc: 'Três alturas, ideal para mesas pequenas e composições enxutas.', art: 'trio', tag: PEGUE },
-    { id: 'bandejas-espelhadas', cat: 'doces', nome: 'Bandejas espelhadas', desc: 'Reflexo delicado para doces finos e lembrancinhas.', art: 'tray', tag: PEGUE },
-    { id: 'bolo-cenografico', cat: 'doces', nome: 'Bolo cenográfico', desc: 'Andares decorados para o centro da mesa e para as fotos.', art: 'cake', tag: PEGUE },
-    { id: 'kit-ceramica', cat: 'doces', nome: 'Kit decorativo de cerâmica', desc: 'Peças de cerâmica para completar a mesa do bolo.', art: 'ceramic', tag: PEGUE },
+    { id: 'suporte-colonial', cat: 'doces', nome: 'Suporte para doces pé colonial', desc: 'Branco e liso, em alturas variadas para compor a mesa.', art: 'stand', tag: RETIRA, badge: 'Mais procurado' },
+    { id: 'kit-porcelana', cat: 'doces', nome: 'Kit suportes de porcelana', desc: 'Suportes de porcelana para doces, em alturas variadas.', art: 'trio', tag: RETIRA, preco: 90 },
+    { id: 'trio-suportes', cat: 'doces', nome: 'Trio de suportes para doces', desc: 'Três alturas, ideal para mesas pequenas e composições enxutas.', art: 'trio', tag: RETIRA },
+    { id: 'bandejas-espelhadas', cat: 'doces', nome: 'Bandejas espelhadas', desc: 'Reflexo delicado para doces finos e lembrancinhas.', art: 'tray', tag: RETIRA },
+    { id: 'bolo-cenografico', cat: 'doces', nome: 'Bolo cenográfico', desc: 'Andares decorados para o centro da mesa e para as fotos.', art: 'cake', tag: RETIRA },
+    { id: 'kit-ceramica', cat: 'doces', nome: 'Kit decorativo de cerâmica', desc: 'Peças de cerâmica para completar a mesa do bolo.', art: 'ceramic', tag: RETIRA },
 
     { id: 'mesa-provencal', cat: 'moveis', nome: 'Mesa provençal', desc: 'Pés torneados e acabamento clássico, o centro da composição.', art: 'provencal', tag: PEGUE, badge: 'Mais procurado' },
     { id: 'mesa-espelhada', cat: 'moveis', nome: 'Mesa espelhada', desc: 'Linhas retas e brilho discreto para festas modernas.', art: 'mirror', tag: PEGUE },

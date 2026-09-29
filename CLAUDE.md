@@ -8,8 +8,9 @@
   suporte para doces**, não kit pegue e monte.
 - **Kit pegue e monte** (`cat: 'kits'`): kit temático de **decoração** completa (painel, personagens,
   cilindros, balões etc.) que a cliente retira e monta.
-- "Pegue e monte" também é a **forma de retirada** (`tag: PEGUE`), usada por quase todas as peças;
-  isso não define a categoria.
+- "Pegue e monte" também é a **forma de retirada** (`tag: PEGUE`) das demais peças; isso não define
+  a categoria. Nos suportes para doces a etiqueta é **"Retire na loja"** (`tag: RETIRA`): a Mariluz
+  não quer "Pegue e monte" aparecendo em nenhum card de suporte para doces.
 
 ## Fotos atuais
 
