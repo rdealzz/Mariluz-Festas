@@ -303,6 +303,15 @@ button { background: none; border: 0; cursor: pointer; }
 .chip small { margin-left: .45rem; font-size: .74rem; opacity: .5; font-variant-numeric: tabular-nums; }
 .chip[aria-pressed="true"] { opacity: 1; background: linear-gradient(180deg, #fff, #F4F0EA); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 0, 0, .08), 0 8px 20px -10px rgba(20, 20, 21, .35); }
 .catalog-count { font-size: .86rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+/* Subfiltro dos kits pegue e monte */
+.subchips { order: 3; flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.4rem; }
+.subchips[hidden] { display: none; }
+.subchips-group { display: flex; align-items: center; gap: .35rem; }
+.subchips-group > span { margin-right: .3rem; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.subchip { height: 36px; padding: 0 1rem; border-radius: 999px; font-size: .82rem; opacity: .7; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--hair); transition: opacity .4s, background .5s var(--lux), box-shadow .5s var(--lux); }
+.subchip:hover { opacity: 1; }
+.subchip small { margin-left: .4rem; font-size: .7rem; opacity: .5; font-variant-numeric: tabular-nums; }
+.subchip[aria-pressed="true"] { opacity: 1; background: #fff; box-shadow: inset 0 0 0 1px var(--gold), 0 6px 16px -10px rgba(20, 20, 21, .35); }
 @media (max-width: 760px) {
   .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; border-radius: 22px; width: 100%; }
   .chips::-webkit-scrollbar { display: none; }
@@ -321,8 +330,8 @@ button { background: none; border: 0; cursor: pointer; }
 }
 .product article:hover { box-shadow: inset 0 0 0 1px #fff, var(--shadow-deep); transform: translateY(-4px); }
 .product-media { position: relative; aspect-ratio: 1; margin: 10px 10px 0; border-radius: 16px; overflow: hidden; background: var(--ice); }
-.product-media img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85); transition: transform 1.4s var(--lux), filter 1s var(--lux); }
-.product article:hover .product-media img { transform: scale(1.05); filter: saturate(1); }
+.product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--lux); }
+.product article:hover .product-media img { transform: scale(1.05); }
 .product-art { position: absolute; inset: 0; display: grid; place-items: center; background: radial-gradient(120% 90% at 30% 20%, #FBF8F3, #E6D9C3); }
 .product-art[data-cat="moveis"] { background: radial-gradient(120% 90% at 30% 20%, #F8F9F9, #D9DEE0); }
 .product-art[data-cat="baloes"] { background: radial-gradient(120% 90% at 30% 20%, #F9F3F0, #DCC8C0); }
@@ -485,10 +494,10 @@ button { background: none; border: 0; cursor: pointer; }
 .panel .glass-frame { background: linear-gradient(145deg, rgba(255, 255, 255, .6), rgba(255, 255, 255, .15)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7), inset 0 1px 0 #fff, var(--shadow-deep); padding: 14px; }
 .on-dark .panel .glass-frame { background: linear-gradient(145deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .03)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), inset 0 1px 0 rgba(255, 255, 255, .25), 0 60px 120px -50px rgba(0, 0, 0, .9); }
 .panel-photo { position: relative; aspect-ratio: 5 / 4; border-radius: 20px; overflow: hidden; }
-.panel-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85); transition: filter 1s var(--lux), transform 1.4s var(--lux); }
-.panel-visual:hover .panel-photo img { filter: saturate(1); transform: scale(1.03); }
-.panel-minis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
-.panel-minis img { aspect-ratio: 1; object-fit: cover; border-radius: 14px; filter: saturate(.8); }
+.panel-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--lux); }
+.panel-visual:hover .panel-photo img { transform: scale(1.03); }
+.panel-minis { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 10px; margin-top: 10px; }
+.panel-minis img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
 .panel-note { font-size: .78rem; opacity: .6; margin-top: 1rem; text-align: right; }
 
 /* Escultura de vidro: identidade visual para cada categoria */

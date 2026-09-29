@@ -23,33 +23,45 @@
      confirmados pela Mariluz antes de serem exibidos. */
   var MOSTRAR_PRECOS = false;
   var CATEGORIES = [
-    { id: 'minitable', label: 'Mini tables' },
-    { id: 'kits', label: 'Kits temáticos' },
+    { id: 'kits', label: 'Kits pegue e monte' },
     { id: 'doces', label: 'Suportes para doces' },
     { id: 'moveis', label: 'Mesas e painéis' },
     { id: 'baloes', label: 'Balões' },
     { id: 'detalhes', label: 'Detalhes' }
   ];
+  /* Público dos kits (campo "publico"; um kit pode servir a mais de um) */
+  var PUBLICOS = [
+    { id: 'menino', grupo: 'Infantil', label: 'Menino' },
+    { id: 'menina', grupo: 'Infantil', label: 'Menina' },
+    { id: 'masculino', grupo: 'Adulto', label: 'Masculino' },
+    { id: 'feminino', grupo: 'Adulto', label: 'Feminino' }
+  ];
   var PEGUE = 'Pegue e monte', MONTAGEM = 'Montagem no local';
   var CATALOG = [
-    { id: 'mini-table-jardim-encantado', cat: 'minitable', nome: 'Mini Table Jardim Encantado', desc: 'Tema jardim encantado em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 399 },
-    { id: 'mini-table-wandinha', cat: 'minitable', nome: 'Mini Table Wandinha', desc: 'Tema Wandinha em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 420 },
-    { id: 'mini-table-circo-rosa', cat: 'minitable', nome: 'Mini Table Circo Rosa', desc: 'Tema circo em tons de rosa, numa mesa pequena e delicada.', art: 'minitable', tag: PEGUE, preco: 320 },
-    { id: 'mini-table-mundo-bita', cat: 'minitable', nome: 'Mini Table Mundo Bita', desc: 'Tema Mundo Bita para os pequenos, pronto para retirar e montar.', art: 'minitable', tag: PEGUE, preco: 320 },
-    { id: 'mini-table-dpa', cat: 'minitable', nome: 'Mini Table DPA', desc: 'Tema Detetives do Prédio Azul em versão compacta.', art: 'minitable', tag: PEGUE, preco: 340 },
-    { id: 'mini-table-ariel', cat: 'minitable', nome: 'Mini Table Ariel', desc: 'Tema Pequena Sereia em composição leve e enxuta.', art: 'minitable', tag: PEGUE, preco: 420 },
-    { id: 'mini-table-barbie', cat: 'minitable', nome: 'Mini Table Barbie', desc: 'Tema Barbie numa mesa pequena e marcante.', art: 'minitable', tag: PEGUE, preco: 420 },
-
-    { id: 'kit-oh-baby', cat: 'kits', nome: 'Kit Oh Baby', desc: 'Chá de bebê em rosé, verde e dourado, com flores e arco de balões.', img: 'assets/img/tema-oh-baby.webp', tag: PEGUE, badge: 'Mais procurado' },
-    { id: 'kit-futebol', cat: 'kits', nome: 'Kit Futebol', desc: 'Bola gigante, gramado e balões nas cores do time.', img: 'assets/img/tema-futebol.webp', tag: PEGUE, badge: 'Mais procurado' },
-    { id: 'kit-batman', cat: 'kits', nome: 'Kit Batman', desc: 'Tonel, plantas e personagem para uma mesa marcante.', img: 'assets/img/tema-batman.webp', tag: PEGUE },
-    { id: 'kit-praia', cat: 'kits', nome: 'Kit Praia e surf', desc: 'Prancha, remo e boia para uma festa leve e solar.', img: 'assets/img/tema-praia.webp', tag: PEGUE },
-    { id: 'kit-fundo-do-mar', cat: 'kits', nome: 'Kit Fundo do mar', desc: 'Tons de azul e personagens do oceano.', img: 'assets/img/tema-fundo-do-mar.webp', tag: PEGUE },
-    { id: 'kit-star-wars', cat: 'kits', nome: 'Kit Star Wars', desc: 'Personagens e peças da galáxia para os pequenos fãs.', img: 'assets/img/tema-star-wars.webp', tag: PEGUE },
-    { id: 'kit-cha-fraldas-menina', cat: 'kits', nome: 'Kit chá de fraldas menina (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas da menina.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-cha-fraldas-menino', cat: 'kits', nome: 'Kit chá de fraldas menino (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas do menino.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-batizado', cat: 'kits', nome: 'Kit Batizado ou 1ª Comunhão', desc: 'Composição delicada para batizados e primeira comunhão.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-galinha-pintadinha', cat: 'kits', nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
+    /* Kits pegue e monte · infantil */
+    { id: 'kit-patrulha-canina', cat: 'kits', publico: ['menino'], nome: 'Kit Patrulha Canina', desc: 'Marshall, Rubble e Chase com vasos vermelhos, topiarias, suportes e bandejas em vermelho, azul e amarelo.', img: 'assets/img/kit-patrulha-canina.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-realeza-rosa', cat: 'kits', publico: ['menina'], nome: 'Kit Realeza rosa', desc: 'Suportes, bandejas, vasos e pratos de coração em rosa, com coroa para o bolo e cestas floridas.', img: 'assets/img/kit-realeza-rosa.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'mini-table-jardim-encantado', cat: 'kits', publico: ['menina'], nome: 'Kit Jardim Encantado', desc: 'Tema jardim encantado em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 399 },
+    { id: 'mini-table-wandinha', cat: 'kits', publico: ['menina'], nome: 'Kit Wandinha', desc: 'Tema Wandinha em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 420 },
+    { id: 'mini-table-circo-rosa', cat: 'kits', publico: ['menina'], nome: 'Kit Circo Rosa', desc: 'Tema circo em tons de rosa, numa mesa pequena e delicada.', art: 'minitable', tag: PEGUE, preco: 320 },
+    { id: 'mini-table-ariel', cat: 'kits', publico: ['menina'], nome: 'Kit Ariel', desc: 'Tema Pequena Sereia em composição leve e enxuta.', art: 'minitable', tag: PEGUE, preco: 420 },
+    { id: 'mini-table-barbie', cat: 'kits', publico: ['menina'], nome: 'Kit Barbie', desc: 'Tema Barbie numa mesa pequena e marcante.', art: 'minitable', tag: PEGUE, preco: 420 },
+    { id: 'kit-oh-baby', cat: 'kits', publico: ['menina'], nome: 'Kit Oh Baby', desc: 'Chá de bebê em rosé, verde e dourado, com flores e arco de balões.', img: 'assets/img/tema-oh-baby.webp', tag: PEGUE, badge: 'Mais procurado' },
+    { id: 'kit-cha-fraldas-menina', cat: 'kits', publico: ['menina'], nome: 'Kit chá de fraldas menina (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas da menina.', art: 'minitable', tag: PEGUE },
+    { id: 'kit-futebol', cat: 'kits', publico: ['menino'], nome: 'Kit Futebol', desc: 'Bola gigante, gramado e balões nas cores do time.', img: 'assets/img/tema-futebol.webp', tag: PEGUE, badge: 'Mais procurado' },
+    { id: 'kit-batman', cat: 'kits', publico: ['menino'], nome: 'Kit Batman', desc: 'Tonel, plantas e personagem para uma mesa marcante.', img: 'assets/img/tema-batman.webp', tag: PEGUE },
+    { id: 'kit-praia', cat: 'kits', publico: ['menino'], nome: 'Kit Praia e surf', desc: 'Prancha, remo e boia para uma festa leve e solar.', img: 'assets/img/tema-praia.webp', tag: PEGUE },
+    { id: 'kit-star-wars', cat: 'kits', publico: ['menino'], nome: 'Kit Star Wars', desc: 'Personagens e peças da galáxia para os pequenos fãs.', img: 'assets/img/tema-star-wars.webp', tag: PEGUE },
+    { id: 'kit-cha-fraldas-menino', cat: 'kits', publico: ['menino'], nome: 'Kit chá de fraldas menino (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas do menino.', art: 'minitable', tag: PEGUE },
+    { id: 'mini-table-mundo-bita', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Mundo Bita', desc: 'Tema Mundo Bita para os pequenos, pronto para retirar e montar.', art: 'minitable', tag: PEGUE, preco: 320 },
+    { id: 'mini-table-dpa', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit DPA', desc: 'Tema Detetives do Prédio Azul em versão compacta.', art: 'minitable', tag: PEGUE, preco: 340 },
+    { id: 'kit-fundo-do-mar', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Fundo do mar', desc: 'Tons de azul e personagens do oceano.', img: 'assets/img/tema-fundo-do-mar.webp', tag: PEGUE },
+    { id: 'kit-batizado', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Batizado ou 1ª Comunhão', desc: 'Composição delicada para batizados e primeira comunhão.', art: 'minitable', tag: PEGUE },
+    { id: 'kit-galinha-pintadinha', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
+    /* Kits pegue e monte · adulto */
+    { id: 'kit-dourado-rosas', cat: 'kits', publico: ['feminino'], nome: 'Kit Dourado com rosas', desc: 'Vasos dourados com arranjos de rosas, suportes, bandejas de folha e caixas geométricas de vidro.', img: 'assets/img/kit-dourado-rosas.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-azul-amarelo', cat: 'kits', publico: ['masculino'], nome: 'Kit Azul marinho e amarelo', desc: 'Suportes e bandejas em azul marinho e amarelo, com vasos amarelos e topiarias.', img: 'assets/img/kit-azul-amarelo.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-rustico-madeira', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Rústico madeira', desc: 'Suportes de madeira e ferro, cesto de fibra, corações e tábua de madeira, com vasos de palhinha.', img: 'assets/img/kit-rustico-madeira.webp', tag: PEGUE, badge: 'Novidade' },
 
     { id: 'suporte-colonial', cat: 'doces', nome: 'Suporte para doces pé colonial', desc: 'Branco e liso, em alturas variadas para compor a mesa.', art: 'stand', tag: PEGUE, badge: 'Mais procurado' },
     { id: 'kit-porcelana', cat: 'doces', nome: 'Kit suportes de porcelana', desc: 'Suportes de porcelana para doces, em alturas variadas.', art: 'trio', tag: PEGUE, preco: 90 },
@@ -80,7 +92,7 @@
     { id: 'suqueira', cat: 'detalhes', nome: 'Suqueira 5 litros', desc: 'Para sucos e drinks na mesa de bebidas.', art: 'jar', tag: PEGUE }
   ];
   /* Ordem da vitrine "Todos" (as demais peças aparecem em "Ver todas") */
-  var DESTAQUES = ['mini-table-jardim-encantado', 'kit-oh-baby', 'mini-table-wandinha', 'suporte-colonial', 'kit-batman', 'arco-desconstruido', 'mini-table-circo-rosa', 'mesa-provencal', 'kit-futebol', 'lounge-luis-xv', 'kit-cha-fraldas-menina', 'painel-redondo'];
+  var DESTAQUES = ['kit-patrulha-canina', 'kit-realeza-rosa', 'kit-dourado-rosas', 'kit-azul-amarelo', 'kit-rustico-madeira', 'kit-oh-baby', 'mini-table-jardim-encantado', 'suporte-colonial', 'kit-batman', 'arco-desconstruido', 'mesa-provencal', 'kit-futebol'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
   var circles = function (pts, cls) {
@@ -144,6 +156,19 @@
   var byId = {};
   CATALOG.forEach(function (p) { byId[p.id] = p; });
   var catLabel = function (id) { for (var i = 0; i < CATEGORIES.length; i++) if (CATEGORIES[i].id === id) return CATEGORIES[i].label; return ''; };
+  /* "Infantil · Menino e menina", "Adulto · Feminino"... */
+  var pubLabel = function (p) {
+    if (!p.publico) return '';
+    var grupos = {};
+    PUBLICOS.forEach(function (u) {
+      if (p.publico.indexOf(u.id) < 0) return;
+      (grupos[u.grupo] = grupos[u.grupo] || []).push(u.label);
+    });
+    return Object.keys(grupos).map(function (g) {
+      return g + ' · ' + grupos[g].map(function (l, i) { return i ? l.toLowerCase() : l; }).join(' e ');
+    }).join(' / ');
+  };
+  var fullCat = function (p) { var u = pubLabel(p); return catLabel(p.cat) + (u ? ' (' + u + ')' : ''); };
   var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
 
   /* ---------- Lista (persistida só neste navegador) ---------- */
@@ -165,7 +190,7 @@
   /* Uma linha por peça, usada na lista e no formulário (main.js) */
   var detailLines = function () {
     return inList().map(function (p) {
-      var l = list[p.id] + 'x ' + p.nome + ' · ' + catLabel(p.cat) + ' · ' + p.tag + ' · Ref. ' + ref(p);
+      var l = list[p.id] + 'x ' + p.nome + ' · ' + fullCat(p) + ' · ' + p.tag + ' · Ref. ' + ref(p);
       return photo(p) ? l + '\n   Foto: ' + photo(p) : l;
     });
   };
@@ -186,7 +211,7 @@
     if (link) msg.push(link);
     msg.push('',
       '*Produto:* ' + p.nome,
-      '*Categoria:* ' + catLabel(p.cat),
+      '*Categoria:* ' + fullCat(p),
       '*Descrição:* ' + p.desc,
       '*Modalidade:* ' + p.tag,
       '*Quantidade:* 1',
@@ -204,11 +229,12 @@
   ordered.forEach(function (p) {
     var li = document.createElement('li');
     li.className = 'product'; li.dataset.cat = p.cat; li.dataset.id = p.id;
+    if (p.publico) li.dataset.publico = p.publico.join(' ');
     li.innerHTML =
       '<article>' +
         '<div class="product-media">' + mediaHtml(p) + (p.badge ? '<span class="product-badge">' + esc(p.badge) + '</span>' : '') + '</div>' +
         '<div class="product-body">' +
-          '<span class="product-cat">' + esc(catLabel(p.cat)) + '</span>' +
+          '<span class="product-cat">' + esc(p.publico ? pubLabel(p) : catLabel(p.cat)) + '</span>' +
           '<h3>' + esc(p.nome) + '</h3>' +
           (MOSTRAR_PRECOS && p.preco ? '<span class="product-price">a partir de <b>' + brl(p.preco) + '</b></span>' : '') +
           '<p>' + esc(p.desc) + '</p>' +
@@ -235,6 +261,38 @@
     chipsEl.appendChild(b);
   });
   var chips = $$('.chip', chipsEl);
+
+  /* Subfiltro dos kits: Infantil (menino, menina) e Adulto (masculino, feminino) */
+  var publico = 'all';
+  var subEl = document.createElement('div');
+  subEl.className = 'subchips'; subEl.hidden = true;
+  subEl.setAttribute('role', 'group'); subEl.setAttribute('aria-label', 'Filtrar kits por público');
+  var subHtml = '<button type="button" class="subchip" data-publico="all" aria-pressed="true">Todos os kits</button>';
+  var grupoAtual = '';
+  PUBLICOS.forEach(function (u) {
+    if (u.grupo !== grupoAtual) {
+      if (grupoAtual) subHtml += '</div>';
+      grupoAtual = u.grupo;
+      subHtml += '<div class="subchips-group"><span>' + esc(u.grupo) + '</span>';
+    }
+    var n = CATALOG.filter(function (p) { return p.publico && p.publico.indexOf(u.id) > -1; }).length;
+    subHtml += '<button type="button" class="subchip" data-publico="' + u.id + '" aria-pressed="false">' + esc(u.label) + '<small>' + n + '</small></button>';
+  });
+  subEl.innerHTML = subHtml + '</div>';
+  chipsEl.parentNode.insertBefore(subEl, chipsEl.nextSibling);
+  var subchips = $$('.subchip', subEl);
+  var setPublico = function (id) {
+    publico = id;
+    subchips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.publico === id); });
+  };
+  subchips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      if (c.dataset.publico === publico) return;
+      setPublico(c.dataset.publico);
+      apply('all');
+    });
+  });
+
   var setCount = function (n) { countEl.textContent = n + (n === 1 ? ' peça' : ' peças'); };
   var LIMITE = DESTAQUES.length, expanded = false;
   var more = document.createElement('div');
@@ -251,6 +309,7 @@
     var shown = [], fresh = [], k = 0;
     cards.forEach(function (c) {
       var on = active === 'all' || c.dataset.cat === active;
+      if (on && active === 'kits' && publico !== 'all') on = (' ' + (c.dataset.publico || '') + ' ').indexOf(' ' + publico + ' ') > -1;
       if (on && active === 'all' && !expanded) on = k++ < LIMITE;
       if (on && c.hidden) fresh.push(c);
       c.hidden = !on;
@@ -259,12 +318,15 @@
     if (active === 'all' && !expanded) countEl.textContent = shown.length + ' de ' + CATALOG.length + ' peças';
     else setCount(shown.length);
     more.hidden = !(active === 'all' && !expanded);
+    subEl.hidden = active !== 'kits';
     if (animate) revealIn(animate === 'fresh' ? fresh : shown, .045);
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
   };
-  var filter = function (id) {
-    if (id === active) return;
+  var filter = function (id, pub) {
+    pub = pub || 'all';
+    if (id === active && pub === publico) return;
     active = id;
+    setPublico(pub);
     chips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === id); });
     apply('all');
   };
@@ -275,9 +337,9 @@
     apply('fresh');
     if (first) { first.setAttribute('tabindex', '-1'); first.focus({ preventScroll: true }); }
   });
-  /* Atalhos de outras seções (ex.: portfólio "Ver mini tables") */
+  /* Atalhos de outras seções (ex.: portfólio "Ver kits pegue e monte"; data-catalog-publico opcional) */
   $$('[data-catalog-filter]').forEach(function (a) {
-    a.addEventListener('click', function () { filter(a.dataset.catalogFilter); });
+    a.addEventListener('click', function () { filter(a.dataset.catalogFilter, a.dataset.catalogPublico); });
   });
   apply(false);
 
