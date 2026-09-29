@@ -144,9 +144,9 @@
 
   /* ---------- Hero: sequência de decorações ---------- */
   var SLIDES = [
-    { title: 'Oh Baby', cat: 'Chá de bebê' },
-    { title: 'Praia e surf', cat: 'Infantil' },
-    { title: 'Batman', cat: 'Infantil' }
+    { title: 'Realeza rosa', cat: 'Infantil menina' },
+    { title: 'Ursinhos lilás', cat: 'Infantil menina' },
+    { title: 'Azul marinho e dourado', cat: 'Adulto masculino' }
   ];
   var frameImgs = $$('.hero-frame img'), fbImgs = $$('.hero-fallback img'), dots = $$('.hero-dots button');
   var cap = $('[data-hero-caption]'), capCat = $('[data-hero-cat]');

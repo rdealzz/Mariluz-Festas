@@ -15,9 +15,9 @@ const supportsGL = (() => {
 })();
 
 const IMAGES = [
-  'assets/img/tema-oh-baby.webp',
-  'assets/img/tema-praia.webp',
-  'assets/img/tema-batman.webp'
+  'assets/img/kit-realeza-rosa.webp',
+  'assets/img/kit-ursinhos-lilas.webp',
+  'assets/img/kit-azul-marinho-dourado.webp'
 ];
 
 if (canvas && supportsGL && !reduced && !saveData) start();

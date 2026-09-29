@@ -41,27 +41,31 @@
     /* Kits pegue e monte · infantil */
     { id: 'kit-patrulha-canina', cat: 'kits', publico: ['menino'], nome: 'Kit Patrulha Canina', desc: 'Marshall, Rubble e Chase com vasos vermelhos, topiarias, suportes e bandejas em vermelho, azul e amarelo.', img: 'assets/img/kit-patrulha-canina.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-realeza-rosa', cat: 'kits', publico: ['menina'], nome: 'Kit Realeza rosa', desc: 'Suportes, bandejas, vasos e pratos de coração em rosa, com coroa para o bolo e cestas floridas.', img: 'assets/img/kit-realeza-rosa.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-ursinhos-lilas', cat: 'kits', publico: ['menina'], nome: 'Kit Ursinhos lilás', desc: 'Ursinhos de vestido e de terno, boleiras rendadas, bandejas e cachepôs lilás com lavandas.', img: 'assets/img/kit-ursinhos-lilas.webp', pos: 'center 88%', tag: PEGUE, badge: 'Novidade' },
     { id: 'mini-table-jardim-encantado', cat: 'kits', publico: ['menina'], nome: 'Kit Jardim Encantado', desc: 'Tema jardim encantado em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 399 },
     { id: 'mini-table-wandinha', cat: 'kits', publico: ['menina'], nome: 'Kit Wandinha', desc: 'Tema Wandinha em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 420 },
     { id: 'mini-table-circo-rosa', cat: 'kits', publico: ['menina'], nome: 'Kit Circo Rosa', desc: 'Tema circo em tons de rosa, numa mesa pequena e delicada.', art: 'minitable', tag: PEGUE, preco: 320 },
     { id: 'mini-table-ariel', cat: 'kits', publico: ['menina'], nome: 'Kit Ariel', desc: 'Tema Pequena Sereia em composição leve e enxuta.', art: 'minitable', tag: PEGUE, preco: 420 },
     { id: 'mini-table-barbie', cat: 'kits', publico: ['menina'], nome: 'Kit Barbie', desc: 'Tema Barbie numa mesa pequena e marcante.', art: 'minitable', tag: PEGUE, preco: 420 },
-    { id: 'kit-oh-baby', cat: 'kits', publico: ['menina'], nome: 'Kit Oh Baby', desc: 'Chá de bebê em rosé, verde e dourado, com flores e arco de balões.', img: 'assets/img/tema-oh-baby.webp', tag: PEGUE, badge: 'Mais procurado' },
+    { id: 'kit-oh-baby', cat: 'kits', publico: ['menina'], nome: 'Kit Oh Baby', desc: 'Chá de bebê em rosé, verde e dourado, com flores e arco de balões.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado' },
     { id: 'kit-cha-fraldas-menina', cat: 'kits', publico: ['menina'], nome: 'Kit chá de fraldas menina (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas da menina.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-futebol', cat: 'kits', publico: ['menino'], nome: 'Kit Futebol', desc: 'Bola gigante, gramado e balões nas cores do time.', img: 'assets/img/tema-futebol.webp', tag: PEGUE, badge: 'Mais procurado' },
-    { id: 'kit-batman', cat: 'kits', publico: ['menino'], nome: 'Kit Batman', desc: 'Tonel, plantas e personagem para uma mesa marcante.', img: 'assets/img/tema-batman.webp', tag: PEGUE },
-    { id: 'kit-praia', cat: 'kits', publico: ['menino'], nome: 'Kit Praia e surf', desc: 'Prancha, remo e boia para uma festa leve e solar.', img: 'assets/img/tema-praia.webp', tag: PEGUE },
-    { id: 'kit-star-wars', cat: 'kits', publico: ['menino'], nome: 'Kit Star Wars', desc: 'Personagens e peças da galáxia para os pequenos fãs.', img: 'assets/img/tema-star-wars.webp', tag: PEGUE },
+    { id: 'kit-futebol', cat: 'kits', publico: ['menino'], nome: 'Kit Futebol', desc: 'Bola gigante, gramado e balões nas cores do time.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado' },
+    { id: 'kit-batman', cat: 'kits', publico: ['menino'], nome: 'Kit Batman', desc: 'Tonel, plantas e personagem para uma mesa marcante.', art: 'minitable', tag: PEGUE },
+    { id: 'kit-praia', cat: 'kits', publico: ['menino'], nome: 'Kit Praia e surf', desc: 'Prancha, remo e boia para uma festa leve e solar.', art: 'minitable', tag: PEGUE },
+    { id: 'kit-star-wars', cat: 'kits', publico: ['menino'], nome: 'Kit Star Wars', desc: 'Personagens e peças da galáxia para os pequenos fãs.', art: 'minitable', tag: PEGUE },
     { id: 'kit-cha-fraldas-menino', cat: 'kits', publico: ['menino'], nome: 'Kit chá de fraldas menino (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas do menino.', art: 'minitable', tag: PEGUE },
     { id: 'mini-table-mundo-bita', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Mundo Bita', desc: 'Tema Mundo Bita para os pequenos, pronto para retirar e montar.', art: 'minitable', tag: PEGUE, preco: 320 },
     { id: 'mini-table-dpa', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit DPA', desc: 'Tema Detetives do Prédio Azul em versão compacta.', art: 'minitable', tag: PEGUE, preco: 340 },
-    { id: 'kit-fundo-do-mar', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Fundo do mar', desc: 'Tons de azul e personagens do oceano.', img: 'assets/img/tema-fundo-do-mar.webp', tag: PEGUE },
+    { id: 'kit-fundo-do-mar', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Fundo do mar', desc: 'Tons de azul e personagens do oceano.', art: 'minitable', tag: PEGUE },
     { id: 'kit-batizado', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Batizado ou 1ª Comunhão', desc: 'Composição delicada para batizados e primeira comunhão.', art: 'minitable', tag: PEGUE },
     { id: 'kit-galinha-pintadinha', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
     /* Kits pegue e monte · adulto */
     { id: 'kit-dourado-rosas', cat: 'kits', publico: ['feminino'], nome: 'Kit Dourado com rosas', desc: 'Vasos dourados com arranjos de rosas, suportes, bandejas de folha e caixas geométricas de vidro.', img: 'assets/img/kit-dourado-rosas.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-azul-amarelo', cat: 'kits', publico: ['masculino'], nome: 'Kit Azul marinho e amarelo', desc: 'Suportes e bandejas em azul marinho e amarelo, com vasos amarelos e topiarias.', img: 'assets/img/kit-azul-amarelo.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-azul-marinho-dourado', cat: 'kits', publico: ['masculino'], nome: 'Kit Azul marinho e dourado', desc: 'Vasos, boleiras e pratos azul marinho com bandejas espelhadas, suportes dourados e porcelana azul e branca.', img: 'assets/img/kit-azul-marinho-dourado.webp', pos: 'center 80%', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-terracota-preto', cat: 'kits', publico: ['masculino'], nome: 'Kit Terracota e preto', desc: 'Vasos pretos com pinheiros, boleiras terracota e nude, vasos terracota com folhagens e bandeja.', img: 'assets/img/kit-terracota-preto.webp', pos: 'center 82%', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-rustico-madeira', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Rústico madeira', desc: 'Suportes de madeira e ferro, cesto de fibra, corações e tábua de madeira, com vasos de palhinha.', img: 'assets/img/kit-rustico-madeira.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-madeira-ferro', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Madeira e ferro', desc: 'Suportes de madeira e de ferro preto, cesto de fibra, corações e tábua de madeira sobre trilho de juta.', img: 'assets/img/kit-madeira-ferro.webp', tag: PEGUE, badge: 'Novidade' },
 
     { id: 'suporte-colonial', cat: 'doces', nome: 'Suporte para doces pé colonial', desc: 'Branco e liso, em alturas variadas para compor a mesa.', art: 'stand', tag: PEGUE, badge: 'Mais procurado' },
     { id: 'kit-porcelana', cat: 'doces', nome: 'Kit suportes de porcelana', desc: 'Suportes de porcelana para doces, em alturas variadas.', art: 'trio', tag: PEGUE, preco: 90 },
@@ -87,12 +91,13 @@
     { id: 'coluna-baloes', cat: 'baloes', nome: 'Par de colunas de balões', desc: 'Para a entrada ou para emoldurar a mesa principal.', art: 'column', tag: MONTAGEM },
     { id: 'suporte-chao-baloes', cat: 'baloes', nome: 'Suporte de chão para balões', desc: 'Estrutura de metal para montar colunas e buquês de balões.', art: 'balloonStand', tag: PEGUE },
 
+    { id: 'vasos-de-vidro', cat: 'detalhes', nome: 'Vasos de vidro', desc: 'Vaso liso, taça canelada e duas taças bico de jaca em vidro, para arranjos e centros de mesa.', img: 'assets/img/vasos-de-vidro.webp', pos: 'center 78%', tag: PEGUE, badge: 'Novidade' },
     { id: 'letras-mdf', cat: 'detalhes', nome: 'Letras em MDF', desc: 'Iniciais e palavras em MDF para noivados e aniversários.', art: 'letters', tag: PEGUE },
     { id: 'arranjo-orquideas', cat: 'detalhes', nome: 'Arranjo de orquídeas para mesa', desc: 'Arranjo para as mesas dos convidados.', art: 'orchid', tag: PEGUE },
     { id: 'suqueira', cat: 'detalhes', nome: 'Suqueira 5 litros', desc: 'Para sucos e drinks na mesa de bebidas.', art: 'jar', tag: PEGUE }
   ];
   /* Ordem da vitrine "Todos" (as demais peças aparecem em "Ver todas") */
-  var DESTAQUES = ['kit-patrulha-canina', 'kit-realeza-rosa', 'kit-dourado-rosas', 'kit-azul-amarelo', 'kit-rustico-madeira', 'kit-oh-baby', 'mini-table-jardim-encantado', 'suporte-colonial', 'kit-batman', 'arco-desconstruido', 'mesa-provencal', 'kit-futebol'];
+  var DESTAQUES = ['kit-patrulha-canina', 'kit-realeza-rosa', 'kit-dourado-rosas', 'kit-azul-amarelo', 'kit-ursinhos-lilas', 'kit-azul-marinho-dourado', 'kit-terracota-preto', 'kit-rustico-madeira', 'kit-madeira-ferro', 'vasos-de-vidro', 'kit-oh-baby', 'kit-batman'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
   var circles = function (pts, cls) {
@@ -150,7 +155,8 @@
   };
   var artSvg = function (key) { return '<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">' + (ART[key] || '') + '</svg>'; };
   var mediaHtml = function (p, small) {
-    if (p.img) return '<img src="' + p.img + '" alt="' + (small ? '' : p.nome) + '" loading="lazy">';
+    /* pos: enquadramento da foto no card quadrado (ex.: fotos em pé com a placa no alto) */
+    if (p.img) return '<img src="' + p.img + '" alt="' + (small ? '' : p.nome) + '" loading="lazy"' + (p.pos ? ' style="object-position:' + p.pos + '"' : '') + '>';
     return '<div class="product-art" data-cat="' + p.cat + '">' + artSvg(p.art) + '</div>';
   };
   var byId = {};
