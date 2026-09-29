@@ -21,7 +21,12 @@ const IMAGES = [
 ];
 
 const touch = matchMedia('(hover: none), (pointer: coarse)').matches || innerWidth < 900;
-if (canvas && supportsGL && !reduced && !saveData && !touch) start();
+/* Só liga o WebGL depois da abertura, para a animação dela rodar lisa a 60 fps */
+if (canvas && supportsGL && !reduced && !saveData && !touch) {
+  let go = () => { go = () => {}; start(); };
+  if (window.__introDone || !document.querySelector('.loader')) go();
+  else { addEventListener('mariluz:intro', () => go(), { once: true }); setTimeout(() => go(), 6000); }
+}
 
 async function start() {
   const THREE = await import('../vendor/three.module.min.js');

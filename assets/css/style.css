@@ -107,40 +107,16 @@ button { background: none; border: 0; cursor: pointer; }
 @keyframes grain { 0% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -3%); } 60% { transform: translate(-2%, -1%); } 80% { transform: translate(3%, 3%); } 100% { transform: translate(0, 0); } }
 
 /* ---------- Abertura ---------- */
-.loader {
-  position: fixed; inset: 0; z-index: 500; display: grid; place-items: center; overflow: hidden; color: var(--ink);
-  background:
-    radial-gradient(60% 50% at 22% 28%, rgba(244, 218, 214, .95), transparent 70%),
-    radial-gradient(55% 45% at 80% 75%, rgba(240, 226, 198, .9), transparent 70%),
-    radial-gradient(40% 35% at 78% 18%, rgba(227, 175, 168, .45), transparent 70%),
-    var(--off);
-}
-.loader-inner { position: relative; display: grid; justify-items: center; }
-.loader-mark { width: clamp(76px, 12vw, 104px); height: auto; margin-bottom: 1.5rem; overflow: visible; filter: drop-shadow(0 10px 24px rgba(184, 118, 110, .25)); }
-.loader-ring { fill: rgba(255, 255, 255, .55); stroke: url(#loader-rg); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 1; }
-.loader-m { fill: none; stroke: url(#loader-rg); stroke-width: 5.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
-.loader-star { fill: var(--gold); opacity: 0; }
-.loader-word { font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 300; letter-spacing: .6em; padding-left: .6em; opacity: 0; }
-.loader-sub { margin-top: .55rem; font-size: .62rem; font-weight: 500; letter-spacing: .7em; padding-left: .7em; color: var(--gold-ink); opacity: 0; }
-.loader-bar { width: 150px; height: 1px; margin-top: 1.6rem; background: rgba(133, 103, 46, .18); overflow: hidden; }
-.loader-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--rose), var(--gold)); transform: scaleX(0); transform-origin: left; }
-.loader-tag { margin-top: 1.1rem; font-size: .8rem; font-style: italic; letter-spacing: .04em; color: var(--ink-2); opacity: 0; }
-.loader-balloons i {
-  position: absolute; bottom: var(--b, -14vh); width: var(--s); height: calc(var(--s) * 1.18); border-radius: 50% 50% 48% 48%;
-  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, .85), transparent 30%), var(--c);
-  box-shadow: inset -8px -12px 22px rgba(0, 0, 0, .06);
-  animation: loader-rise var(--d) cubic-bezier(.3, 0, .4, 1) var(--w) forwards;
-}
-.loader-balloons i::after { content: ""; position: absolute; left: 50%; top: 100%; width: 1px; height: calc(var(--s) * .9); background: rgba(133, 103, 46, .25); }
-.lb1 { --s: 64px; --c: var(--blush); --d: 4.6s; --w: 0s; --b: 6vh; left: 8%; }
-.lb2 { --s: 44px; --c: var(--champagne); --d: 4.2s; --w: .2s; left: 20%; }
-.lb3 { --s: 34px; --c: var(--rose); --d: 4.4s; --w: 0s; --b: 22vh; left: 29%; }
-.lb4 { --s: 56px; --c: var(--champagne); --d: 4.8s; --w: 0s; --b: 12vh; right: 12%; }
-.lb5 { --s: 38px; --c: var(--blush); --d: 4.3s; --w: .3s; right: 25%; }
-.lb6 { --s: 28px; --c: #E6C98F; --d: 4.5s; --w: 0s; --b: 30vh; right: 5%; }
-@keyframes loader-rise { to { transform: translateY(-150vh) rotate(-6deg); } }
-@media (max-width: 600px) { .lb2, .lb5 { display: none; } }
-@media (prefers-reduced-motion: reduce) { .loader-balloons { display: none; } }
+.loader { position: fixed; inset: 0; z-index: 500; contain: strict; display: grid; place-items: center; color: var(--ink); background: radial-gradient(70% 60% at 50% 45%, var(--ice), var(--off) 70%); will-change: opacity; }
+.loader-inner { display: grid; justify-items: center; will-change: transform, opacity; }
+.loader-mark { width: 64px; height: 64px; margin-bottom: 1.4rem; opacity: 0; }
+.loader-ring { fill: none; stroke: url(#loader-rg); stroke-width: 2; }
+.loader-m { fill: none; stroke: url(#loader-rg); stroke-width: 5.2; stroke-linecap: round; stroke-linejoin: round; }
+.loader-star { fill: var(--gold); }
+.loader-word { font-size: clamp(1.15rem, 2.6vw, 1.5rem); font-weight: 300; letter-spacing: .6em; padding-left: .6em; opacity: 0; }
+.loader-sub { margin-top: .5rem; font-size: .6rem; font-weight: 500; letter-spacing: .7em; padding-left: .7em; color: var(--gold-ink); opacity: 0; }
+.loader-bar { width: 120px; height: 1px; margin-top: 1.5rem; background: rgba(133, 103, 46, .16); overflow: hidden; }
+.loader-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--rose), var(--gold)); transform: scaleX(0); transform-origin: left; will-change: transform; }
 .no-js .loader { display: none; }
 
 /* ---------- Botões ---------- */

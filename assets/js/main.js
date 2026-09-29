@@ -491,25 +491,24 @@
   /* Abertura + entrada do hero */
   var heroTitle = $('[data-split-hero]');
   var split = (window.SplitText && !reduced) ? new SplitText(heroTitle, { type: 'lines,words', linesClass: 'split-line', mask: 'lines' }) : null;
-  var intro = gsap.timeline({ delay: .1 });
+  var introDone = function () { window.__introDone = true; window.dispatchEvent(new Event('mariluz:intro')); };
+  var intro = gsap.timeline({ delay: .3 }); /* espera o navegador terminar o trabalho da carga antes de animar */
   if (!reduced) {
     intro
-      .to('.loader-ring', { strokeDashoffset: 0, duration: 1.1, ease: 'silk' })
-      .to('.loader-m', { strokeDashoffset: 0, duration: .9, ease: 'silk' }, '<.25')
-      .fromTo('.loader-star', { opacity: 0, scale: 0, rotation: -90, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, rotation: 0, duration: .7, ease: 'back.out(2.2)' }, '-=.35')
-      .to('.loader-word', { opacity: 1, letterSpacing: '.72em', duration: 1.1, ease: 'silk' }, '<-.3')
-      .to('.loader-sub', { opacity: 1, duration: .8, ease: 'silk' }, '<.3')
-      .to('.loader-bar span', { scaleX: 1, duration: 1, ease: 'silk' }, '<')
-      .to('.loader-tag', { opacity: 1, duration: .8, ease: 'silk' }, '<.2')
-      .to('.loader', { yPercent: -100, duration: 1.1, ease: 'expo.inOut' }, '+=.1')
+      .fromTo('.loader-mark', { opacity: 0, y: 10, scale: .94 }, { opacity: 1, y: 0, scale: 1, duration: .8, ease: 'power3.out', force3D: true })
+      .fromTo(['.loader-word', '.loader-sub'], { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .7, stagger: .08, ease: 'power3.out', force3D: true }, '<.15')
+      .to('.loader-bar span', { scaleX: 1, duration: .9, ease: 'power2.inOut', force3D: true }, '<.1')
+      .to('.loader-inner', { opacity: 0, y: -12, duration: .45, ease: 'power2.in', force3D: true }, '+=.05')
+      .to('.loader', { opacity: 0, duration: .6, ease: 'power2.out' }, '<.2')
       .set('.loader', { display: 'none' })
+      .add(introDone)
       .from('.hero-media', { scale: 1.12, duration: 2.4, ease: 'expo.out' }, '-=.7');
     if (split) intro.from(split.words, { yPercent: 110, opacity: 0, duration: 1.4, stagger: .045 }, '-=2');
     intro
       .from('[data-hero-in]', { y: 30, opacity: 0, duration: 1.2, stagger: .1 }, '-=1.1')
       .from(nav, { y: -30, opacity: 0, duration: 1.2 }, '<');
   } else {
-    $('.loader').remove();
+    $('.loader').remove(); introDone();
   }
   intro.add(function () { goTo(0); play(); if (split) split.revert(); /* devolve o texto ao fluxo normal para acompanhar redimensionamentos */ });
 
