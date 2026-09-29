@@ -98,7 +98,7 @@
     { id: 'suqueira', cat: 'detalhes', nome: 'Suqueira 5 litros', desc: 'Para sucos e drinks na mesa de bebidas.', art: 'jar', tag: PEGUE }
   ];
   /* Ordem da vitrine "Todos" (as demais peças aparecem em "Ver todas") */
-  var DESTAQUES = ['kit-patrulha-canina', 'kit-realeza-rosa', 'kit-dourado-rosas', 'kit-azul-amarelo', 'kit-ursinhos-lilas', 'kit-azul-marinho-dourado', 'kit-terracota-preto', 'kit-cristal', 'kit-rustico-madeira', 'kit-madeira-ferro', 'vasos-de-vidro'];
+  var DESTAQUES = ['kit-patrulha-canina', 'kit-realeza-rosa', 'kit-dourado-rosas', 'kit-azul-amarelo', 'kit-ursinhos-lilas', 'kit-azul-marinho-dourado', 'kit-terracota-preto', 'kit-cristal', 'kit-rustico-madeira', 'kit-madeira-ferro', 'vasos-de-vidro', 'arco-desconstruido'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
   var circles = function (pts, cls) {
@@ -155,9 +155,14 @@
     }).join('')
   };
   var artSvg = function (key) { return '<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">' + (ART[key] || '') + '</svg>'; };
+  /* Cada foto existe em 600px, 1200px e na versão máxima (sem sufixo) */
+  var size = function (src, w) { return src.replace(/\.webp$/, '-' + w + '.webp'); };
   var mediaHtml = function (p, small) {
     /* pos: enquadramento da foto no card quadrado (ex.: fotos em pé com a placa no alto) */
-    if (p.img) return '<img src="' + p.img + '" alt="' + (small ? '' : p.nome) + '" loading="lazy"' + (p.pos ? ' style="object-position:' + p.pos + '"' : '') + '>';
+    if (p.img) {
+      var set = small ? '' : ' srcset="' + size(p.img, 600) + ' 600w, ' + size(p.img, 1200) + ' 1200w" sizes="(max-width: 600px) 46vw, (max-width: 1100px) 30vw, 300px"';
+      return '<img src="' + size(p.img, 600) + '"' + set + ' alt="' + (small ? '' : p.nome) + '" loading="lazy" decoding="async"' + (p.pos ? ' style="object-position:' + p.pos + '"' : '') + '>';
+    }
     return '<div class="product-art" data-cat="' + p.cat + '">' + artSvg(p.art) + '</div>';
   };
   var byId = {};
@@ -193,7 +198,7 @@
     if (!/^https?:$/.test(location.protocol)) return '';
     try { return new URL(path, location.href).href; } catch (e) { return ''; }
   };
-  var photo = function (p) { return p.img ? absUrl(p.img) : ''; };
+  var photo = function (p) { return p.img ? absUrl(size(p.img, 1200)) : ''; };
   /* Uma linha por peça, usada na lista e no formulário (main.js) */
   var detailLines = function () {
     return inList().map(function (p) {

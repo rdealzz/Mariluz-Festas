@@ -247,7 +247,7 @@
       next.hidden = false;
       if (hasGsap && !reduced) {
         var word = $('.panel-word', next), rest = $$('.panel-num, .panel-text, .panel-list li, .panel .btn', next).filter(function (el) { return next.contains(el); });
-        gsap.fromTo(word, { yPercent: 40, opacity: 0, filter: 'blur(12px)' }, { yPercent: 0, opacity: 1, filter: 'blur(0px)', duration: 1.2, ease: 'lux' });
+        gsap.fromTo(word, { yPercent: 40, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1.2, ease: 'lux' });
         gsap.fromTo(rest, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: .05, delay: .15, ease: 'lux' });
         gsap.fromTo($('.panel-visual', next), { opacity: 0, scale: .94, rotateY: -8, y: 30 }, { opacity: 1, scale: 1, rotateY: 0, y: 0, duration: 1.4, ease: 'lux' });
       }
@@ -344,12 +344,20 @@
     if (h > vh - top - bottom) { h = vh - top - bottom; w = h * ar; }
     return { left: (vw - w) / 2, top: top + (vh - top - bottom - h) / 2, width: w, height: h };
   };
+  /* Abre com a foto já carregada na galeria e troca pela versão em alta assim que ela chegar */
+  var upgrade = function (el, img) {
+    var full = img.getAttribute('data-full');
+    if (!full || (img.currentSrc || img.src).indexOf(full) > -1) return;
+    var hi = new Image();
+    hi.onload = function () { if (el.isConnected) el.src = full; };
+    hi.src = full;
+  };
   var setRect = function (el, r) { el.style.left = r.left + 'px'; el.style.top = r.top + 'px'; el.style.width = r.width + 'px'; el.style.height = r.height + 'px'; };
   var openViewer = function (i) {
     vIndex = i; vOrigin = tiles[i];
     var src = $('img', vOrigin), from = src.getBoundingClientRect();
     vImg = document.createElement('img');
-    vImg.className = 'viewer-img'; vImg.src = src.currentSrc || src.src; vImg.alt = src.alt;
+    vImg.className = 'viewer-img'; vImg.src = src.currentSrc || src.src; vImg.alt = src.alt; upgrade(vImg, src);
     viewer.appendChild(vImg);
     vTitle.textContent = vOrigin.dataset.title; vCat.textContent = vOrigin.dataset.cat;
     viewer.classList.add('is-open'); viewer.setAttribute('aria-hidden', 'false');
@@ -373,7 +381,7 @@
     vOrigin = tiles[vIndex];
     var src = $('img', vOrigin), next = vImg;
     vTitle.textContent = vOrigin.dataset.title; vCat.textContent = vOrigin.dataset.cat;
-    var apply = function () { next.src = src.currentSrc || src.src; next.alt = src.alt; setRect(next, fitRect(src)); src.style.visibility = 'hidden'; };
+    var apply = function () { next.src = src.currentSrc || src.src; next.alt = src.alt; upgrade(next, src); setRect(next, fitRect(src)); src.style.visibility = 'hidden'; };
     if (hasGsap && !reduced) {
       gsap.to(next, { opacity: 0, x: -40 * dir, scale: .96, duration: .35, ease: 'power2.in', onComplete: function () {
         apply(); gsap.fromTo(next, { opacity: 0, x: 40 * dir, scale: .96 }, { opacity: 1, x: 0, scale: 1, duration: .8, ease: 'lux' });
@@ -439,7 +447,12 @@
   };
   var orb = $('.orb');
   if (!hasGsap) orb.classList.add('is-on');
-  var onScroll = function () { updateNavTheme(); updateCurrent(); };
+  var scrollQueued = false;
+  var onScroll = function () {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(function () { scrollQueued = false; updateNavTheme(); updateCurrent(); });
+  };
   if (lenis) lenis.on('scroll', onScroll); else window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
@@ -474,7 +487,7 @@
       .to('.loader', { yPercent: -100, duration: 1.1, ease: 'expo.inOut' }, '+=.1')
       .set('.loader', { display: 'none' })
       .from('.hero-media', { scale: 1.12, duration: 2.4, ease: 'expo.out' }, '-=.7');
-    if (split) intro.from(split.words, { yPercent: 110, opacity: 0, filter: 'blur(8px)', duration: 1.4, stagger: .045 }, '-=2');
+    if (split) intro.from(split.words, { yPercent: 110, opacity: 0, duration: 1.4, stagger: .045 }, '-=2');
     intro
       .from('[data-hero-in]', { y: 30, opacity: 0, duration: 1.2, stagger: .1 }, '-=1.1')
       .from(nav, { y: -30, opacity: 0, duration: 1.2 }, '<');
@@ -503,7 +516,7 @@
   ScrollTrigger.batch('[data-reveal]', {
     start: 'top 88%',
     once: true,
-    onEnter: function (els) { gsap.fromTo(els, { y: 40, opacity: 0, filter: 'blur(6px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.3, stagger: .08, clearProps: 'filter' }); }
+    onEnter: function (els) { gsap.fromTo(els, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.3, stagger: .08, clearProps: 'transform' }); }
   });
 
   /* Manifesto: palavras acendem com o scroll */
@@ -562,15 +575,20 @@
   ambientTones.forEach(function (t) {
     ScrollTrigger.create({ trigger: t.sel, start: 'top 60%', end: 'bottom 40%', onToggle: function (st) {
       if (!st.isActive) return;
-      gsap.to('.ambient .a1', { background: 'radial-gradient(circle, ' + t.c1 + ', transparent 65%)', duration: 2 });
-      gsap.to('.ambient .a2', { background: 'radial-gradient(circle, ' + t.c2 + ', transparent 65%)', duration: 2 });
+      /* troca a cor por baixo de um fade de opacidade: só o compositor trabalha, sem repintar o fundo */
+      [['.ambient .a1', t.c1], ['.ambient .a2', t.c2]].forEach(function (x) {
+        gsap.timeline()
+          .to(x[0], { opacity: 0, duration: .9, ease: 'silk' })
+          .set(x[0], { background: 'radial-gradient(circle, ' + x[1] + ', transparent 65%)' })
+          .to(x[0], { opacity: .7, duration: 1.1, ease: 'silk' });
+      });
     } });
   });
 
   /* Mapa: zoom cinematográfico */
   var mapShell = $('[data-map]');
   if (mapShell && !reduced) {
-    gsap.fromTo($('iframe', mapShell), { scale: 1.45, filter: 'grayscale(1) blur(6px) brightness(1.1)' }, { scale: 1, filter: 'grayscale(1) blur(0px) brightness(1.04)', ease: 'none', scrollTrigger: { trigger: mapShell, start: 'top 95%', end: 'center 55%', scrub: 1 } });
+    gsap.fromTo($('iframe', mapShell), { scale: 1.45 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: mapShell, start: 'top 95%', end: 'center 55%', scrub: 1 } });
     gsap.from('.map-card', { y: 60, opacity: 0, duration: 1.4, scrollTrigger: { trigger: mapShell, start: 'top 55%', once: true } });
     gsap.from('.map-pin', { scale: 0, duration: 1, ease: 'back.out(2)', scrollTrigger: { trigger: mapShell, start: 'top 50%', once: true } });
   }

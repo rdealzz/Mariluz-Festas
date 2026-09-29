@@ -15,19 +15,20 @@ const supportsGL = (() => {
 })();
 
 const IMAGES = [
-  'assets/img/kit-realeza-rosa.webp',
-  'assets/img/kit-ursinhos-lilas.webp',
-  'assets/img/kit-azul-marinho-dourado.webp'
+  'assets/img/kit-realeza-rosa-1200.webp',
+  'assets/img/kit-ursinhos-lilas-1200.webp',
+  'assets/img/kit-azul-marinho-dourado-1200.webp'
 ];
 
-if (canvas && supportsGL && !reduced && !saveData) start();
+const touch = matchMedia('(hover: none), (pointer: coarse)').matches || innerWidth < 900;
+if (canvas && supportsGL && !reduced && !saveData && !touch) start();
 
 async function start() {
   const THREE = await import('../vendor/three.module.min.js');
   const mobile = innerWidth < 900;
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, mobile ? 1.25 : 1.5));
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1) * .75);
   renderer.setClearColor(0x1D191A, 1);
 
   const scene = new THREE.Scene();

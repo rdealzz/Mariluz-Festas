@@ -96,7 +96,7 @@ button { background: none; border: 0; cursor: pointer; }
 
 /* ---------- Ambiente (fundo vivo) ---------- */
 .ambient { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: var(--off); }
-.ambient i { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .7; will-change: transform; }
+.ambient i { position: absolute; border-radius: 50%; opacity: .7; will-change: transform; }
 .ambient .a1 { width: 60vmax; height: 60vmax; left: -18vmax; top: -22vmax; background: radial-gradient(circle, var(--champagne), transparent 65%); animation: drift1 28s var(--silk) infinite alternate; }
 .ambient .a2 { width: 55vmax; height: 55vmax; right: -20vmax; top: 18vh; background: radial-gradient(circle, var(--ice), transparent 65%); animation: drift2 34s var(--silk) infinite alternate; }
 .ambient .a3 { width: 48vmax; height: 48vmax; left: 20vw; bottom: -26vmax; background: radial-gradient(circle, #F4DAD6, transparent 65%); animation: drift3 40s var(--silk) infinite alternate; }
@@ -533,7 +533,7 @@ button { background: none; border: 0; cursor: pointer; }
 }
 .tile:hover { box-shadow: var(--shadow-deep); }
 .tile-media { overflow: hidden; }
-.tile img { width: 100%; height: auto; transform: scale(1.12); filter: saturate(.8) brightness(.98); transition: transform 1.6s var(--lux), filter 1.2s var(--lux); will-change: transform; }
+.tile img { width: 100%; height: auto; transform: scale(1.12); transition: transform 1.6s var(--lux); }
 .tile:hover img, .tile:focus-visible img { transform: scale(1.2); filter: saturate(1) brightness(1.02); }
 .tile::before { /* luz dinâmica */
   content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity .6s var(--lux);
@@ -747,3 +747,33 @@ button { background: none; border: 0; cursor: pointer; }
 
 @media (max-height: 720px) { .scroll-cue { display: none; } .hero-sub { font-size: .98rem; } }
 @media (max-width: 600px) { .orb-sphere { width: 56px; height: 56px; } }
+
+/* ---------- Fluidez (60 fps) ----------
+   Vidro fosco (backdrop-filter) só onde há conteúdo passando por trás:
+   menu, painéis e visualizador. Nos cards, que ficam sobre fundo liso,
+   o efeito custava caro na rolagem e não aparecia. */
+.product article, .quote, .step-card, .chips, .tabs, .btn-outline, .sculpture .slab, .tile-cap {
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.product article { background: linear-gradient(160deg, rgba(255, 255, 255, .92), rgba(255, 255, 255, .7)); }
+.quote { background: linear-gradient(160deg, rgba(255, 255, 255, .92), rgba(255, 255, 255, .7)); }
+.grain { animation: none; }
+
+/* Celular e tablet: o mínimo de camadas caras */
+@media (hover: none), (max-width: 900px) {
+  .grain { display: none; }
+  .ambient i { animation: none; }
+  .glass-frame, .map-card, .form, .orb-label, .orb-sphere, .rating-chip, .btn-glass, .vbtn, .drawer-bg {
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+  }
+  .glass-frame { background: rgba(255, 255, 255, .6); }
+  .map-card, .form { background: rgba(252, 248, 246, .96); }
+  .hero-fallback img { filter: blur(4px) saturate(.6) brightness(.56) sepia(.12); }
+}
+
+/* Menu sobre as seções claras: fundo quase opaco no lugar do vidro fosco
+   (sobre fundo liso o resultado é o mesmo e a rolagem fica leve) */
+.nav.is-light { background: rgba(252, 248, 246, .97); backdrop-filter: none; -webkit-backdrop-filter: none; }
+/* Sombras dos cards com desfoque menor: mesmo relevo, bem menos pintura */
+.product article, .quote { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .9), 0 1px 1px rgba(46, 43, 44, .03), 0 14px 30px -18px rgba(46, 43, 44, .18); }
+.product article:hover { box-shadow: inset 0 0 0 1px #fff, 0 2px 4px rgba(46, 43, 44, .05), 0 26px 44px -24px rgba(46, 43, 44, .3); }
