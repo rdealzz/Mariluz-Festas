@@ -23,13 +23,14 @@
      confirmados pela Mariluz antes de serem exibidos. */
   var MOSTRAR_PRECOS = false;
   var CATEGORIES = [
-    { id: 'kits', label: 'Kits pegue e monte' },
     { id: 'doces', label: 'Suportes para doces' },
+    { id: 'kits', label: 'Kits pegue e monte' },
     { id: 'moveis', label: 'Mesas e painéis' },
     { id: 'baloes', label: 'Balões' },
     { id: 'detalhes', label: 'Detalhes' }
   ];
-  /* Público dos kits (campo "publico"; um kit pode servir a mais de um) */
+  /* Público dos kits (campo "publico"; um kit pode servir a mais de um).
+     O subfiltro por público aparece em "Kits pegue e monte" e em "Suportes para doces". */
   var PUBLICOS = [
     { id: 'menino', grupo: 'Infantil', label: 'Menino' },
     { id: 'menina', grupo: 'Infantil', label: 'Menina' },
@@ -39,9 +40,6 @@
   var PEGUE = 'Pegue e monte', MONTAGEM = 'Montagem no local';
   var CATALOG = [
     /* Kits pegue e monte · infantil */
-    { id: 'kit-patrulha-canina', cat: 'kits', publico: ['menino'], nome: 'Kit Patrulha Canina', desc: 'Marshall, Rubble e Chase com vasos vermelhos, topiarias, suportes e bandejas em vermelho, azul e amarelo.', img: 'assets/img/kit-patrulha-canina.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-realeza-rosa', cat: 'kits', publico: ['menina'], nome: 'Kit Realeza rosa', desc: 'Suportes, bandejas, vasos e pratos de coração em rosa, com coroa para o bolo e cestas floridas.', img: 'assets/img/kit-realeza-rosa.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-ursinhos-lilas', cat: 'kits', publico: ['menina'], nome: 'Kit Ursinhos lilás', desc: 'Ursinhos de vestido e de terno, boleiras rendadas, bandejas e cachepôs lilás com lavandas.', img: 'assets/img/kit-ursinhos-lilas.webp', pos: 'center 88%', tag: PEGUE, badge: 'Novidade' },
     { id: 'mini-table-jardim-encantado', cat: 'kits', publico: ['menina'], nome: 'Kit Jardim Encantado', desc: 'Tema jardim encantado em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 399 },
     { id: 'mini-table-wandinha', cat: 'kits', publico: ['menina'], nome: 'Kit Wandinha', desc: 'Tema Wandinha em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 420 },
     { id: 'mini-table-circo-rosa', cat: 'kits', publico: ['menina'], nome: 'Kit Circo Rosa', desc: 'Tema circo em tons de rosa, numa mesa pequena e delicada.', art: 'minitable', tag: PEGUE, preco: 320 },
@@ -59,15 +57,19 @@
     { id: 'kit-fundo-do-mar', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Fundo do mar', desc: 'Tons de azul e personagens do oceano.', art: 'minitable', tag: PEGUE },
     { id: 'kit-batizado', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Batizado ou 1ª Comunhão', desc: 'Composição delicada para batizados e primeira comunhão.', art: 'minitable', tag: PEGUE },
     { id: 'kit-galinha-pintadinha', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
-    /* Kits pegue e monte · adulto */
-    { id: 'kit-dourado-rosas', cat: 'kits', publico: ['feminino'], nome: 'Kit Dourado com rosas', desc: 'Vasos dourados com arranjos de rosas, suportes, bandejas de folha e caixas geométricas de vidro.', img: 'assets/img/kit-dourado-rosas.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-azul-amarelo', cat: 'kits', publico: ['masculino'], nome: 'Kit Azul marinho e amarelo', desc: 'Suportes e bandejas em azul marinho e amarelo, com vasos amarelos e topiarias.', img: 'assets/img/kit-azul-amarelo.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-azul-marinho-dourado', cat: 'kits', publico: ['masculino'], nome: 'Kit Azul marinho e dourado', desc: 'Vasos, boleiras e pratos azul marinho com bandejas espelhadas, suportes dourados e porcelana azul e branca.', img: 'assets/img/kit-azul-marinho-dourado.webp', pos: 'center 80%', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-terracota-preto', cat: 'kits', publico: ['masculino'], nome: 'Kit Terracota e preto', desc: 'Vasos pretos com pinheiros, boleiras terracota e nude, vasos terracota com folhagens e bandeja.', img: 'assets/img/kit-terracota-preto.webp', pos: 'center 82%', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-cristal', cat: 'kits', publico: ['feminino', 'masculino'], nome: 'Kit Cristal', desc: 'Boleira, bandejas com e sem pé, taças, vasinhos e cúpulas em vidro lapidado, para mesas clássicas e elegantes.', img: 'assets/img/kit-cristal.webp', pos: 'center 85%', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-rustico-madeira', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Rústico madeira', desc: 'Suportes de madeira e ferro, cesto de fibra, corações e tábua de madeira, com vasos de palhinha.', img: 'assets/img/kit-rustico-madeira.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'kit-madeira-ferro', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Madeira e ferro', desc: 'Suportes de madeira e de ferro preto, cesto de fibra, corações e tábua de madeira sobre trilho de juta.', img: 'assets/img/kit-madeira-ferro.webp', tag: PEGUE, badge: 'Novidade' },
 
+    /* Suportes para doces · kits com foto (infantil e adulto) */
+    { id: 'kit-patrulha-canina', cat: 'doces', publico: ['menino'], nome: 'Kit de suportes Patrulha Canina', desc: 'Marshall, Rubble e Chase com vasos vermelhos, topiarias, suportes e bandejas em vermelho, azul e amarelo.', img: 'assets/img/kit-patrulha-canina.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-realeza-rosa', cat: 'doces', publico: ['menina'], nome: 'Kit de suportes Realeza rosa', desc: 'Suportes, bandejas, vasos e pratos de coração em rosa, com coroa para o bolo e cestas floridas.', img: 'assets/img/kit-realeza-rosa.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-ursinhos-lilas', cat: 'doces', publico: ['menina'], nome: 'Kit de suportes Ursinhos lilás', desc: 'Ursinhos de vestido e de terno, boleiras rendadas, bandejas e cachepôs lilás com lavandas.', img: 'assets/img/kit-ursinhos-lilas.webp', pos: 'center 88%', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-dourado-rosas', cat: 'doces', publico: ['feminino'], nome: 'Kit de suportes Dourado com rosas', desc: 'Vasos dourados com arranjos de rosas, suportes, bandejas de folha e caixas geométricas de vidro.', img: 'assets/img/kit-dourado-rosas.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-azul-amarelo', cat: 'doces', publico: ['masculino'], nome: 'Kit de suportes Azul marinho e amarelo', desc: 'Suportes e bandejas em azul marinho e amarelo, com vasos amarelos e topiarias.', img: 'assets/img/kit-azul-amarelo.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-azul-marinho-dourado', cat: 'doces', publico: ['masculino'], nome: 'Kit de suportes Azul marinho e dourado', desc: 'Vasos, boleiras e pratos azul marinho com bandejas espelhadas, suportes dourados e porcelana azul e branca.', img: 'assets/img/kit-azul-marinho-dourado.webp', pos: 'center 80%', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-terracota-preto', cat: 'doces', publico: ['masculino'], nome: 'Kit de suportes Terracota e preto', desc: 'Vasos pretos com pinheiros, boleiras terracota e nude, vasos terracota com folhagens e bandeja.', img: 'assets/img/kit-terracota-preto.webp', pos: 'center 82%', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-cristal', cat: 'doces', publico: ['feminino', 'masculino'], nome: 'Kit de suportes Cristal', desc: 'Boleira, bandejas com e sem pé, taças, vasinhos e cúpulas em vidro lapidado, para mesas clássicas e elegantes.', img: 'assets/img/kit-cristal.webp', pos: 'center 85%', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-rustico-madeira', cat: 'doces', publico: ['masculino', 'feminino'], nome: 'Kit de suportes Rústico madeira', desc: 'Suportes de madeira e ferro, cesto de fibra, corações e tábua de madeira, com vasos de palhinha.', img: 'assets/img/kit-rustico-madeira.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-madeira-ferro', cat: 'doces', publico: ['masculino', 'feminino'], nome: 'Kit de suportes Madeira e ferro', desc: 'Suportes de madeira e de ferro preto, cesto de fibra, corações e tábua de madeira sobre trilho de juta.', img: 'assets/img/kit-madeira-ferro.webp', tag: PEGUE, badge: 'Novidade' },
+    /* Suportes para doces · peças avulsas */
     { id: 'suporte-colonial', cat: 'doces', nome: 'Suporte para doces pé colonial', desc: 'Branco e liso, em alturas variadas para compor a mesa.', art: 'stand', tag: PEGUE, badge: 'Mais procurado' },
     { id: 'kit-porcelana', cat: 'doces', nome: 'Kit suportes de porcelana', desc: 'Suportes de porcelana para doces, em alturas variadas.', art: 'trio', tag: PEGUE, preco: 90 },
     { id: 'trio-suportes', cat: 'doces', nome: 'Trio de suportes para doces', desc: 'Três alturas, ideal para mesas pequenas e composições enxutas.', art: 'trio', tag: PEGUE },
@@ -246,7 +248,7 @@
       '<article>' +
         '<div class="product-media">' + mediaHtml(p) + (p.badge ? '<span class="product-badge">' + esc(p.badge) + '</span>' : '') + '</div>' +
         '<div class="product-body">' +
-          '<span class="product-cat">' + esc(p.publico ? pubLabel(p) : catLabel(p.cat)) + '</span>' +
+          '<span class="product-cat">' + esc(p.publico ? (p.cat === 'kits' ? '' : catLabel(p.cat) + ' · ') + pubLabel(p) : catLabel(p.cat)) + '</span>' +
           '<h3>' + esc(p.nome) + '</h3>' +
           (MOSTRAR_PRECOS && p.preco ? '<span class="product-price">a partir de <b>' + brl(p.preco) + '</b></span>' : '') +
           '<p>' + esc(p.desc) + '</p>' +
@@ -274,12 +276,14 @@
   });
   var chips = $$('.chip', chipsEl);
 
-  /* Subfiltro dos kits: Infantil (menino, menina) e Adulto (masculino, feminino) */
+  /* Subfiltro por público: Infantil (menino, menina) e Adulto (masculino, feminino),
+     nas categorias que têm peças com "publico" (kits pegue e monte e suportes para doces) */
+  var COM_PUBLICO = ['kits', 'doces'];
   var publico = 'all';
   var subEl = document.createElement('div');
   subEl.className = 'subchips'; subEl.hidden = true;
-  subEl.setAttribute('role', 'group'); subEl.setAttribute('aria-label', 'Filtrar kits por público');
-  var subHtml = '<button type="button" class="subchip" data-publico="all" aria-pressed="true">Todos os kits</button>';
+  subEl.setAttribute('role', 'group'); subEl.setAttribute('aria-label', 'Filtrar por público');
+  var subHtml = '<button type="button" class="subchip" data-publico="all" aria-pressed="true">Todos</button>';
   var grupoAtual = '';
   PUBLICOS.forEach(function (u) {
     if (u.grupo !== grupoAtual) {
@@ -287,12 +291,18 @@
       grupoAtual = u.grupo;
       subHtml += '<div class="subchips-group"><span>' + esc(u.grupo) + '</span>';
     }
-    var n = CATALOG.filter(function (p) { return p.publico && p.publico.indexOf(u.id) > -1; }).length;
-    subHtml += '<button type="button" class="subchip" data-publico="' + u.id + '" aria-pressed="false">' + esc(u.label) + '<small>' + n + '</small></button>';
+    subHtml += '<button type="button" class="subchip" data-publico="' + u.id + '" aria-pressed="false">' + esc(u.label) + '<small></small></button>';
   });
   subEl.innerHTML = subHtml + '</div>';
   chipsEl.parentNode.insertBefore(subEl, chipsEl.nextSibling);
   var subchips = $$('.subchip', subEl);
+  /* Contagem de cada público dentro da categoria ativa */
+  var countPublico = function () {
+    subchips.forEach(function (c) {
+      if (c.dataset.publico === 'all') return;
+      $('small', c).textContent = CATALOG.filter(function (p) { return p.cat === active && p.publico && p.publico.indexOf(c.dataset.publico) > -1; }).length;
+    });
+  };
   var setPublico = function (id) {
     publico = id;
     subchips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.publico === id); });
@@ -321,7 +331,7 @@
     var shown = [], fresh = [], k = 0;
     cards.forEach(function (c) {
       var on = active === 'all' || c.dataset.cat === active;
-      if (on && active === 'kits' && publico !== 'all') on = (' ' + (c.dataset.publico || '') + ' ').indexOf(' ' + publico + ' ') > -1;
+      if (on && COM_PUBLICO.indexOf(active) > -1 && publico !== 'all') on = (' ' + (c.dataset.publico || '') + ' ').indexOf(' ' + publico + ' ') > -1;
       if (on && active === 'all' && !expanded) on = k++ < LIMITE;
       if (on && c.hidden) fresh.push(c);
       c.hidden = !on;
@@ -330,7 +340,8 @@
     if (active === 'all' && !expanded) countEl.textContent = shown.length + ' de ' + CATALOG.length + ' peças';
     else setCount(shown.length);
     more.hidden = !(active === 'all' && !expanded);
-    subEl.hidden = active !== 'kits';
+    subEl.hidden = COM_PUBLICO.indexOf(active) < 0;
+    if (!subEl.hidden) countPublico();
     if (animate) revealIn(animate === 'fresh' ? fresh : shown, .045);
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
   };
@@ -349,7 +360,7 @@
     apply('fresh');
     if (first) { first.setAttribute('tabindex', '-1'); first.focus({ preventScroll: true }); }
   });
-  /* Atalhos de outras seções (ex.: portfólio "Ver kits pegue e monte"; data-catalog-publico opcional) */
+  /* Atalhos de outras seções (ex.: portfólio "Ver suportes para doces"; data-catalog-publico opcional) */
   $$('[data-catalog-filter]').forEach(function (a) {
     a.addEventListener('click', function () { filter(a.dataset.catalogFilter, a.dataset.catalogPublico); });
   });

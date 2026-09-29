@@ -27,9 +27,10 @@ assets/img/             fotos das decorações
 - **Catálogo:** os produtos ficam na lista `CATALOG` no início de `assets/js/catalogo.js`
   (nome, categoria, descrição, selo "Mais procurado" e forma de retirada). Peças sem foto usam uma
   ilustração em linha; para usar a foto real, coloque o arquivo em `assets/img/` e preencha `img`
-  (ex.: `img: 'assets/img/suporte-colonial.webp'`). Os kits ficam na categoria **Kits pegue e monte**
-  e o campo `publico` define o subfiltro: `menino`, `menina` (Infantil), `masculino`, `feminino`
-  (Adulto); um kit pode ter mais de um. Não há preços no site: valores e
+  (ex.: `img: 'assets/img/suporte-colonial.webp'`). Os kits de suportes para doces (fotos atuais) ficam
+  em **Suportes para doces** e os kits de decoração em **Kits pegue e monte** (veja `CLAUDE.md`).
+  Nas duas categorias o campo `publico` define o subfiltro: `menino`, `menina` (Infantil),
+  `masculino`, `feminino` (Adulto); um kit pode ter mais de um. Não há preços no site: valores e
   disponibilidade são confirmados pelo WhatsApp conforme a data.
   O botão **Pedir** de cada peça abre o WhatsApp da loja com a mensagem pronta: nome, categoria,
   descrição, modalidade, quantidade, referência e o link da foto (o WhatsApp mostra a prévia da
