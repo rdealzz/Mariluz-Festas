@@ -335,8 +335,8 @@
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
   });
 
-  /* ---------- Galeria: visualizador em tela cheia ---------- */
-  var tiles = $$('[data-tile]'), viewer = $('.viewer'), vBg = $('.viewer-bg'), vUi = $('.viewer-ui');
+  /* ---------- Galeria e catálogo: visualizador em tela cheia ---------- */
+  var tiles = $$('[data-tile]'), vList = tiles, viewer = $('.viewer'), vBg = $('.viewer-bg'), vUi = $('.viewer-ui');
   var vTitle = $('[data-v-title]'), vCat = $('[data-v-cat]'), vIndex = 0, vImg = null, vOrigin = null;
   var fitRect = function (img) {
     var vw = window.innerWidth, vh = window.innerHeight, pad = vw < 700 ? 16 : 96, top = vw < 700 ? 90 : 90, bottom = vw < 700 ? 110 : 60;
@@ -353,14 +353,15 @@
     hi.src = full;
   };
   var setRect = function (el, r) { el.style.left = r.left + 'px'; el.style.top = r.top + 'px'; el.style.width = r.width + 'px'; el.style.height = r.height + 'px'; };
-  var openViewer = function (i) {
-    vIndex = i; vOrigin = tiles[i];
+  var openViewer = function (i, list) {
+    vList = list || tiles; vIndex = i; vOrigin = vList[i];
     var src = $('img', vOrigin), from = src.getBoundingClientRect();
     vImg = document.createElement('img');
     vImg.className = 'viewer-img'; vImg.src = src.currentSrc || src.src; vImg.alt = src.alt; upgrade(vImg, src);
     viewer.appendChild(vImg);
     vTitle.textContent = vOrigin.dataset.title; vCat.textContent = vOrigin.dataset.cat;
     viewer.classList.add('is-open'); viewer.setAttribute('aria-hidden', 'false');
+    viewer.classList.toggle('is-single', vList.length < 2);
     if (lenis) lenis.stop(); document.body.style.overflow = 'hidden';
     var to = fitRect(src);
     if (hasGsap && !reduced) {
@@ -376,9 +377,10 @@
     $('[data-v-close]').focus();
   };
   var swap = function (dir) {
-    vIndex = (vIndex + dir + tiles.length) % tiles.length;
+    if (vList.length < 2) return;
+    vIndex = (vIndex + dir + vList.length) % vList.length;
     $('img', vOrigin).style.visibility = '';
-    vOrigin = tiles[vIndex];
+    vOrigin = vList[vIndex];
     var src = $('img', vOrigin), next = vImg;
     vTitle.textContent = vOrigin.dataset.title; vCat.textContent = vOrigin.dataset.cat;
     var apply = function () { next.src = src.currentSrc || src.src; next.alt = src.alt; upgrade(next, src); setRect(next, fitRect(src)); src.style.visibility = 'hidden'; };
@@ -404,6 +406,16 @@
     } else done();
   };
   tiles.forEach(function (t, i) { t.addEventListener('click', function () { openViewer(i); }); });
+  /* Fotos do catálogo: abre a foto grande e navega pelas peças com foto visíveis no filtro atual */
+  var zooms = $$('[data-zoom]');
+  var openZoom = function (z) {
+    var list = zooms.filter(function (el) { return !el.closest('.product').hidden; });
+    openViewer(Math.max(0, list.indexOf(z)), list);
+  };
+  zooms.forEach(function (z) {
+    z.addEventListener('click', function () { openZoom(z); });
+    z.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openZoom(z); } });
+  });
   $('[data-v-close]').addEventListener('click', closeViewer);
   $('[data-v-prev]').addEventListener('click', function () { swap(-1); });
   $('[data-v-next]').addEventListener('click', function () { swap(1); });
@@ -482,8 +494,13 @@
   var intro = gsap.timeline({ delay: .1 });
   if (!reduced) {
     intro
-      .to('.loader-word', { opacity: 1, letterSpacing: '.72em', duration: 1.1, ease: 'silk' })
-      .to('.loader-bar span', { scaleX: 1, duration: 1, ease: 'silk' }, '<.1')
+      .to('.loader-ring', { strokeDashoffset: 0, duration: 1.1, ease: 'silk' })
+      .to('.loader-m', { strokeDashoffset: 0, duration: .9, ease: 'silk' }, '<.25')
+      .fromTo('.loader-star', { opacity: 0, scale: 0, rotation: -90, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, rotation: 0, duration: .7, ease: 'back.out(2.2)' }, '-=.35')
+      .to('.loader-word', { opacity: 1, letterSpacing: '.72em', duration: 1.1, ease: 'silk' }, '<-.3')
+      .to('.loader-sub', { opacity: 1, duration: .8, ease: 'silk' }, '<.3')
+      .to('.loader-bar span', { scaleX: 1, duration: 1, ease: 'silk' }, '<')
+      .to('.loader-tag', { opacity: 1, duration: .8, ease: 'silk' }, '<.2')
       .to('.loader', { yPercent: -100, duration: 1.1, ease: 'expo.inOut' }, '+=.1')
       .set('.loader', { display: 'none' })
       .from('.hero-media', { scale: 1.12, duration: 2.4, ease: 'expo.out' }, '-=.7');

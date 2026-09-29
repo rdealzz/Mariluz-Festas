@@ -163,7 +163,7 @@
     /* pos: enquadramento da foto no card quadrado (ex.: fotos em pé com a placa no alto) */
     if (p.img) {
       var set = small ? '' : ' srcset="' + size(p.img, 600) + ' 600w, ' + size(p.img, 1200) + ' 1200w" sizes="(max-width: 600px) 46vw, (max-width: 1100px) 30vw, 300px"';
-      return '<img src="' + size(p.img, 600) + '"' + set + ' alt="' + (small ? '' : p.nome) + '" loading="lazy" decoding="async"' + (p.pos ? ' style="object-position:' + p.pos + '"' : '') + '>';
+      return '<img src="' + size(p.img, 600) + '"' + set + ' alt="' + (small ? '' : p.nome) + '"' + (small ? '' : ' data-full="' + p.img + '"') + ' loading="lazy" decoding="async"' + (p.pos ? ' style="object-position:' + p.pos + '"' : '') + '>';
     }
     return '<div class="product-art" data-cat="' + p.cat + '">' + artSvg(p.art) + '</div>';
   };
@@ -236,6 +236,7 @@
     return waUrl(msg);
   };
   var brl = function (v) { return 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2 }); };
+  var zoomIcon = '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4M11 8.5v5M8.5 11h5"/></svg>';
   var plus = '<svg class="i-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><svg class="i-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
   /* Vitrine: destaques primeiro, depois o restante na ordem do catálogo */
   var ordered = DESTAQUES.map(function (id) { return byId[id]; }).filter(Boolean);
@@ -246,7 +247,9 @@
     if (p.publico) li.dataset.publico = p.publico.join(' ');
     li.innerHTML =
       '<article>' +
-        '<div class="product-media">' + mediaHtml(p) + (p.badge ? '<span class="product-badge">' + esc(p.badge) + '</span>' : '') + '</div>' +
+        (p.img
+          ? '<div class="product-media is-zoom" data-zoom role="button" tabindex="0" aria-label="Ampliar foto: ' + esc(p.nome) + '" data-title="' + esc(p.nome) + '" data-cat="' + esc(fullCat(p)) + '">' + mediaHtml(p) + '<span class="product-zoom" aria-hidden="true">' + zoomIcon + '</span>'
+          : '<div class="product-media">' + mediaHtml(p)) + (p.badge ? '<span class="product-badge">' + esc(p.badge) + '</span>' : '') + '</div>' +
         '<div class="product-body">' +
           '<span class="product-cat">' + esc(p.publico ? (p.cat === 'kits' ? '' : catLabel(p.cat) + ' · ') + pubLabel(p) : catLabel(p.cat)) + '</span>' +
           '<h3>' + esc(p.nome) + '</h3>' +
