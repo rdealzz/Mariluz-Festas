@@ -445,8 +445,8 @@
     navLinks.forEach(function (a) { var s = $(a.getAttribute('href')); if (s) { var r = s.getBoundingClientRect(); if (r.top < mid && r.bottom > mid) current = a; } });
     navLinks.forEach(function (a) { a.setAttribute('aria-current', a === current); });
   };
-  var orb = $('.orb');
-  if (!hasGsap) orb.classList.add('is-on');
+  var orb = $('a.orb'); /* o botão do WhatsApp (não as bolinhas decorativas do portfólio) */
+  orb.classList.add('is-on'); /* visível desde o início */
   var scrollQueued = false;
   var onScroll = function () {
     if (scrollQueued) return;
@@ -610,8 +610,6 @@
   /* Rodapé: palavra final em parallax */
   if (!reduced) gsap.from('.footer-word', { yPercent: 40, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'bottom bottom', scrub: 1 } });
 
-  /* Esfera do WhatsApp surge após o hero */
-  ScrollTrigger.create({ trigger: '.hero', start: 'bottom 70%', onEnter: function () { orb.classList.add('is-on'); }, onLeaveBack: function () { orb.classList.remove('is-on'); } });
 
   ScrollTrigger.refresh();
   placePill($('.tab[aria-selected="true"]'), true);

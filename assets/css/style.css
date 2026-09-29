@@ -718,9 +718,9 @@ button { background: none; border: 0; cursor: pointer; }
 @media (max-width: 520px) { .footer-top { grid-template-columns: 1fr; } }
 
 /* ---------- WhatsApp: esfera de vidro ---------- */
-.orb { opacity: 0; visibility: hidden; transform: translateY(20px) scale(.6); transition: opacity .7s var(--lux), transform .9s var(--lux), visibility .7s; }
-.orb.is-on { opacity: 1; visibility: visible; transform: none; }
-.orb { position: fixed; z-index: 160; right: clamp(1rem, 2.4vw, 2rem); bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(1rem, 2.4vw, 2rem)); display: flex; align-items: center; gap: .8rem; }
+a.orb { opacity: 0; visibility: hidden; transform: translateY(20px) scale(.6); transition: opacity .7s var(--lux), transform .9s var(--lux), visibility .7s; }
+a.orb.is-on { opacity: 1; visibility: visible; transform: none; }
+a.orb { position: fixed; z-index: 160; right: clamp(1rem, 2.4vw, 2rem); bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(1rem, 2.4vw, 2rem)); display: flex; align-items: center; gap: .8rem; }
 .orb-label { padding: .6rem 1rem; border-radius: 999px; font-size: .84rem; font-weight: 500; color: var(--ink); background: rgba(250, 249, 247, .75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .9), var(--shadow-soft); opacity: 0; transform: translateX(10px); transition: opacity .5s var(--lux), transform .7s var(--lux); pointer-events: none; white-space: nowrap; }
 .orb:hover .orb-label, .orb:focus-visible .orb-label { opacity: 1; transform: none; }
 .orb-sphere { position: relative; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; color: var(--ink);
@@ -776,3 +776,11 @@ button { background: none; border: 0; cursor: pointer; }
 /* Sombras dos cards com desfoque menor: mesmo relevo, bem menos pintura */
 .product article, .quote { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .9), 0 1px 1px rgba(46, 43, 44, .03), 0 14px 30px -18px rgba(46, 43, 44, .18); }
 .product article:hover { box-shadow: inset 0 0 0 1px #fff, 0 2px 4px rgba(46, 43, 44, .05), 0 26px 44px -24px rgba(46, 43, 44, .3); }
+
+/* Botão do WhatsApp: verde e reconhecível, visível em toda a página */
+.orb-sphere { color: #fff; background: #25D366; backdrop-filter: none; -webkit-backdrop-filter: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 14px 30px -10px rgba(18, 140, 70, .55); }
+.orb-sphere::before { background: radial-gradient(circle, rgba(37, 211, 102, .35), transparent 65%); }
+.orb-sphere svg { width: 30px; height: 30px; stroke-width: 1.7; }
+.orb:hover .orb-sphere { background: #20BD5A; }
+@media (hover: hover) and (min-width: 901px) { .orb-label { opacity: 1; transform: none; background: rgba(252, 248, 246, .97); backdrop-filter: none; -webkit-backdrop-filter: none; } }
