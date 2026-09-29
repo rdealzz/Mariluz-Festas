@@ -440,10 +440,18 @@
           </div>
           <p class="lede" data-reveal>No coração da Água Verde, a poucos minutos do centro de Curitiba.</p>
         </div>
+        <!-- Mapa e fachada no mesmo quadro. A fachada (Street View) só carrega ao tocar em "Fachada".
+             Para girar a câmera, troque o 2º número de cbp (direção em graus: 0 norte, 90 leste, 180 sul, 270 oeste) -->
         <div class="map-shell" data-map>
           <iframe title="Mapa com a localização da Mariluz Festas" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             src="https://maps.google.com/maps?q=Mariluz%20Festas%2C%20R.%20Goi%C3%A1s%2C%20226%2C%20%C3%81gua%20Verde%2C%20Curitiba&z=16&output=embed"></iframe>
+          <iframe class="map-street" title="Fachada da Mariluz Festas no Google Street View" referrerpolicy="no-referrer-when-downgrade" allowfullscreen tabindex="-1"
+            data-src="https://maps.google.com/maps?q=&layer=c&cbll=-25.4652926,-49.2890743&cbp=11,0,0,0,0&output=svembed"></iframe>
           <span class="map-pin" aria-hidden="true"></span>
+          <div class="map-switch" role="group" aria-label="Escolher a vista">
+            <button type="button" aria-pressed="true" data-view="map">Mapa</button>
+            <button type="button" aria-pressed="false" data-view="street">Fachada</button>
+          </div>
           <div class="map-card">
             <span class="open-state" data-open>Seg a sex · 9h às 18h</span>
             <h3>Mariluz Festas</h3>
@@ -452,20 +460,6 @@
               <a class="btn btn-dark btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Mariluz+Festas,+R.+Goi%C3%A1s,+226+-+%C3%81gua+Verde,+Curitiba+-+PR" data-magnetic>Traçar rota</a>
               <a class="btn btn-outline btn-sm" target="_blank" rel="noopener" href="https://waze.com/ul?ll=-25.4652926,-49.2890743&navigate=yes" data-magnetic>Waze</a>
             </div>
-          </div>
-        </div>
-
-        <!-- Fachada pelo Street View. Para girar a câmera, troque o 2º número de cbp (direção em graus: 0 norte, 90 leste, 180 sul, 270 oeste) -->
-        <div class="street" data-reveal>
-          <div class="street-text">
-            <p class="eyebrow">Nossa fachada</p>
-            <h3>Fácil de achar na R.&nbsp;Goiás,&nbsp;226.</h3>
-            <p>Arraste a imagem para olhar em volta e reconhecer a loja antes de chegar.</p>
-            <a class="btn btn-outline btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-25.4652926,-49.2890743" data-magnetic>Abrir no Google Maps</a>
-          </div>
-          <div class="street-shell">
-            <iframe title="Fachada da Mariluz Festas no Google Street View" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
-              src="https://maps.google.com/maps?q=&layer=c&cbll=-25.4652926,-49.2890743&cbp=11,0,0,0,0&output=svembed"></iframe>
           </div>
         </div>
       </div>

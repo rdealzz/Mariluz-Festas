@@ -585,8 +585,22 @@
     } });
   });
 
-  /* Mapa: zoom cinematográfico */
+  /* Mapa e fachada: alterna a vista no mesmo quadro (o Street View só carrega na 1ª vez) */
   var mapShell = $('[data-map]');
+  if (mapShell) {
+    var street = $('.map-street', mapShell);
+    $$('.map-switch button', mapShell).forEach(function (b, _, all) {
+      b.addEventListener('click', function () {
+        var on = b.dataset.view === 'street';
+        if (on && !street.src) street.src = street.dataset.src;
+        mapShell.classList.toggle('is-street', on);
+        street.tabIndex = on ? 0 : -1;
+        all.forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      });
+    });
+  }
+
+  /* Mapa: zoom cinematográfico */
   if (mapShell && !reduced) {
     gsap.fromTo($('iframe', mapShell), { scale: 1.45 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: mapShell, start: 'top 95%', end: 'center 55%', scrub: 1 } });
     gsap.from('.map-card', { y: 60, opacity: 0, duration: 1.4, scrollTrigger: { trigger: mapShell, start: 'top 55%', once: true } });
