@@ -777,10 +777,10 @@ a.orb { position: fixed; z-index: 160; right: clamp(1rem, 2.4vw, 2rem); bottom: 
 .product article, .quote { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .9), 0 1px 1px rgba(46, 43, 44, .03), 0 14px 30px -18px rgba(46, 43, 44, .18); }
 .product article:hover { box-shadow: inset 0 0 0 1px #fff, 0 2px 4px rgba(46, 43, 44, .05), 0 26px 44px -24px rgba(46, 43, 44, .3); }
 
-/* Botão do WhatsApp: verde e reconhecível, visível em toda a página */
-.orb-sphere { color: #fff; background: #25D366; backdrop-filter: none; -webkit-backdrop-filter: none;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 14px 30px -10px rgba(18, 140, 70, .55); }
-.orb-sphere::before { background: radial-gradient(circle, rgba(37, 211, 102, .35), transparent 65%); }
+/* Botão do WhatsApp: rose gold da paleta, visível em toda a página */
+.orb-sphere { color: #fff; background: linear-gradient(145deg, #E3AFA8 0%, #C58F87 55%, #A8736B 100%); backdrop-filter: none; -webkit-backdrop-filter: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), inset 0 -6px 12px rgba(120, 70, 62, .25), 0 14px 30px -10px rgba(168, 115, 107, .6); }
+.orb-sphere::before { background: radial-gradient(circle, rgba(198, 161, 91, .35), transparent 65%); }
 .orb-sphere svg { width: 30px; height: 30px; stroke-width: 1.7; }
-.orb:hover .orb-sphere { background: #20BD5A; }
+.orb:hover .orb-sphere { background: linear-gradient(145deg, #D9A39B 0%, #B98078 55%, #9A665F 100%); }
 @media (hover: hover) and (min-width: 901px) { .orb-label { opacity: 1; transform: none; background: rgba(252, 248, 246, .97); backdrop-filter: none; -webkit-backdrop-filter: none; } }
