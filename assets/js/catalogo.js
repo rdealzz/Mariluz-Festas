@@ -64,6 +64,7 @@
     { id: 'kit-azul-amarelo', cat: 'kits', publico: ['masculino'], nome: 'Kit Azul marinho e amarelo', desc: 'Suportes e bandejas em azul marinho e amarelo, com vasos amarelos e topiarias.', img: 'assets/img/kit-azul-amarelo.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-azul-marinho-dourado', cat: 'kits', publico: ['masculino'], nome: 'Kit Azul marinho e dourado', desc: 'Vasos, boleiras e pratos azul marinho com bandejas espelhadas, suportes dourados e porcelana azul e branca.', img: 'assets/img/kit-azul-marinho-dourado.webp', pos: 'center 80%', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-terracota-preto', cat: 'kits', publico: ['masculino'], nome: 'Kit Terracota e preto', desc: 'Vasos pretos com pinheiros, boleiras terracota e nude, vasos terracota com folhagens e bandeja.', img: 'assets/img/kit-terracota-preto.webp', pos: 'center 82%', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-cristal', cat: 'kits', publico: ['feminino', 'masculino'], nome: 'Kit Cristal', desc: 'Boleira, bandejas com e sem pé, taças, vasinhos e cúpulas em vidro lapidado, para mesas clássicas e elegantes.', img: 'assets/img/kit-cristal.webp', pos: 'center 85%', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-rustico-madeira', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Rústico madeira', desc: 'Suportes de madeira e ferro, cesto de fibra, corações e tábua de madeira, com vasos de palhinha.', img: 'assets/img/kit-rustico-madeira.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-madeira-ferro', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Madeira e ferro', desc: 'Suportes de madeira e de ferro preto, cesto de fibra, corações e tábua de madeira sobre trilho de juta.', img: 'assets/img/kit-madeira-ferro.webp', tag: PEGUE, badge: 'Novidade' },
 
@@ -97,7 +98,7 @@
     { id: 'suqueira', cat: 'detalhes', nome: 'Suqueira 5 litros', desc: 'Para sucos e drinks na mesa de bebidas.', art: 'jar', tag: PEGUE }
   ];
   /* Ordem da vitrine "Todos" (as demais peças aparecem em "Ver todas") */
-  var DESTAQUES = ['kit-patrulha-canina', 'kit-realeza-rosa', 'kit-dourado-rosas', 'kit-azul-amarelo', 'kit-ursinhos-lilas', 'kit-azul-marinho-dourado', 'kit-terracota-preto', 'kit-rustico-madeira', 'kit-madeira-ferro', 'vasos-de-vidro', 'kit-oh-baby', 'kit-batman'];
+  var DESTAQUES = ['kit-patrulha-canina', 'kit-realeza-rosa', 'kit-dourado-rosas', 'kit-azul-amarelo', 'kit-ursinhos-lilas', 'kit-azul-marinho-dourado', 'kit-terracota-preto', 'kit-cristal', 'kit-rustico-madeira', 'kit-madeira-ferro', 'vasos-de-vidro'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
   var circles = function (pts, cls) {
