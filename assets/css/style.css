@@ -219,6 +219,13 @@ button { background: none; border: 0; cursor: pointer; }
 }
 .nav .btn .short { display: none; }
 @media (max-width: 420px) { .nav .btn .long { display: none; } .nav .btn .short { display: inline; } }
+/* Telas bem estreitas (iPhone SE, 320px): logo mais justo para o botão caber dentro do menu */
+@media (max-width: 380px) {
+  .nav { grid-template-columns: 40px 1fr auto; padding: 0 6px 0 6px; }
+  .logo-word { font-size: .92rem; letter-spacing: .34em; padding-left: .34em; }
+  .logo-sub { letter-spacing: .4em; padding-left: .4em; }
+  .nav .btn { padding: 0 .85rem; }
+}
 
 /* ---------- HERO ---------- */
 .hero { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; background: var(--matte); color: var(--white); isolation: isolate; }
@@ -427,7 +434,7 @@ button { background: none; border: 0; cursor: pointer; }
 .bag.bump b { animation: bump .7s var(--lux); }
 @keyframes bump { 30% { transform: scale(1.3); } }
 .menu-open .bag, .drawer-open .bag { opacity: 0; visibility: hidden; }
-@media (max-width: 600px) { .bag { height: 52px; } }
+@media (max-width: 600px) { .bag { height: 52px; padding-left: .95rem; } .bag > span { display: none; } } /* só ícone e contador: não cobre os botões da página (o nome vai no aria-label) */
 
 /* Lista de locação: painel */
 .drawer { position: fixed; inset: 0; z-index: 320; visibility: hidden; transition: visibility .8s; }
@@ -788,6 +795,8 @@ a.orb { position: fixed; z-index: 160; right: clamp(1rem, 2.4vw, 2rem); bottom: 
   .nav.is-light { background: rgba(252, 248, 246, .97); }
   .bag { background: rgba(250, 249, 247, .97); }
   .sheet { background: rgba(247, 245, 241, .98); }
+  /* Links de texto do rodapé e da galeria: área de toque de ~44px sem mudar o espaçamento */
+  .footer .link, .gallery-foot .link, .form-list-head .link { display: inline-block; padding: .65rem 0; margin: -.65rem 0; }
   /* Camadas prontas para a GPU: o fundo do hero e a moldura mexem a cada quadro da rolagem */
   .hero-media, .hero-copy { will-change: transform; }
   /* Sem inclinação 3D no toque: cada perspectiva e camada 3D custava composição na rolagem */
