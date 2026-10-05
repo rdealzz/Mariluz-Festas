@@ -30,7 +30,7 @@ assets/img/             fotos das decorações
   (ex.: `img: 'assets/img/suporte-colonial.webp'`). Os kits de suportes para doces (fotos atuais) ficam
   em **Suportes para doces** e os kits de decoração em **Kits pegue e monte** (veja `CLAUDE.md`).
   Nas duas categorias o campo `publico` define o subfiltro: `menino`, `menina` (Infantil),
-  `masculino`, `feminino` (Adulto); um kit pode ter mais de um. Não há preços no site: valores e
+  `masculino`, `feminino` (Adulto), `batizado`, `cha` (Bebê); um kit pode ter mais de um. Não há preços no site: valores e
   disponibilidade são confirmados pelo WhatsApp conforme a data.
   O botão **Pedir** de cada peça abre o WhatsApp da loja com a mensagem pronta: nome, categoria,
   descrição, modalidade, quantidade, referência e o link da foto (o WhatsApp mostra a prévia da
@@ -43,7 +43,7 @@ assets/img/             fotos das decorações
   a lista `TESTIMONIALS` no início de `assets/js/main.js` com o texto exato e o nome da cliente.
 - **Vídeo do hero (opcional):** coloque um vídeo em `assets/video/hero.mp4` e preencha
   `data-src="assets/video/hero.mp4"` na tag `<video class="hero-video">`.
-- **Números:** a seção "Em números" usa dados públicos (14 anos, 67 avaliações, nota 4,5,
+- **Números:** a seção "Em números" usa dados públicos (15 anos, 67 avaliações, nota 4,5,
   6.800 seguidores). Para "eventos realizados" ou "clientes atendidos", ajuste `data-count`.
 
 ## Dados do negócio usados

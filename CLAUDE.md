@@ -14,10 +14,19 @@
 
 ## Fotos atuais
 
-Todas as fotos de kits em `assets/img/kit-*.webp` (Patrulha Canina, Realeza rosa, Ursinhos lilás,
-Dourado com rosas, Azul marinho e amarelo, Azul marinho e dourado, Terracota e preto, Cristal,
-Rústico madeira, Madeira e ferro) são **kits de suportes para doces**. Ainda não há nenhuma foto de
-kit pegue e monte: os itens de `cat: 'kits'` usam a ilustração `art: 'minitable'`.
+- `assets/img/kit-*.webp` (Patrulha Canina, Realeza rosa, Ursinhos lilás, Dourado com rosas, Azul
+  marinho e amarelo, Azul marinho e dourado, Terracota e preto, Cristal, Rústico madeira, Madeira e
+  ferro) são **kits de suportes para doces** (`cat: 'doces'`).
+- `assets/img/pm-*.webp` são **kits pegue e monte** (`cat: 'kits'`), enviados pela Mariluz em 05/10/2026
+  (Gabby, Dragon Ball, One Piece, Safári baby, Fundo do mar, Baby Shark, DPA, Chaves, Futebol Copa,
+  Patinho, Chá revelação, Arco rosé, Boho dourado, Rústico verde etc.). Os kits pegue e monte que
+  ainda não têm foto usam a ilustração `art: 'minitable'`.
+- Cada foto existe em 600px, 1200px e na versão máxima (Full HD, 1920px no lado maior), em `.webp`.
+
+Subfiltro `publico` dos kits: Infantil (`menino`, `menina`), Adulto (`masculino`, `feminino`) e Bebê
+(`batizado`, `cha` = chá de bebê, de fraldas e revelação).
+
+Próxima etapa combinada com a Mariluz: decorações com montagem e balões (fotos ainda a enviar).
 
 Ao receber fotos novas, pergunte ou confirme pela conversa se são suportes para doces ou pegue e
 monte antes de cadastrar. Na dúvida, suportes/boleiras/bandejas = `doces`.

@@ -29,34 +29,66 @@
     { id: 'baloes', label: 'Balões' },
     { id: 'detalhes', label: 'Detalhes' }
   ];
-  /* Público dos kits (campo "publico"; um kit pode servir a mais de um).
+  /* Público dos kits (campo "publico"; um kit pode servir a mais de um):
+     Infantil (menino, menina), Adulto (masculino, feminino) e Bebê (batizado, chá de bebê/fraldas/revelação).
      O subfiltro por público aparece em "Kits pegue e monte" e em "Suportes para doces". */
   var PUBLICOS = [
     { id: 'menino', grupo: 'Infantil', label: 'Menino' },
     { id: 'menina', grupo: 'Infantil', label: 'Menina' },
     { id: 'masculino', grupo: 'Adulto', label: 'Masculino' },
-    { id: 'feminino', grupo: 'Adulto', label: 'Feminino' }
+    { id: 'feminino', grupo: 'Adulto', label: 'Feminino' },
+    { id: 'batizado', grupo: 'Bebê', label: 'Batizado' },
+    { id: 'cha', grupo: 'Bebê', label: 'Chá de bebê' }
   ];
   var PEGUE = 'Pegue e monte', MONTAGEM = 'Montagem no local';
   var RETIRA = 'Retire na loja'; /* suportes para doces: não usar "Pegue e monte" para não confundir com os kits */
   var CATALOG = [
-    /* Kits pegue e monte · infantil */
+    /* Kits pegue e monte · com foto */
+    { id: 'kit-gabby', cat: 'kits', publico: ['menina'], nome: 'Kit A Casa Mágica da Gabby', desc: 'Painel redondo da Gabby, cilindros rosa, Pandy e os gatinhos da turma, com suportes e tapete rosa.', img: 'assets/img/pm-gabby.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-chuva-de-amor', cat: 'kits', publico: ['menina'], nome: 'Kit Chuva de amor arco-íris', desc: 'Nuvem com lacinho, arco-íris e painéis em tons pastel, com mesas em formato de nuvem e flores.', img: 'assets/img/pm-chuva-de-amor.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-metoo', cat: 'kits', publico: ['menina'], nome: 'Kit Metoo bonecas', desc: 'Bonecas Metoo, coelhinha, cômoda rosa e cilindros em verde-água e rosa, com flores.', img: 'assets/img/pm-metoo.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-borboletas', cat: 'kits', publico: ['menina'], nome: 'Kit Borboletas', desc: 'Painéis verde e rosa com flores, borboletas gigantes vazadas e cilindros brancos.', img: 'assets/img/pm-borboletas.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-ursinha-girl', cat: 'kits', publico: ['menina', 'cha'], nome: 'Kit Ursinha provençal rosa', desc: 'Ursinhas de vestido, cômodas provençais rosa, cavalinho e letreiro GIRL, para aniversário ou chá de bebê.', img: 'assets/img/pm-ursinha-girl.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-dragon-ball', cat: 'kits', publico: ['menino'], nome: 'Kit Dragon Ball Z', desc: 'Painel do Goku, totens do Vegeta e do Goku, mesinhas laranja e azul e estrelas.', img: 'assets/img/pm-dragon-ball.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-one-piece', cat: 'kits', publico: ['menino'], nome: 'Kit One Piece', desc: 'Painel do Luffy, cilindros One Piece, bandeira pirata, totens e arco de balões.', img: 'assets/img/pm-one-piece.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-aviao', cat: 'kits', publico: ['menino'], nome: 'Kit Aviação', desc: 'Painel com avião sobre a cidade, cilindros de céu e nuvens, aviões de madeira, globo e ursinho.', img: 'assets/img/pm-aviao.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-ursinho-brinquedos', cat: 'kits', publico: ['menino', 'cha'], nome: 'Kit Ursinho e brinquedos', desc: 'Painel listrado azul com ursinho e pipa, cilindros com cavalinho de pau e brinquedos de madeira.', img: 'assets/img/pm-ursinho-brinquedos.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-marinheiro', cat: 'kits', publico: ['menino', 'batizado'], nome: 'Kit Marinheiro', desc: 'Ursinhos marinheiros, timão vermelho, boias, farol, âncora e navio, com móvel de madeira.', img: 'assets/img/pm-marinheiro.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-futebol', cat: 'kits', publico: ['menino', 'masculino'], nome: 'Kit Futebol Copa do Mundo', desc: 'Painel de bola com bandeiras, cilindros de gramado, troféus, chuteira e tapete verde.', img: 'assets/img/pm-futebol-copa.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-safari-baby', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Safári baby', desc: 'Painel dos bichinhos no jipe, cilindros de folhagem, elefante e girafa, com pelúcias.', img: 'assets/img/pm-safari-baby.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-fundo-do-mar', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Fundo do mar aquarela', desc: 'Painel com submarino, cilindros de madeira e rede, timão e pelúcias de polvo, caranguejo e tubarão.', img: 'assets/img/pm-fundo-do-mar.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-baby-shark', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Baby Shark', desc: 'Painel do Baby Shark, arco de balões azuis, cilindros, timão, boia e polvo.', img: 'assets/img/pm-baby-shark.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-dinossauros', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Dinossauros baby', desc: 'Painel de dinos em aquarela, caixotes amarelos, gramado e dinossauros de pelúcia.', img: 'assets/img/pm-dinossauros.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'mini-table-dpa', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit DPA', desc: 'Painel D.P.A., cilindros temáticos, capas dos detetives e acessórios.', img: 'assets/img/pm-dpa.webp', tag: PEGUE, badge: 'Novidade', preco: 340 },
+    { id: 'kit-pandas', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Pandas', desc: 'Painel de pandas com bambu, cômoda rosa, totem e pelúcias de panda e letreiro BOY.', img: 'assets/img/pm-pandas.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-chaves', cat: 'kits', publico: ['menino', 'menina', 'masculino', 'feminino'], nome: 'Kit Chaves', desc: 'Painel da vila, barril vermelho, totens do Chaves, Chiquinha, Quico e turma.', img: 'assets/img/pm-chaves.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-pascoa', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Páscoa', desc: 'Coelhos gigantes, aparador verde, cômoda rosa, ovos, pinheirinhos e vasos.', img: 'assets/img/pm-pascoa.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-patinho', cat: 'kits', publico: ['batizado', 'cha'], nome: 'Kit Patinho sálvia', desc: 'Painéis em arco branco e verde sálvia, mesas orgânicas, carrinho de vime, patinho e toalha de crochê.', img: 'assets/img/pm-patinho.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-ursinho-baloes', cat: 'kits', publico: ['batizado', 'cha', 'menino', 'menina'], nome: 'Kit Ursinho com balões', desc: 'Painel do ursinho com balões em tons neutros, arco de balões, cilindros e ursos de pelúcia.', img: 'assets/img/pm-ursinho-baloes.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-cha-revelacao', cat: 'kits', publico: ['cha'], nome: 'Kit Chá revelação ursinhos', desc: 'Painel listrado com ursinho, cilindros rosa e azul, letreiros GIRL e BOY e silhuetas.', img: 'assets/img/pm-cha-revelacao.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-arco-rose', cat: 'kits', publico: ['feminino'], nome: 'Kit Arco rosé', desc: 'Painel em arco bege, cilindros rosa canelados, rosas brancas e suportes dourados.', img: 'assets/img/pm-arco-rose.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-arco-rose-madeira', cat: 'kits', publico: ['feminino'], nome: 'Kit Arco rosé madeira', desc: 'Painel em arco bege, cilindros rosa canelados, suportes de madeira e folhagens.', img: 'assets/img/pm-arco-rose-madeira.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-boho-dourado', cat: 'kits', publico: ['feminino'], nome: 'Kit Boho dourado', desc: 'Arco e mesas de ferro dourado com tampo de madeira, porta verde e arranjos de flores secas.', img: 'assets/img/pm-boho-dourado.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-verde-rose-dourado', cat: 'kits', publico: ['feminino'], nome: 'Kit Verde, rosé e dourado', desc: 'Arco de ferro com balões verde, rosé e dourado, mesas de ferro e madeira e copos-de-leite.', img: 'assets/img/pm-verde-rose-dourado.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-coracao', cat: 'kits', publico: ['feminino', 'masculino'], nome: 'Kit Coração verde', desc: 'Painel de coração branco, mesas orgânicas verdes, suportes de madeira e folhagens.', img: 'assets/img/pm-coracao-verde.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-love', cat: 'kits', publico: ['feminino', 'masculino'], nome: 'Kit Love', desc: 'Painel em arco bege, cilindros brancos, letras LOVE e folhagens, para noivados e aniversários.', img: 'assets/img/pm-love.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-rustico-verde', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Rústico verde', desc: 'Painel em arco verde, treliça de madeira, cilindro branco, mesas de ferro e samambaia.', img: 'assets/img/pm-rustico-verde.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-cantina-italiana', cat: 'kits', publico: ['feminino', 'masculino'], nome: 'Kit Cantina italiana', desc: 'Mesa de madeira com toalha xadrez, rosas vermelhas, lampiões, massas e plantas.', img: 'assets/img/pm-cantina-italiana.webp', tag: PEGUE, badge: 'Novidade' },
+
+    /* Kits pegue e monte · ainda sem foto */
     { id: 'mini-table-jardim-encantado', cat: 'kits', publico: ['menina'], nome: 'Kit Jardim Encantado', desc: 'Tema jardim encantado em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 399 },
     { id: 'mini-table-wandinha', cat: 'kits', publico: ['menina'], nome: 'Kit Wandinha', desc: 'Tema Wandinha em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 420 },
     { id: 'mini-table-circo-rosa', cat: 'kits', publico: ['menina'], nome: 'Kit Circo Rosa', desc: 'Tema circo em tons de rosa, numa mesa pequena e delicada.', art: 'minitable', tag: PEGUE, preco: 320 },
     { id: 'mini-table-ariel', cat: 'kits', publico: ['menina'], nome: 'Kit Ariel', desc: 'Tema Pequena Sereia em composição leve e enxuta.', art: 'minitable', tag: PEGUE, preco: 420 },
     { id: 'mini-table-barbie', cat: 'kits', publico: ['menina'], nome: 'Kit Barbie', desc: 'Tema Barbie numa mesa pequena e marcante.', art: 'minitable', tag: PEGUE, preco: 420 },
-    { id: 'kit-oh-baby', cat: 'kits', publico: ['menina'], nome: 'Kit Oh Baby', desc: 'Chá de bebê em rosé, verde e dourado, com flores e arco de balões.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado' },
-    { id: 'kit-cha-fraldas-menina', cat: 'kits', publico: ['menina'], nome: 'Kit chá de fraldas menina (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas da menina.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-futebol', cat: 'kits', publico: ['menino'], nome: 'Kit Futebol', desc: 'Bola gigante, gramado e balões nas cores do time.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado' },
+    { id: 'kit-oh-baby', cat: 'kits', publico: ['menina', 'cha'], nome: 'Kit Oh Baby', desc: 'Chá de bebê em rosé, verde e dourado, com flores e arco de balões.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado' },
+    { id: 'kit-cha-fraldas-menina', cat: 'kits', publico: ['menina', 'cha'], nome: 'Kit chá de fraldas menina (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas da menina.', art: 'minitable', tag: PEGUE },
     { id: 'kit-batman', cat: 'kits', publico: ['menino'], nome: 'Kit Batman', desc: 'Tonel, plantas e personagem para uma mesa marcante.', art: 'minitable', tag: PEGUE },
     { id: 'kit-praia', cat: 'kits', publico: ['menino'], nome: 'Kit Praia e surf', desc: 'Prancha, remo e boia para uma festa leve e solar.', art: 'minitable', tag: PEGUE },
     { id: 'kit-star-wars', cat: 'kits', publico: ['menino'], nome: 'Kit Star Wars', desc: 'Personagens e peças da galáxia para os pequenos fãs.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-cha-fraldas-menino', cat: 'kits', publico: ['menino'], nome: 'Kit chá de fraldas menino (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas do menino.', art: 'minitable', tag: PEGUE },
+    { id: 'kit-cha-fraldas-menino', cat: 'kits', publico: ['menino', 'cha'], nome: 'Kit chá de fraldas menino (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas do menino.', art: 'minitable', tag: PEGUE },
     { id: 'mini-table-mundo-bita', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Mundo Bita', desc: 'Tema Mundo Bita para os pequenos, pronto para retirar e montar.', art: 'minitable', tag: PEGUE, preco: 320 },
-    { id: 'mini-table-dpa', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit DPA', desc: 'Tema Detetives do Prédio Azul em versão compacta.', art: 'minitable', tag: PEGUE, preco: 340 },
-    { id: 'kit-fundo-do-mar', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Fundo do mar', desc: 'Tons de azul e personagens do oceano.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-batizado', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Batizado ou 1ª Comunhão', desc: 'Composição delicada para batizados e primeira comunhão.', art: 'minitable', tag: PEGUE },
+    { id: 'kit-batizado', cat: 'kits', publico: ['batizado'], nome: 'Kit Batizado ou 1ª Comunhão', desc: 'Composição delicada para batizados e primeira comunhão.', art: 'minitable', tag: PEGUE },
     { id: 'kit-galinha-pintadinha', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
 
     /* Suportes para doces · kits com foto (infantil e adulto) */
@@ -101,7 +133,7 @@
     { id: 'suqueira', cat: 'detalhes', nome: 'Suqueira 5 litros', desc: 'Para sucos e drinks na mesa de bebidas.', art: 'jar', tag: PEGUE }
   ];
   /* Ordem da vitrine "Todos" (as demais peças aparecem em "Ver todas") */
-  var DESTAQUES = ['kit-patrulha-canina', 'kit-realeza-rosa', 'kit-dourado-rosas', 'kit-azul-amarelo', 'kit-ursinhos-lilas', 'kit-azul-marinho-dourado', 'kit-terracota-preto', 'kit-cristal', 'kit-rustico-madeira', 'kit-madeira-ferro', 'vasos-de-vidro', 'arco-desconstruido'];
+  var DESTAQUES = ['kit-gabby', 'kit-patrulha-canina', 'kit-safari-baby', 'kit-dourado-rosas', 'kit-dragon-ball', 'kit-realeza-rosa', 'kit-ursinho-baloes', 'kit-cristal', 'kit-boho-dourado', 'kit-azul-marinho-dourado', 'kit-futebol', 'kit-chuva-de-amor'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
   var circles = function (pts, cls) {
@@ -254,6 +286,7 @@
         '<div class="product-body">' +
           '<span class="product-cat">' + esc(p.publico ? (p.cat === 'kits' ? '' : catLabel(p.cat) + ' · ') + pubLabel(p) : catLabel(p.cat)) + '</span>' +
           '<h3>' + esc(p.nome) + '</h3>' +
+          '<span class="product-ref">Ref. ' + esc(ref(p)) + '</span>' +
           (MOSTRAR_PRECOS && p.preco ? '<span class="product-price">a partir de <b>' + brl(p.preco) + '</b></span>' : '') +
           '<p>' + esc(p.desc) + '</p>' +
           '<span class="product-tag">' + esc(p.tag) + '</span>' +
@@ -304,7 +337,12 @@
   var countPublico = function () {
     subchips.forEach(function (c) {
       if (c.dataset.publico === 'all') return;
-      $('small', c).textContent = CATALOG.filter(function (p) { return p.cat === active && p.publico && p.publico.indexOf(c.dataset.publico) > -1; }).length;
+      var n = CATALOG.filter(function (p) { return p.cat === active && p.publico && p.publico.indexOf(c.dataset.publico) > -1; }).length;
+      $('small', c).textContent = n;
+      c.hidden = !n; /* ex.: "Bebê" só aparece onde há kits de batizado ou chá */
+    });
+    $$('.subchips-group', subEl).forEach(function (g) {
+      g.hidden = !$$('.subchip', g).some(function (c) { return !c.hidden; });
     });
   };
   var setPublico = function (id) {
