@@ -21,7 +21,9 @@
   **kits de suportes para doces** (`cat: 'doces'`).
 - `assets/img/pm-*.webp` são **kits pegue e monte** (`cat: 'kits'`), enviados pela Mariluz em 05/10/2026
   em duas levas (Gabby, Sonic, Minecraft, Safári baby, Patrulha Canina, Mundo Bita, Pooh, Santo Anjo,
-  Chá revelação, Boho dourado, Momentos, Wandinha, Super-heróis, Coritiba, Corrida, Baleia rosa etc.). Os kits pegue e monte que ainda não têm foto usam a
+  Chá revelação, Boho dourado, Momentos, Wandinha, Super-heróis, Coritiba, Corrida, Baleia rosa, e os
+  adultos de 05/10 à tarde: Rústico fazenda, Rústico vintage, Muro inglês industrial, Marsala e dourado,
+  Happy Birthday rosé, Love verde-água, Preto e branco, Arcos nude e dourado, Arcos terra e areia etc.). Os kits pegue e monte que ainda não têm foto usam a
   ilustração `art: 'minitable'`. Fotos repetidas na mesma leva entram uma vez só.
 - `assets/img/pn-*.webp` são composições de **Painéis e mesas** (`cat: 'moveis'`): só as 3 que a
   Mariluz indicou (arco off-white com mesa cone, arcos lilás e rosa, arcos cinza e rosa).
