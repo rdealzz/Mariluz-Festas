@@ -10,7 +10,9 @@ const hero = document.querySelector('.hero');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const saveData = navigator.connection && navigator.connection.saveData;
 
-const supportsGL = (() => {
+const touch = matchMedia('(hover: none), (pointer: coarse)').matches || innerWidth < 900;
+/* No celular nem testa o WebGL: criar o contexto já custa um quadro */
+const supportsGL = !touch && (() => {
   try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; }
 })();
 
@@ -20,7 +22,6 @@ const IMAGES = [
   'assets/img/pm-boho-dourado-1200.webp'
 ];
 
-const touch = matchMedia('(hover: none), (pointer: coarse)').matches || innerWidth < 900;
 /* Só liga o WebGL depois da abertura, para a animação dela rodar lisa a 60 fps */
 if (canvas && supportsGL && !reduced && !saveData && !touch) {
   let go = () => { go = () => {}; start(); };

@@ -10,6 +10,8 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  /* Celular e tablet: sem efeitos presos à rolagem (parallax, zoom do mapa), que custam quadros e não aparecem no toque */
+  var lite = !finePointer || window.innerWidth < 900;
   var hasGsap = typeof window.gsap !== 'undefined';
   var WA = '5541996865017';
 
@@ -69,7 +71,8 @@
 
   /* ---------- Rolagem suave ---------- */
   var lenis = null;
-  if (hasGsap && !reduced && typeof window.Lenis !== 'undefined') {
+  /* Só no computador: no toque a rolagem nativa do celular já é suave e o Lenis só somaria trabalho a cada quadro */
+  if (hasGsap && !reduced && finePointer && typeof window.Lenis !== 'undefined') {
     lenis = new window.Lenis({ duration: 1.25, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
     window.__lenis = lenis; /* usado pela lista do catálogo (catalogo.js) */
   }
@@ -438,23 +441,37 @@
 
   /* ---------- Menu: tema e compactação ---------- */
   var nav = $('[data-nav]'), navThemeSections = $$('[data-nav-theme]');
+  var navLinks = $$('.nav-links a');
+  /* Posições das seções medidas uma vez (e de novo ao redimensionar ou filtrar o catálogo):
+     ler getBoundingClientRect a cada quadro da rolagem forçava layout e custava quadros no celular */
+  var themeMarks = [], linkMarks = [];
+  var span = function (el) { var r = el.getBoundingClientRect(), y = window.scrollY; return { top: r.top + y, bottom: r.bottom + y }; };
+  var measureNav = function () {
+    themeMarks = navThemeSections.map(function (s) { var m = span(s); m.el = s; return m; });
+    linkMarks = navLinks.map(function (a) { var s = $(a.getAttribute('href')); var m = s ? span(s) : { top: -1, bottom: -1 }; m.a = a; return m; });
+  };
+  measureNav();
+  window.addEventListener('resize', measureNav);
+  window.addEventListener('load', measureNav);
   function updateNavTheme() {
-    var probe = 40, theme = 'dark';
-    for (var i = 0; i < navThemeSections.length; i++) {
-      var r = navThemeSections[i].getBoundingClientRect();
-      if (r.top <= probe && r.bottom > probe) {
-        theme = navThemeSections[i].dataset.navTheme;
-        if (navThemeSections[i] === portfolio && portfolio.classList.contains('on-dark')) theme = 'dark';
+    var probe = window.scrollY + 40, theme = 'dark';
+    for (var i = 0; i < themeMarks.length; i++) {
+      var m = themeMarks[i];
+      if (m.top <= probe && m.bottom > probe) {
+        theme = m.el.dataset.navTheme;
+        if (m.el === portfolio && portfolio.classList.contains('on-dark')) theme = 'dark';
         break;
       }
     }
     nav.classList.toggle('is-light', theme === 'light');
     nav.classList.toggle('is-compact', window.scrollY > 80);
   }
-  var navLinks = $$('.nav-links a');
+  var currentLink;
   var updateCurrent = function () {
-    var mid = window.innerHeight * .4, current = null;
-    navLinks.forEach(function (a) { var s = $(a.getAttribute('href')); if (s) { var r = s.getBoundingClientRect(); if (r.top < mid && r.bottom > mid) current = a; } });
+    var mid = window.scrollY + window.innerHeight * .4, current = null;
+    linkMarks.forEach(function (m) { if (m.top < mid && m.bottom > mid) current = m.a; });
+    if (current === currentLink) return; /* só mexe no DOM quando a seção muda */
+    currentLink = current;
     navLinks.forEach(function (a) { a.setAttribute('aria-current', a === current); });
   };
   var orb = $('a.orb'); /* o botão do WhatsApp (não as bolinhas decorativas do portfólio) */
@@ -474,6 +491,9 @@
   if (!hasGsap) { $('.loader') && $('.loader').remove(); goTo(0); play(); return; }
 
   gsap.registerPlugin(ScrollTrigger, CustomEase);
+  /* A barra de endereço do celular some e volta ao rolar: sem recalcular tudo a cada vez */
+  ScrollTrigger.config({ ignoreMobileResize: true });
+  ScrollTrigger.addEventListener('refresh', function () { measureNav(); onScroll(); });
   if (window.SplitText) gsap.registerPlugin(SplitText);
   CustomEase.create('lux', '0.22, 1, 0.36, 1');
   CustomEase.create('silk', '0.65, 0, 0.35, 1');
@@ -500,7 +520,7 @@
       .to('.loader-bar span', { scaleX: 1, duration: .9, ease: 'power2.inOut', force3D: true }, '<.1')
       .to('.loader-inner', { opacity: 0, y: -12, duration: .45, ease: 'power2.in', force3D: true }, '+=.05')
       .to('.loader', { opacity: 0, duration: .6, ease: 'power2.out' }, '<.2')
-      .set('.loader', { display: 'none' })
+      .add(function () { var l = $('.loader'); if (l) l.remove(); })
       .add(introDone)
       .from('.hero-media', { scale: 1.12, duration: 2.4, ease: 'expo.out' }, '-=.7');
     if (split) intro.from(split.words, { yPercent: 110, opacity: 0, duration: 1.4, stagger: .045 }, '-=2');
@@ -548,7 +568,7 @@
     start: 'top 92%', once: true,
     onEnter: function (els) { gsap.to(els, { opacity: 1, y: 0, scale: 1, duration: 1.4, stagger: .12 }); }
   });
-  if (!reduced) {
+  if (!reduced && !lite) {
     $$('[data-tile] .tile-media').forEach(function (m) {
       gsap.fromTo($('img', m), { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: m, start: 'top bottom', end: 'bottom top', scrub: true } });
     });
@@ -558,12 +578,14 @@
   gsap.to('.timeline-line span', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.timeline', start: 'top 60%', end: 'bottom 60%', scrub: .5 } });
   $$('.step').forEach(function (s, i) {
     var cardEl = $('.step-card', s), fromX = window.innerWidth > 820 ? (i % 2 ? -60 : 60) : 30;
-    gsap.from(cardEl, { x: fromX, opacity: 0, rotateY: i % 2 ? 8 : -8, duration: 1.3, scrollTrigger: { trigger: s, start: 'top 82%', once: true } });
+    /* no celular, entrada só deslizando (o giro 3D custava quadros) */
+    gsap.from(cardEl, lite ? { x: fromX, opacity: 0, duration: 1, scrollTrigger: { trigger: s, start: 'top 85%', once: true } }
+      : { x: fromX, opacity: 0, rotateY: i % 2 ? 8 : -8, duration: 1.3, scrollTrigger: { trigger: s, start: 'top 82%', once: true } });
     ScrollTrigger.create({ trigger: s, start: 'top 60%', end: 'bottom 60%', toggleClass: { targets: s, className: 'is-active' } });
   });
 
   /* Diferenciais: flutuação sutil ao rolar */
-  if (!reduced) {
+  if (!reduced && !lite) {
     $$('.card').forEach(function (c, i) {
       gsap.fromTo(c, { y: 30 + (i % 3) * 20 }, { y: -(10 + (i % 3) * 14), ease: 'none', scrollTrigger: { trigger: c, start: 'top bottom', end: 'bottom top', scrub: 1 } });
     });
@@ -588,7 +610,8 @@
     { sel: '#diferenciais', c1: '#F0E2C6', c2: '#FCF3F1' },
     { sel: '#contato', c1: '#F4DAD6', c2: '#F0E2C6' }
   ];
-  ambientTones.forEach(function (t) {
+  /* no celular o fundo fica fixo: trocar o degradê repintava a tela inteira no meio da rolagem */
+  if (!lite) ambientTones.forEach(function (t) {
     ScrollTrigger.create({ trigger: t.sel, start: 'top 60%', end: 'bottom 40%', onToggle: function (st) {
       if (!st.isActive) return;
       /* troca a cor por baixo de um fade de opacidade: só o compositor trabalha, sem repintar o fundo */
@@ -618,13 +641,15 @@
 
   /* Mapa: zoom cinematográfico */
   if (mapShell && !reduced) {
-    gsap.fromTo($('iframe', mapShell), { scale: 1.45 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: mapShell, start: 'top 95%', end: 'center 55%', scrub: 1 } });
+    if (!lite) gsap.fromTo($('iframe', mapShell), { scale: 1.45 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: mapShell, start: 'top 95%', end: 'center 55%', scrub: 1 } });
     gsap.from('.map-card', { y: 60, opacity: 0, duration: 1.4, scrollTrigger: { trigger: mapShell, start: 'top 55%', once: true } });
     gsap.from('.map-pin', { scale: 0, duration: 1, ease: 'back.out(2)', scrollTrigger: { trigger: mapShell, start: 'top 50%', once: true } });
   }
 
   /* Rodapé: palavra final em parallax */
-  if (!reduced) gsap.from('.footer-word', { yPercent: 40, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'bottom bottom', scrub: 1 } });
+  if (!reduced) gsap.from('.footer-word', lite
+    ? { yPercent: 30, opacity: 0, duration: 1.2, scrollTrigger: { trigger: '.footer', start: 'top 85%', once: true } }
+    : { yPercent: 40, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'bottom bottom', scrub: 1 } });
 
 
   ScrollTrigger.refresh();
