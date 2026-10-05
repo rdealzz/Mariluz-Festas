@@ -16,8 +16,8 @@ const supportsGL = (() => {
 
 const IMAGES = [
   'assets/img/kit-realeza-rosa-1200.webp',
-  'assets/img/kit-ursinhos-lilas-1200.webp',
-  'assets/img/kit-azul-marinho-dourado-1200.webp'
+  'assets/img/pm-gabby-1200.webp',
+  'assets/img/pm-boho-dourado-1200.webp'
 ];
 
 const touch = matchMedia('(hover: none), (pointer: coarse)').matches || innerWidth < 900;

@@ -144,9 +144,9 @@
 
   /* ---------- Hero: sequência de decorações ---------- */
   var SLIDES = [
-    { title: 'Realeza rosa', cat: 'Infantil menina' },
-    { title: 'Ursinhos lilás', cat: 'Infantil menina' },
-    { title: 'Azul marinho e dourado', cat: 'Adulto masculino' }
+    { title: 'Realeza rosa', cat: 'Suportes para doces' },
+    { title: 'A Casa Mágica da Gabby', cat: 'Kit pegue e monte' },
+    { title: 'Boho dourado', cat: 'Kit pegue e monte' }
   ];
   var frameImgs = $$('.hero-frame img'), fbImgs = $$('.hero-fallback img'), dots = $$('.hero-dots button');
   var cap = $('[data-hero-caption]'), capCat = $('[data-hero-cat]');

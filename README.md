@@ -27,8 +27,12 @@ assets/img/             fotos das decorações
 - **Catálogo:** os produtos ficam na lista `CATALOG` no início de `assets/js/catalogo.js`
   (nome, categoria, descrição, selo "Mais procurado" e forma de retirada). Peças sem foto usam uma
   ilustração em linha; para usar a foto real, coloque o arquivo em `assets/img/` e preencha `img`
-  (ex.: `img: 'assets/img/suporte-colonial.webp'`). Os kits de suportes para doces (fotos atuais) ficam
-  em **Suportes para doces** e os kits de decoração em **Kits pegue e monte** (veja `CLAUDE.md`).
+  (ex.: `img: 'assets/img/suporte-colonial.webp'`). Os kits de suportes para doces (`kit-*.webp`) ficam
+  em **Suportes para doces**, os kits de decoração (`pm-*.webp`) em **Kits pegue e monte** e as
+  composições `pn-*.webp` em **Painéis e mesas** (veja `CLAUDE.md`). Cada aba mostra primeiro as peças de
+  `VITRINE`/`DESTAQUES`; a busca por tema procura no catálogo inteiro.
+- **Abertura, portfólio e galeria:** usam fotos de kits pegue e monte e de suportes para doces direto no
+  `index.html` (a sequência da abertura também está em `SLIDES`, em `main.js`, e em `hero-gl.js`).
   Nas duas categorias o campo `publico` define o subfiltro: `menino`, `menina` (Infantil),
   `masculino`, `feminino` (Adulto), `batizado`, `cha` (Bebê); um kit pode ter mais de um. Não há preços no site: valores e
   disponibilidade são confirmados pelo WhatsApp conforme a data.
