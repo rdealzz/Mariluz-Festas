@@ -16,14 +16,18 @@
 
 - `assets/img/kit-*.webp` (Patrulha Canina, Realeza rosa, Ursinhos lilás, Dourado com rosas, Azul
   marinho e amarelo, Azul marinho e dourado, Terracota e preto, Cristal, Rústico madeira, Madeira e
-  ferro) são **kits de suportes para doces** (`cat: 'doces'`).
+  ferro, e a leva de 05/10 por cor: Candy color, Branco e rose gold, Vermelho, Verde oliva, Rosé nude,
+  Branco, Amarelo, Terracota canelado, Laranja, Verde menta, Verde musgo e Azul marinho torneados) são
+  **kits de suportes para doces** (`cat: 'doces'`).
 - `assets/img/pm-*.webp` são **kits pegue e monte** (`cat: 'kits'`), enviados pela Mariluz em 05/10/2026
   em duas levas (Gabby, Sonic, Minecraft, Safári baby, Patrulha Canina, Mundo Bita, Pooh, Santo Anjo,
-  Chá revelação, Boho dourado, Momentos etc.). Os kits pegue e monte que ainda não têm foto usam a
+  Chá revelação, Boho dourado, Momentos, Wandinha, Super-heróis, Coritiba, Corrida, Baleia rosa etc.). Os kits pegue e monte que ainda não têm foto usam a
   ilustração `art: 'minitable'`. Fotos repetidas na mesma leva entram uma vez só.
 - `assets/img/pn-*.webp` são composições de **Painéis e mesas** (`cat: 'moveis'`): só as 3 que a
   Mariluz indicou (arco off-white com mesa cone, arcos lilás e rosa, arcos cinza e rosa).
 - Cada foto existe em 600px, 1200px e na versão máxima (Full HD, 1920px no lado maior), em `.webp`.
+- Algumas fotos chegam com a estrelinha ✦ de editor de imagem no canto inferior direito: apague antes de
+  publicar (cobrir só a marca com o fundo vizinho, sem cortar a foto).
 
 Subfiltro `publico` dos kits: Infantil (`menino`, `menina`), Adulto (`masculino`, `feminino`) e Bebê
 (`batizado`, `cha` = chá de bebê, de fraldas e revelação).
