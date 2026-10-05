@@ -132,7 +132,13 @@
     { id: 'arranjo-orquideas', cat: 'detalhes', nome: 'Arranjo de orquídeas para mesa', desc: 'Arranjo para as mesas dos convidados.', art: 'orchid', tag: PEGUE },
     { id: 'suqueira', cat: 'detalhes', nome: 'Suqueira 5 litros', desc: 'Para sucos e drinks na mesa de bebidas.', art: 'jar', tag: PEGUE }
   ];
-  /* Ordem da vitrine "Todos" (as demais peças aparecem em "Ver todas") */
+  /* Vitrine: cada aba mostra primeiro as peças mais bonitas (até LIMITE) e o restante
+     aparece no botão "Conferir todos os modelos". DESTAQUES vale para "Todos";
+     VITRINE define a ordem dentro de cada categoria (o que não está listado vem depois). */
+  var LIMITE = 12;
+  var VITRINE = {
+    kits: ['kit-gabby', 'kit-safari-baby', 'kit-ursinho-baloes', 'kit-chuva-de-amor', 'kit-dragon-ball', 'kit-boho-dourado', 'kit-fundo-do-mar', 'kit-baby-shark', 'kit-one-piece', 'kit-patinho', 'kit-verde-rose-dourado', 'kit-dinossauros']
+  };
   var DESTAQUES = ['kit-gabby', 'kit-patrulha-canina', 'kit-safari-baby', 'kit-dourado-rosas', 'kit-dragon-ball', 'kit-realeza-rosa', 'kit-ursinho-baloes', 'kit-cristal', 'kit-boho-dourado', 'kit-azul-marinho-dourado', 'kit-futebol', 'kit-chuva-de-amor'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
@@ -353,16 +359,26 @@
     c.addEventListener('click', function () {
       if (c.dataset.publico === publico) return;
       setPublico(c.dataset.publico);
+      expanded = false;
       apply('all');
     });
   });
 
   var setCount = function (n) { countEl.textContent = n + (n === 1 ? ' peça' : ' peças'); };
-  var LIMITE = DESTAQUES.length, expanded = false;
+  var expanded = false;
   var more = document.createElement('div');
   more.className = 'catalog-more';
-  more.innerHTML = '<button type="button" class="btn btn-outline" data-magnetic>Ver todas as peças <small>' + CATALOG.length + '</small></button>';
+  more.innerHTML = '<button type="button" class="btn btn-dark" data-magnetic><span></span> <small></small></button>';
   grid.parentNode.insertBefore(more, grid.nextSibling);
+  var moreLabel = $('span', more), moreCount = $('small', more);
+
+  /* Ordem dos cards na aba ativa: os escolhidos da vitrine primeiro, depois o catálogo */
+  var arrange = function () {
+    var first = active === 'all' ? DESTAQUES : (VITRINE[active] || []).concat(DESTAQUES);
+    var rank = function (c) { var i = first.indexOf(c.dataset.id); return i < 0 ? first.length + CATALOG.indexOf(byId[c.dataset.id]) : i; };
+    cards.slice().sort(function (a, b) { return rank(a) - rank(b); }).forEach(function (c) { grid.appendChild(c); });
+    cards = $$('.product', grid);
+  };
 
   var revealIn = function (els, stagger) {
     els.forEach(function (el) { el.classList.add('is-in'); });
@@ -370,18 +386,22 @@
     gsap.fromTo(els, { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, stagger: stagger, ease: 'expo.out', clearProps: 'transform' });
   };
   var apply = function (animate) {
-    var shown = [], fresh = [], k = 0;
+    var shown = [], fresh = [], total = 0;
     cards.forEach(function (c) {
       var on = active === 'all' || c.dataset.cat === active;
       if (on && COM_PUBLICO.indexOf(active) > -1 && publico !== 'all') on = (' ' + (c.dataset.publico || '') + ' ').indexOf(' ' + publico + ' ') > -1;
-      if (on && active === 'all' && !expanded) on = k++ < LIMITE;
+      if (on) total++;
+      if (on && !expanded) on = total <= LIMITE;
       if (on && c.hidden) fresh.push(c);
       c.hidden = !on;
       if (on) shown.push(c);
     });
-    if (active === 'all' && !expanded) countEl.textContent = shown.length + ' de ' + CATALOG.length + ' peças';
+    var limited = shown.length < total;
+    if (limited) countEl.textContent = shown.length + ' de ' + total + ' peças';
     else setCount(shown.length);
-    more.hidden = !(active === 'all' && !expanded);
+    more.hidden = !limited;
+    moreLabel.textContent = active === 'all' ? 'Ver todas as peças' : 'Conferir todos os modelos';
+    moreCount.textContent = total;
     subEl.hidden = COM_PUBLICO.indexOf(active) < 0;
     if (!subEl.hidden) countPublico();
     if (animate) revealIn(animate === 'fresh' ? fresh : shown, .045);
@@ -391,6 +411,8 @@
     pub = pub || 'all';
     if (id === active && pub === publico) return;
     active = id;
+    expanded = false;
+    arrange();
     setPublico(pub);
     chips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === id); });
     apply('all');
