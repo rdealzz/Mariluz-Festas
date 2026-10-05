@@ -18,15 +18,21 @@
   marinho e amarelo, Azul marinho e dourado, Terracota e preto, Cristal, Rústico madeira, Madeira e
   ferro) são **kits de suportes para doces** (`cat: 'doces'`).
 - `assets/img/pm-*.webp` são **kits pegue e monte** (`cat: 'kits'`), enviados pela Mariluz em 05/10/2026
-  (Gabby, Dragon Ball, One Piece, Safári baby, Fundo do mar, Baby Shark, DPA, Chaves, Futebol Copa,
-  Patinho, Chá revelação, Arco rosé, Boho dourado, Rústico verde etc.). Os kits pegue e monte que
-  ainda não têm foto usam a ilustração `art: 'minitable'`.
+  em duas levas (Gabby, Sonic, Minecraft, Safári baby, Patrulha Canina, Mundo Bita, Pooh, Santo Anjo,
+  Chá revelação, Boho dourado, Momentos etc.). Os kits pegue e monte que ainda não têm foto usam a
+  ilustração `art: 'minitable'`. Fotos repetidas na mesma leva entram uma vez só.
+- `assets/img/pn-*.webp` são composições de **Painéis e mesas** (`cat: 'moveis'`): só as 3 que a
+  Mariluz indicou (arco off-white com mesa cone, arcos lilás e rosa, arcos cinza e rosa).
 - Cada foto existe em 600px, 1200px e na versão máxima (Full HD, 1920px no lado maior), em `.webp`.
 
 Subfiltro `publico` dos kits: Infantil (`menino`, `menina`), Adulto (`masculino`, `feminino`) e Bebê
 (`batizado`, `cha` = chá de bebê, de fraldas e revelação).
 
-Próxima etapa combinada com a Mariluz: decorações com montagem e balões (fotos ainda a enviar).
+Vitrine: cada aba mostra até 12 peças (`VITRINE`/`DESTAQUES` em `catalogo.js`) e o botão "Conferir todos
+os modelos" abre o resto. A busca por tema procura no catálogo inteiro.
+
+Próximas fotos prometidas pela Mariluz: mais suportes para doces, festas montadas com balões, painéis e
+mesas e bolos fakes. Ela avisou que o acervo é maior do que cabe no site.
 
 Ao receber fotos novas, pergunte ou confirme pela conversa se são suportes para doces ou pegue e
 monte antes de cadastrar. Na dúvida, suportes/boleiras/bandejas = `doces`.

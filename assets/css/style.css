@@ -310,6 +310,14 @@ button { background: none; border: 0; cursor: pointer; }
 .chip:hover { opacity: 1; }
 .chip small { margin-left: .45rem; font-size: .74rem; opacity: .5; font-variant-numeric: tabular-nums; }
 .chip[aria-pressed="true"] { opacity: 1; background: linear-gradient(180deg, #fff, #FBF1EE); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 0, 0, .08), 0 8px 20px -10px rgba(20, 20, 21, .35); }
+.catalog-search { position: relative; display: flex; align-items: center; flex: 1 1 240px; max-width: 320px; margin-left: auto; }
+.catalog-search svg { position: absolute; left: 14px; width: 17px; height: 17px; fill: none; stroke: var(--ink-3); stroke-width: 1.6; stroke-linecap: round; pointer-events: none; }
+.catalog-search input { width: 100%; height: 44px; padding: 0 1rem 0 2.6rem; border: 0; border-radius: 999px; font: inherit; font-size: .88rem; color: var(--ink); background: rgba(255, 255, 255, .55); box-shadow: inset 0 0 0 1px var(--hair); transition: box-shadow .4s, background .4s; }
+.catalog-search input::placeholder { color: var(--ink-3); }
+.catalog-search input:focus { outline: none; background: #fff; box-shadow: inset 0 0 0 1px var(--gold), 0 8px 20px -14px rgba(20, 20, 21, .4); }
+@media (max-width: 760px) { .catalog-search { max-width: none; flex-basis: 100%; } .catalog-search input { font-size: 1rem; } }
+.catalog-empty { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2.5rem 1rem; text-align: center; color: var(--ink-2); }
+.catalog-empty[hidden] { display: none; }
 .catalog-count { font-size: .86rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 /* Subfiltro dos kits pegue e monte */
 .subchips { order: 3; flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.4rem; }

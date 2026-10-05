@@ -25,7 +25,7 @@
   var CATEGORIES = [
     { id: 'doces', label: 'Suportes para doces' },
     { id: 'kits', label: 'Kits pegue e monte' },
-    { id: 'moveis', label: 'Mesas e painéis' },
+    { id: 'moveis', label: 'Painéis e mesas' },
     { id: 'baloes', label: 'Balões' },
     { id: 'detalhes', label: 'Detalhes' }
   ];
@@ -75,8 +75,46 @@
     { id: 'kit-rustico-verde', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Rústico verde', desc: 'Painel em arco verde, treliça de madeira, cilindro branco, mesas de ferro e samambaia.', img: 'assets/img/pm-rustico-verde.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-cantina-italiana', cat: 'kits', publico: ['feminino', 'masculino'], nome: 'Kit Cantina italiana', desc: 'Mesa de madeira com toalha xadrez, rosas vermelhas, lampiões, massas e plantas.', img: 'assets/img/pm-cantina-italiana.webp', tag: PEGUE, badge: 'Novidade' },
 
+    { id: 'kit-luna', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit O Show da Luna', desc: 'Painel em arco lilás, totens da Luna, do Júpiter e do Cláudio, guarda-chuva, melancias e móveis coloridos.', img: 'assets/img/pm-luna.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'mini-table-jardim-encantado', cat: 'kits', publico: ['menina'], nome: 'Kit Jardim Encantado', desc: 'Painel de cerejeira com gaiolas e passarinhos, cilindros rosa e verde, cômoda provençal e borboletas.', img: 'assets/img/pm-jardim-encantado.webp', tag: PEGUE, badge: 'Novidade', preco: 399 },
+    { id: 'kit-masha', cat: 'kits', publico: ['menina'], nome: 'Kit Masha e o Urso', desc: 'Painel da Masha com o Urso na floresta, cilindros de folhagem e tronco, totens e criado-mudo rosa.', img: 'assets/img/pm-masha.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-lol', cat: 'kits', publico: ['menina'], nome: 'Kit LOL Surprise', desc: 'Painel das bonecas LOL, cômoda provençal rosa, criado-mudo azul, bonecas e tapete rosa.', img: 'assets/img/pm-lol.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-moranguinho', cat: 'kits', publico: ['menina'], nome: 'Kit Moranguinho', desc: 'Painel rosa para o nome, totem da Moranguinho, móveis provençais rosa e vermelho e gramado.', img: 'assets/img/pm-moranguinho.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-piquenique-morango', cat: 'kits', publico: ['menina', 'feminino'], nome: 'Kit Piquenique morango', desc: 'Painéis xadrez vermelho e branco com laço, caixotes brancos, rosas vermelhas, morangos e margaridas.', img: 'assets/img/pm-piquenique-morango.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-abelhinha', cat: 'kits', publico: ['menina'], nome: 'Kit Abelhinha e margaridas', desc: 'Painel rosa com casinha, cilindros rosa e creme, colmeias, margaridas e borboletas amarelas.', img: 'assets/img/pm-abelhinha.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-ursinhos-rose', cat: 'kits', publico: ['menina', 'cha'], nome: 'Kit Ursinhos rosé', desc: 'Mesa com ursinhos de pelúcia, vasos e suportes rosa, arranjo de rosas e pinhas.', img: 'assets/img/pm-ursinhos-rose.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-coelhinha-baloes', cat: 'kits', publico: ['menina', 'cha'], nome: 'Kit Coelhinha rosé com balões', desc: 'Painel em arco rosa, arco de balões rosa e verde, aparador canelado, coelhinha e vestidinho.', img: 'assets/img/pm-coelhinha-baloes.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-sonic', cat: 'kits', publico: ['menino'], nome: 'Kit Sonic', desc: 'Painel do Sonic, cilindros amarelo, vermelho e azul, totem e pelúcias do Sonic.', img: 'assets/img/pm-sonic.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-minecraft', cat: 'kits', publico: ['menino'], nome: 'Kit Minecraft', desc: 'Painel do Minecraft, totem do Steve, tonel TNT, bonecos, cômoda de madeira e gramado.', img: 'assets/img/pm-minecraft.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-roblox', cat: 'kits', publico: ['menino'], nome: 'Kit Roblox', desc: 'Painel do Roblox, cilindros temáticos, vasos amarelos com topiarias e tapete vermelho.', img: 'assets/img/pm-roblox.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-fortnite', cat: 'kits', publico: ['menino'], nome: 'Kit Fortnite', desc: 'Painel do Fortnite, mesas de madeira, caixote, sacos de areia, cilindro de folhagem e gramado.', img: 'assets/img/pm-fortnite.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-games', cat: 'kits', publico: ['menino', 'masculino'], nome: 'Kit Games neon', desc: 'Painel escuro com controle em neon, cilindros preto e azul e cubos com os símbolos do videogame.', img: 'assets/img/pm-games.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-hot-wheels', cat: 'kits', publico: ['menino'], nome: 'Kit Hot Wheels', desc: 'Painel do Hot Wheels, cilindros quadriculados e de fogo, semáforo, cone e bandeiras de chegada.', img: 'assets/img/pm-hot-wheels.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-carros', cat: 'kits', publico: ['menino'], nome: 'Kit Carros', desc: 'Painel do Relâmpago McQueen, totem do carro, tonel vermelho, cilindro amarelo, semáforo e pódio.', img: 'assets/img/pm-carros.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-jurassic', cat: 'kits', publico: ['menino'], nome: 'Kit Jurassic', desc: 'Painel de dinossauros com vulcão, tronco, caixote, placa de perigo, dinossauros e gramado.', img: 'assets/img/pm-jurassic.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-patrulha-canina-pm', cat: 'kits', publico: ['menino'], nome: 'Kit Patrulha Canina', desc: 'Painéis em arco com torre da Patrulha, casinha e osso para o nome, cilindros e totens do Chase, Marshall e Rubble.', img: 'assets/img/pm-patrulha-canina.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-super-homem', cat: 'kits', publico: ['menino'], nome: 'Kit Super-Homem baby', desc: 'Painel de cidade com balões de HQ, cilindros de prédios, totem e escudo do Super-Homem.', img: 'assets/img/pm-super-homem.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-luccas-neto', cat: 'kits', publico: ['menino'], nome: 'Kit Luccas Neto', desc: 'Painel do Luccas Neto, cilindros azul, vermelho e amarelo, bonecos e tapete vermelho.', img: 'assets/img/pm-luccas-neto.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-futebol-gool', cat: 'kits', publico: ['menino', 'masculino'], nome: 'Kit Futebol preto e branco', desc: 'Painel de bola gigante, cômoda preta, cilindro de jogadores, troféus, chuteira e letreiro GOOL.', img: 'assets/img/pm-futebol-gool.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-athletico', cat: 'kits', publico: ['menino', 'masculino'], nome: 'Kit Athletico Paranaense', desc: 'Painéis em arco vermelho e com o escudo do CAP, bola gigante, caixotes, troféus e mascote.', img: 'assets/img/pm-athletico.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-elefantinho', cat: 'kits', publico: ['menino', 'cha'], nome: 'Kit Elefantinho', desc: 'Painel do elefantinho nas nuvens com balões, mesas cinza e azul, cômoda de madeira e pelúcias.', img: 'assets/img/pm-elefantinho.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-ovelhinha', cat: 'kits', publico: ['menino', 'cha', 'batizado'], nome: 'Kit Ovelhinha azul', desc: 'Painel azul com bandeirinhas, cilindro e cômoda branca, letreiro BOY, ovelhinhas e banquinho.', img: 'assets/img/pm-ovelhinha.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-pequeno-principe', cat: 'kits', publico: ['menino', 'batizado'], nome: 'Kit Pequeno Príncipe', desc: 'Painel do Pequeno Príncipe com a raposa e a frase do livro, cômoda vermelha, cilindro e bonecos.', img: 'assets/img/pm-pequeno-principe.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'mini-table-mundo-bita', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Mundo Bita', desc: 'Painel do Bita com arco-íris e balões, totens do Bita, cilindros de bolinhas e caixotes coloridos.', img: 'assets/img/pm-mundo-bita.webp', tag: PEGUE, badge: 'Novidade', preco: 320 },
+    { id: 'kit-pooh', cat: 'kits', publico: ['menino', 'menina', 'cha'], nome: 'Kit Ursinho Pooh', desc: 'Painel do Pooh com o Tigrão, totem com pote de mel, placas de aventura, tronco e cilindro azul.', img: 'assets/img/pm-pooh.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-snoopy', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Snoopy', desc: 'Painel do Snoopy, casinha vermelha, cilindros amarelo e azul, pelúcias e piso quadriculado.', img: 'assets/img/pm-snoopy.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-scooby-doo', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Scooby-Doo', desc: 'Painel da Máquina de Mistério, cilindros temáticos, bonecos do Scooby, Salsicha, Fred e Velma.', img: 'assets/img/pm-scooby-doo.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-rei-leao', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Rei Leão', desc: 'Painel do Rei Leão, cilindros de selva, cômoda, girafa, zebra, leão e macaco de pelúcia.', img: 'assets/img/pm-rei-leao.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-pj-masks', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit PJ Masks', desc: 'Painel dos PJ Masks, tonel vermelho, mesinhas de madeira, totem da Corujita e estrelas.', img: 'assets/img/pm-pj-masks.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-arca-de-noe', cat: 'kits', publico: ['menino', 'menina', 'batizado'], nome: 'Kit Arca de Noé', desc: 'Painel da arca com bichinhos e arco-íris, cilindros de aquarela, totem de macaquinho e ovelhinha.', img: 'assets/img/pm-arca-de-noe.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-ursinhos-realeza', cat: 'kits', publico: ['menino', 'menina', 'batizado', 'cha'], nome: 'Kit Ursinhos realeza', desc: 'Painel listrado com ursinho, ursos de príncipe e princesa no banco com coroa, cilindros e rosas brancas.', img: 'assets/img/pm-ursinhos-realeza.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-batizado', cat: 'kits', publico: ['batizado'], nome: 'Kit Santo Anjo (batizado e 1ª comunhão)', desc: 'Painel do anjinho em oração, cilindros branco e dourado com Santo Anjo do Senhor e arranjos brancos.', img: 'assets/img/pm-santo-anjo.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-cha-revelacao-boho', cat: 'kits', publico: ['cha'], nome: 'Kit Chá revelação boho', desc: 'Placa Girl or Boy, aparador canelado nude, balões terracota e rosé, flores secas e ursinho.', img: 'assets/img/pm-cha-revelacao-boho.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-momentos', cat: 'kits', publico: ['feminino', 'masculino'], nome: 'Kit Momentos', desc: 'Painel Momentos que ficam para sempre, mesas de madeira, arranjos brancos e lanternas, para casamentos e bodas.', img: 'assets/img/pm-momentos.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-nude-dourado', cat: 'kits', publico: ['feminino'], nome: 'Kit Nude e dourado', desc: 'Painel em arco nude, mesas brancas com base dourada, toalha de crochê e bandejas douradas.', img: 'assets/img/pm-nude-dourado.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-happy-birthday-caramelo', cat: 'kits', publico: ['feminino', 'masculino'], nome: 'Kit Happy Birthday caramelo', desc: 'Painel em arco caramelo com Happy Birthday dourado, mesas pretas e de ferro e arranjo de flores.', img: 'assets/img/pm-happy-birthday-caramelo.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'kit-boho-happy-birthday', cat: 'kits', publico: ['feminino'], nome: 'Kit Boho Happy Birthday', desc: 'Painel branco, treliça, mesa de madeira, balões terracota e rosé, flores secas e placa Happy Birthday.', img: 'assets/img/pm-boho-happy-birthday.webp', tag: PEGUE, badge: 'Novidade' },
     /* Kits pegue e monte · ainda sem foto */
-    { id: 'mini-table-jardim-encantado', cat: 'kits', publico: ['menina'], nome: 'Kit Jardim Encantado', desc: 'Tema jardim encantado em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 399 },
     { id: 'mini-table-wandinha', cat: 'kits', publico: ['menina'], nome: 'Kit Wandinha', desc: 'Tema Wandinha em composição enxuta, pronta para retirar e montar.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado', preco: 420 },
     { id: 'mini-table-circo-rosa', cat: 'kits', publico: ['menina'], nome: 'Kit Circo Rosa', desc: 'Tema circo em tons de rosa, numa mesa pequena e delicada.', art: 'minitable', tag: PEGUE, preco: 320 },
     { id: 'mini-table-ariel', cat: 'kits', publico: ['menina'], nome: 'Kit Ariel', desc: 'Tema Pequena Sereia em composição leve e enxuta.', art: 'minitable', tag: PEGUE, preco: 420 },
@@ -87,8 +125,6 @@
     { id: 'kit-praia', cat: 'kits', publico: ['menino'], nome: 'Kit Praia e surf', desc: 'Prancha, remo e boia para uma festa leve e solar.', art: 'minitable', tag: PEGUE },
     { id: 'kit-star-wars', cat: 'kits', publico: ['menino'], nome: 'Kit Star Wars', desc: 'Personagens e peças da galáxia para os pequenos fãs.', art: 'minitable', tag: PEGUE },
     { id: 'kit-cha-fraldas-menino', cat: 'kits', publico: ['menino', 'cha'], nome: 'Kit chá de fraldas menino (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas do menino.', art: 'minitable', tag: PEGUE },
-    { id: 'mini-table-mundo-bita', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit Mundo Bita', desc: 'Tema Mundo Bita para os pequenos, pronto para retirar e montar.', art: 'minitable', tag: PEGUE, preco: 320 },
-    { id: 'kit-batizado', cat: 'kits', publico: ['batizado'], nome: 'Kit Batizado ou 1ª Comunhão', desc: 'Composição delicada para batizados e primeira comunhão.', art: 'minitable', tag: PEGUE },
     { id: 'kit-galinha-pintadinha', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
 
     /* Suportes para doces · kits com foto (infantil e adulto) */
@@ -110,6 +146,11 @@
     { id: 'bolo-cenografico', cat: 'doces', nome: 'Bolo cenográfico', desc: 'Andares decorados para o centro da mesa e para as fotos.', art: 'cake', tag: RETIRA },
     { id: 'kit-ceramica', cat: 'doces', nome: 'Kit decorativo de cerâmica', desc: 'Peças de cerâmica para completar a mesa do bolo.', art: 'ceramic', tag: RETIRA },
 
+    /* Painéis e mesas · composições com foto */
+    { id: 'painel-off-white-rosas', cat: 'moveis', nome: 'Painel em arco off-white com mesa cone', desc: 'Painel em arco off-white, mesa cone branca, suporte dourado, vaso e cesto de rosas e tapete felpudo.', img: 'assets/img/pn-off-white-rosas.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'paineis-lilas-rosa', cat: 'moveis', nome: 'Painéis em arco lilás e rosa com mesas douradas', desc: 'Dois painéis em arco, mesas e banqueta douradas com tampo de madeira, rosas, lanternas e número iluminado.', img: 'assets/img/pn-lilas-rosa.webp', tag: PEGUE, badge: 'Novidade' },
+    { id: 'paineis-cinza-rosa', cat: 'moveis', nome: 'Painéis em arco cinza e rosa com mesas douradas', desc: 'Dois painéis em arco, mesas e banqueta douradas com tampo de madeira, rosas, lanternas e número iluminado.', img: 'assets/img/pn-cinza-rosa.webp', tag: PEGUE, badge: 'Novidade' },
+    /* Painéis e mesas · peças avulsas */
     { id: 'mesa-provencal', cat: 'moveis', nome: 'Mesa provençal', desc: 'Pés torneados e acabamento clássico, o centro da composição.', art: 'provencal', tag: PEGUE, badge: 'Mais procurado' },
     { id: 'mesa-espelhada', cat: 'moveis', nome: 'Mesa espelhada', desc: 'Linhas retas e brilho discreto para festas modernas.', art: 'mirror', tag: PEGUE },
     { id: 'aparador-azul', cat: 'moveis', nome: 'Aparador envelhecido azul', desc: 'Acabamento envelhecido com charme provençal.', art: 'sideboard', tag: PEGUE },
@@ -137,9 +178,10 @@
      VITRINE define a ordem dentro de cada categoria (o que não está listado vem depois). */
   var LIMITE = 12;
   var VITRINE = {
-    kits: ['kit-gabby', 'kit-safari-baby', 'kit-ursinho-baloes', 'kit-chuva-de-amor', 'kit-dragon-ball', 'kit-boho-dourado', 'kit-fundo-do-mar', 'kit-baby-shark', 'kit-one-piece', 'kit-patinho', 'kit-verde-rose-dourado', 'kit-dinossauros']
+    kits: ['kit-gabby', 'kit-sonic', 'kit-safari-baby', 'kit-abelhinha', 'kit-ursinho-baloes', 'kit-patrulha-canina-pm', 'kit-coelhinha-baloes', 'kit-minecraft', 'kit-chuva-de-amor', 'kit-boho-dourado', 'kit-dragon-ball', 'mini-table-mundo-bita'],
+    moveis: ['paineis-lilas-rosa', 'painel-off-white-rosas', 'paineis-cinza-rosa']
   };
-  var DESTAQUES = ['kit-gabby', 'kit-patrulha-canina', 'kit-safari-baby', 'kit-dourado-rosas', 'kit-dragon-ball', 'kit-realeza-rosa', 'kit-ursinho-baloes', 'kit-cristal', 'kit-boho-dourado', 'kit-azul-marinho-dourado', 'kit-futebol', 'kit-chuva-de-amor'];
+  var DESTAQUES = ['kit-gabby', 'kit-patrulha-canina', 'kit-sonic', 'paineis-lilas-rosa', 'kit-safari-baby', 'kit-dourado-rosas', 'kit-abelhinha', 'kit-realeza-rosa', 'kit-ursinho-baloes', 'painel-off-white-rosas', 'kit-minecraft', 'kit-cristal'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
   var circles = function (pts, cls) {
@@ -222,6 +264,8 @@
     }).join(' / ');
   };
   var fullCat = function (p) { var u = pubLabel(p); return catLabel(p.cat) + (u ? ' (' + u + ')' : ''); };
+  /* Busca sem acento e sem maiúsculas: "pequeno principe" acha "Pequeno Príncipe" */
+  var norm = function (t) { return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
   var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
 
   /* ---------- Lista (persistida só neste navegador) ---------- */
@@ -283,6 +327,7 @@
   ordered.forEach(function (p) {
     var li = document.createElement('li');
     li.className = 'product'; li.dataset.cat = p.cat; li.dataset.id = p.id;
+    li.dataset.search = norm(p.nome + ' ' + p.desc + ' ' + fullCat(p));
     if (p.publico) li.dataset.publico = p.publico.join(' ');
     li.innerHTML =
       '<article>' +
@@ -385,13 +430,22 @@
     if (!hasGsap || reduced || !els.length) return;
     gsap.fromTo(els, { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, stagger: stagger, ease: 'expo.out', clearProps: 'transform' });
   };
+  /* Busca por tema: procura no catálogo inteiro e mostra todos os resultados */
+  var query = '';
+  var searchEl = $('[data-catalog-search]');
+  var noneEl = document.createElement('div');
+  noneEl.className = 'catalog-empty'; noneEl.hidden = true;
+  noneEl.innerHTML = '<p>Esse tema ainda não está no site, mas o nosso acervo é bem maior do que cabe aqui.</p><a class="btn btn-dark btn-sm" target="_blank" rel="noopener">Perguntar no WhatsApp</a>';
+  grid.parentNode.insertBefore(noneEl, more);
   var apply = function (animate) {
     var shown = [], fresh = [], total = 0;
+    var words = query ? query.split(/\s+/) : [];
     cards.forEach(function (c) {
       var on = active === 'all' || c.dataset.cat === active;
       if (on && COM_PUBLICO.indexOf(active) > -1 && publico !== 'all') on = (' ' + (c.dataset.publico || '') + ' ').indexOf(' ' + publico + ' ') > -1;
+      if (on && words.length) on = words.every(function (w) { return c.dataset.search.indexOf(w) > -1; });
       if (on) total++;
-      if (on && !expanded) on = total <= LIMITE;
+      if (on && !expanded && !words.length) on = total <= LIMITE;
       if (on && c.hidden) fresh.push(c);
       c.hidden = !on;
       if (on) shown.push(c);
@@ -400,6 +454,8 @@
     if (limited) countEl.textContent = shown.length + ' de ' + total + ' peças';
     else setCount(shown.length);
     more.hidden = !limited;
+    noneEl.hidden = total > 0;
+    if (!total) $('a', noneEl).href = waUrl(['Olá, Mariluz! Tudo bem? Procurei no site e não achei o tema *' + searchEl.value.trim() + '*. Vocês têm decoração nesse tema?']);
     moreLabel.textContent = active === 'all' ? 'Ver todas as peças' : 'Conferir todos os modelos';
     moreCount.textContent = total;
     subEl.hidden = COM_PUBLICO.indexOf(active) < 0;
@@ -412,6 +468,7 @@
     if (id === active && pub === publico) return;
     active = id;
     expanded = false;
+    if (query) { query = ''; searchEl.value = ''; }
     arrange();
     setPublico(pub);
     chips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === id); });
@@ -427,6 +484,21 @@
   /* Atalhos de outras seções (ex.: portfólio "Ver suportes para doces"; data-catalog-publico opcional) */
   $$('[data-catalog-filter]').forEach(function (a) {
     a.addEventListener('click', function () { filter(a.dataset.catalogFilter, a.dataset.catalogPublico); });
+  });
+  var searchTimer = 0;
+  searchEl.addEventListener('input', function () {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function () {
+      var q = norm(searchEl.value.trim());
+      if (q === query) return;
+      if (q && (active !== 'all' || publico !== 'all')) {
+        active = 'all'; setPublico('all'); chipsEl.scrollLeft = 0;
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', c.dataset.filter === 'all'); });
+        arrange();
+      }
+      query = q;
+      apply('all');
+    }, 180);
   });
   apply(false);
 
