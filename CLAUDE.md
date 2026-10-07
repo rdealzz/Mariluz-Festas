@@ -27,7 +27,8 @@
 - `assets/img/pn-*.webp` são composições de **Painéis e mesas** (`cat: 'moveis'`): só as 3 que a
   Mariluz indicou (arco off-white com mesa cone, arcos lilás e rosa, arcos cinza e rosa).
 - **Só entram no catálogo peças com foto.** Os cards com ilustração em branco foram tirados a pedido
-  (07/10/2026); abas sem nenhuma peça (ex.: Balões) somem sozinhas até chegarem fotos.
+  (07/10/2026); abas sem nenhuma peça (ex.: Balões) somem sozinhas até chegarem fotos. A aba Detalhes foi
+  tirada e os vasos de vidro passaram para Suportes para doces.
 - `assets/img/pel-*.webp` são **Pelúcias** (`cat: 'pelucias'`, `tag: RETIRA`), enviadas em 07/10/2026. O subfiltro
   separa as **especiais Silvia Polito** (`pel-sp-*`, `publico: ['silvia-polito']`, cartazes com fundo decorado,
   selo "Silvia Polito") das **demais pelúcias** de personagens e bichinhos (fundo branco, `publico: ['personagens']`).

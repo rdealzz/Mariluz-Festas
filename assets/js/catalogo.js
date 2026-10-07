@@ -28,8 +28,7 @@
     { id: 'kits', label: 'Kits pegue e monte' },
     { id: 'pelucias', label: 'Pelúcias' },
     { id: 'moveis', label: 'Painéis e mesas' },
-    { id: 'baloes', label: 'Balões' },
-    { id: 'detalhes', label: 'Detalhes' }
+    { id: 'baloes', label: 'Balões' }
   ];
   /* Público dos kits (campo "publico"; um kit pode servir a mais de um):
      Infantil (menino, menina), Adulto (masculino, feminino) e Bebê (batizado, chá de bebê/fraldas/revelação).
@@ -189,14 +188,12 @@
     { id: 'kit-verde-menta', cat: 'doces', publico: ['menina', 'menino', 'cha'], nome: 'Kit de suportes Verde menta torneado', desc: 'Trio de suportes de madeira com pé torneado em verde menta, em três alturas.', img: 'assets/img/kit-verde-menta.webp', tag: RETIRA, badge: 'Novidade' },
     { id: 'kit-verde-musgo', cat: 'doces', publico: ['menino', 'masculino', 'feminino'], nome: 'Kit de suportes Verde musgo torneado', desc: 'Trio de suportes de madeira com pé torneado em verde musgo, em três alturas.', img: 'assets/img/kit-verde-musgo.webp', tag: RETIRA, badge: 'Novidade' },
     { id: 'kit-azul-marinho-torneado', cat: 'doces', publico: ['menino', 'masculino'], nome: 'Kit de suportes Azul marinho torneado', desc: 'Quatro suportes de madeira com pé torneado em azul marinho, em alturas variadas.', img: 'assets/img/kit-azul-marinho-torneado.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'vasos-de-vidro', cat: 'doces', nome: 'Vasos de vidro', desc: 'Vaso liso, taça canelada e duas taças bico de jaca em vidro, para arranjos e centros de mesa.', img: 'assets/img/vasos-de-vidro.webp', pos: 'center 78%', tag: RETIRA, badge: 'Novidade' },
 
     /* Painéis e mesas · composições com foto */
     { id: 'painel-off-white-rosas', cat: 'moveis', nome: 'Painel em arco off-white com mesa cone', desc: 'Painel em arco off-white, mesa cone branca, suporte dourado, vaso e cesto de rosas e tapete felpudo.', img: 'assets/img/pn-off-white-rosas.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'paineis-lilas-rosa', cat: 'moveis', nome: 'Painéis em arco lilás e rosa com mesas douradas', desc: 'Dois painéis em arco, mesas e banqueta douradas com tampo de madeira, rosas, lanternas e número iluminado.', img: 'assets/img/pn-lilas-rosa.webp', tag: PEGUE, badge: 'Novidade' },
-    { id: 'paineis-cinza-rosa', cat: 'moveis', nome: 'Painéis em arco cinza e rosa com mesas douradas', desc: 'Dois painéis em arco, mesas e banqueta douradas com tampo de madeira, rosas, lanternas e número iluminado.', img: 'assets/img/pn-cinza-rosa.webp', tag: PEGUE, badge: 'Novidade' },
-
-    /* Detalhes */
-    { id: 'vasos-de-vidro', cat: 'detalhes', nome: 'Vasos de vidro', desc: 'Vaso liso, taça canelada e duas taças bico de jaca em vidro, para arranjos e centros de mesa.', img: 'assets/img/vasos-de-vidro.webp', pos: 'center 78%', tag: PEGUE, badge: 'Novidade' }
+    { id: 'paineis-cinza-rosa', cat: 'moveis', nome: 'Painéis em arco cinza e rosa com mesas douradas', desc: 'Dois painéis em arco, mesas e banqueta douradas com tampo de madeira, rosas, lanternas e número iluminado.', img: 'assets/img/pn-cinza-rosa.webp', tag: PEGUE, badge: 'Novidade' }
   ];
   /* Vitrine: cada aba mostra primeiro as peças mais bonitas (até LIMITE) e o restante
      aparece no botão "Conferir todos os modelos". DESTAQUES vale para "Todos";
