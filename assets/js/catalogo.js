@@ -25,20 +25,24 @@
   var CATEGORIES = [
     { id: 'doces', label: 'Suportes para doces' },
     { id: 'kits', label: 'Kits pegue e monte' },
+    { id: 'pelucias', label: 'Pelúcias' },
     { id: 'moveis', label: 'Painéis e mesas' },
     { id: 'baloes', label: 'Balões' },
     { id: 'detalhes', label: 'Detalhes' }
   ];
   /* Público dos kits (campo "publico"; um kit pode servir a mais de um):
      Infantil (menino, menina), Adulto (masculino, feminino) e Bebê (batizado, chá de bebê/fraldas/revelação).
-     O subfiltro por público aparece em "Kits pegue e monte" e em "Suportes para doces". */
+     O subfiltro por público aparece em "Kits pegue e monte", "Suportes para doces" e "Pelúcias" (Silvia Polito × demais). */
   var PUBLICOS = [
     { id: 'menino', grupo: 'Infantil', label: 'Menino' },
     { id: 'menina', grupo: 'Infantil', label: 'Menina' },
     { id: 'masculino', grupo: 'Adulto', label: 'Masculino' },
     { id: 'feminino', grupo: 'Adulto', label: 'Feminino' },
     { id: 'batizado', grupo: 'Bebê', label: 'Batizado' },
-    { id: 'cha', grupo: 'Bebê', label: 'Chá de bebê' }
+    { id: 'cha', grupo: 'Bebê', label: 'Chá de bebê' },
+    /* Pelúcias: a linha especial Silvia Polito (cartazes) fica separada das demais (fundo branco) */
+    { id: 'silvia-polito', grupo: 'Pelúcias', label: 'Especiais Silvia Polito' },
+    { id: 'personagens', grupo: 'Pelúcias', label: 'Personagens e bichinhos' }
   ];
   var PEGUE = 'Pegue e monte', MONTAGEM = 'Montagem no local';
   var RETIRA = 'Retire na loja'; /* suportes para doces: não usar "Pegue e monte" para não confundir com os kits */
@@ -142,6 +146,35 @@
     { id: 'kit-cha-fraldas-menino', cat: 'kits', publico: ['menino', 'cha'], nome: 'Kit chá de fraldas menino (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas do menino.', art: 'minitable', tag: PEGUE },
     { id: 'kit-galinha-pintadinha', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
 
+    /* Pelúcias · especiais Silvia Polito (cartazes de 07/10; pos mostra os bichinhos no card quadrado) */
+    { id: 'pel-sp-ursinhos-realeza', cat: 'pelucias', publico: ['silvia-polito'], nome: 'Casal de ursinhos realeza', desc: 'Pelúcia especial Silvia Polito, com roupinha feita à mão. Ursinho príncipe com coroa e capa e ursinha princesa de vestido rosa.', img: 'assets/img/pel-sp-ursinhos-realeza.webp', pos: 'center 64%', tag: RETIRA, badge: 'Silvia Polito' },
+    { id: 'pel-sp-ursinhos-candy', cat: 'pelucias', publico: ['silvia-polito'], nome: 'Casal de ursinhos candy', desc: 'Pelúcia especial Silvia Polito, com roupinha feita à mão. Ursinha de vestido verde-água e rosa com laços e ursinho de camisa azul e colete de tricô.', img: 'assets/img/pel-sp-ursinhos-candy.webp', pos: 'center 64%', tag: RETIRA, badge: 'Silvia Polito' },
+    { id: 'pel-sp-ursinhos-aviadores', cat: 'pelucias', publico: ['silvia-polito'], nome: 'Casal de ursinhos aviadores', desc: 'Pelúcia especial Silvia Polito, com roupinha feita à mão. Ursinhos com touca e óculos de aviador, jaqueta e cachecol.', img: 'assets/img/pel-sp-ursinhos-aviadores.webp', pos: 'center 64%', tag: RETIRA, badge: 'Silvia Polito' },
+    { id: 'pel-sp-safari-elefante-girafa', cat: 'pelucias', publico: ['silvia-polito'], nome: 'Elefante e girafa safári', desc: 'Pelúcia especial Silvia Polito, com roupinha feita à mão. Elefante de colete e chapéu de explorador e girafa de jardineira, para festas de safári.', img: 'assets/img/pel-sp-safari-elefante-girafa.webp', pos: 'center 64%', tag: RETIRA, badge: 'Silvia Polito' },
+    { id: 'pel-sp-safari-leao', cat: 'pelucias', publico: ['silvia-polito'], nome: 'Leão e amigo exploradores', desc: 'Pelúcia especial Silvia Polito, com roupinha feita à mão. Leão de juba e roupa cáqui e amigo de chapéu safári, para festas de aventura.', img: 'assets/img/pel-sp-safari-leao.webp', pos: 'center 64%', tag: RETIRA, badge: 'Silvia Polito' },
+    { id: 'pel-sp-bichinhos-bailarinas', cat: 'pelucias', publico: ['silvia-polito'], nome: 'Bichinhos bailarinas', desc: 'Pelúcia especial Silvia Polito, com roupinha feita à mão. Bonequinha, coelhinha e raposinha de saia de tule rosa e laços.', img: 'assets/img/pel-sp-bichinhos-bailarinas.webp', pos: 'center 64%', tag: RETIRA, badge: 'Silvia Polito' },
+    { id: 'pel-sp-bonecas-capuz', cat: 'pelucias', publico: ['silvia-polito'], nome: 'Bonecas de capuz de bichinho', desc: 'Pelúcia especial Silvia Polito, com roupinha feita à mão. Bonecas de saia de tule com capuz de ursinho rosa e de coala.', img: 'assets/img/pel-sp-bonecas-capuz.webp', pos: 'center 64%', tag: RETIRA, badge: 'Silvia Polito' },
+    { id: 'pel-sp-bonecas-vestido', cat: 'pelucias', publico: ['silvia-polito'], nome: 'Bonecas de vestido rosé e azul', desc: 'Pelúcia especial Silvia Polito, com roupinha feita à mão. Bonecas loira e morena com vestidos de tule e casaquinhos.', img: 'assets/img/pel-sp-bonecas-vestido.webp', pos: 'center 64%', tag: RETIRA, badge: 'Silvia Polito' },
+    /* Pelúcias · personagens e bichinhos (fundo branco, 07/10) */
+    { id: 'pel-super-mario', cat: 'pelucias', publico: ['personagens'], nome: 'Turma do Super Mario', desc: 'Mario, Luigi, Yoshi, estrela, flores de fogo e cogumelos de pelúcia.', img: 'assets/img/pel-super-mario.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-mario-luigi', cat: 'pelucias', publico: ['personagens'], nome: 'Mario e Luigi grandes', desc: 'Par de pelúcias grandes do Mario e do Luigi.', img: 'assets/img/pel-mario-luigi.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-almofadas-mario', cat: 'pelucias', publico: ['personagens'], nome: 'Almofadas Super Mario', desc: 'Almofadas do cogumelo, do Mario, do Luigi e do bloco de interrogação.', img: 'assets/img/pel-almofadas-mario.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-pokemon', cat: 'pelucias', publico: ['personagens'], nome: 'Pokémon', desc: 'Pokébola gigante, Pikachu, Charmander, Bulbasaur, Squirtle e pokébolas.', img: 'assets/img/pel-pokemon.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-ninjago', cat: 'pelucias', publico: ['personagens'], nome: 'Ninjago', desc: 'Ninjas verde, vermelho, azul e o Mestre Wu de pelúcia.', img: 'assets/img/pel-ninjago.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-alice', cat: 'pelucias', publico: ['personagens'], nome: 'Alice no País das Maravilhas', desc: 'Alice, Coelho Branco, Chapeleiro Maluco, Rainha de Copas e Gato de Cheshire.', img: 'assets/img/pel-alice.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-bonecas-lol', cat: 'pelucias', publico: ['personagens'], nome: 'Bonecas LOL', desc: 'Quatro bonecas LOL de pano, com vestidos e roupinhas coloridas.', img: 'assets/img/pel-bonecas-lol.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-metoo', cat: 'pelucias', publico: ['personagens'], nome: 'Bonecas Metoo', desc: 'Bonecas Metoo de vestidinho e boina em tons pastel, em tamanhos variados.', img: 'assets/img/pel-metoo.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-frozen', cat: 'pelucias', publico: ['personagens'], nome: 'Olaf e Sven (Frozen)', desc: 'Boneco de neve Olaf e a rena Sven, para festas do Frozen.', img: 'assets/img/pel-frozen.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-galinha-pintadinha', cat: 'pelucias', publico: ['personagens'], nome: 'Galinha Pintadinha', desc: 'Galinha Pintadinha e o Galo Carijó de pelúcia.', img: 'assets/img/pel-galinha-pintadinha.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-pocoyo', cat: 'pelucias', publico: ['personagens'], nome: 'Pocoyo e turma', desc: 'Pocoyo, Elly, Pato e Polvo de pelúcia.', img: 'assets/img/pel-pocoyo.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-dumbo', cat: 'pelucias', publico: ['personagens'], nome: 'Dumbo', desc: 'Elefantinho Dumbo com chapeuzinho amarelo.', img: 'assets/img/pel-dumbo.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-nemo', cat: 'pelucias', publico: ['personagens'], nome: 'Nemo', desc: 'Peixe-palhaço Nemo, para festas de fundo do mar.', img: 'assets/img/pel-nemo.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-husky', cat: 'pelucias', publico: ['personagens'], nome: 'Cachorrinho husky', desc: 'Husky de pelúcia com cachecol azul.', img: 'assets/img/pel-husky.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-polvo-reversivel', cat: 'pelucias', publico: ['personagens'], nome: 'Polvinhos do humor', desc: 'Polvinhos reversíveis em várias cores, felizes de um lado e bravos do outro.', img: 'assets/img/pel-polvo-reversivel.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-urso-gigante-cinza', cat: 'pelucias', publico: ['personagens'], nome: 'Urso gigante cinza', desc: 'Urso de pelúcia grande, cinza com laço xadrez.', img: 'assets/img/pel-urso-gigante-cinza.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-urso-gigante-creme', cat: 'pelucias', publico: ['personagens'], nome: 'Urso gigante creme', desc: 'Urso de pelúcia grande, creme e bem fofinho.', img: 'assets/img/pel-urso-gigante-creme.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-ursos-polares', cat: 'pelucias', publico: ['personagens'], nome: 'Ursos polares marinheiros', desc: 'Família de ursos polares de roupa listrada azul-marinho.', img: 'assets/img/pel-ursos-polares.webp', tag: RETIRA, badge: 'Novidade' },
+
     /* Suportes para doces · kits com foto (infantil e adulto) */
     { id: 'kit-patrulha-canina', cat: 'doces', publico: ['menino'], nome: 'Kit de suportes Patrulha Canina', desc: 'Marshall, Rubble e Chase com vasos vermelhos, topiarias, suportes e bandejas em vermelho, azul e amarelo.', img: 'assets/img/kit-patrulha-canina.webp', tag: RETIRA, badge: 'Novidade' },
     { id: 'kit-realeza-rosa', cat: 'doces', publico: ['menina'], nome: 'Kit de suportes Realeza rosa', desc: 'Suportes, bandejas, vasos e pratos de coração em rosa, com coroa para o bolo e cestas floridas.', img: 'assets/img/kit-realeza-rosa.webp', tag: RETIRA, badge: 'Novidade' },
@@ -207,10 +240,11 @@
   var LIMITE = 12;
   var VITRINE = {
     kits: ['kit-gabby', 'kit-sonic', 'kit-safari-baby', 'kit-abelhinha', 'kit-ursinho-baloes', 'kit-patrulha-canina-pm', 'kit-coelhinha-baloes', 'kit-minecraft', 'kit-chuva-de-amor', 'kit-boho-dourado', 'kit-dragon-ball', 'mini-table-mundo-bita'],
+    pelucias: ['pel-sp-ursinhos-realeza', 'pel-sp-safari-elefante-girafa', 'pel-sp-ursinhos-aviadores', 'pel-sp-bichinhos-bailarinas', 'pel-super-mario', 'pel-sp-ursinhos-candy', 'pel-sp-safari-leao', 'pel-alice', 'pel-sp-bonecas-capuz', 'pel-pokemon', 'pel-sp-bonecas-vestido', 'pel-metoo'],
     moveis: ['paineis-lilas-rosa', 'painel-off-white-rosas', 'paineis-cinza-rosa'],
     doces: ['kit-patrulha-canina', 'kit-candy-pastel', 'kit-realeza-rosa', 'kit-branco-rose-gold', 'kit-dourado-rosas', 'kit-vermelho', 'kit-cristal', 'kit-verde-oliva', 'kit-ursinhos-lilas', 'kit-rose-nude', 'kit-azul-marinho-dourado', 'kit-amarelo']
   };
-  var DESTAQUES = ['kit-gabby', 'kit-patrulha-canina', 'kit-sonic', 'paineis-lilas-rosa', 'kit-safari-baby', 'kit-dourado-rosas', 'kit-abelhinha', 'kit-realeza-rosa', 'kit-ursinho-baloes', 'painel-off-white-rosas', 'kit-minecraft', 'kit-cristal'];
+  var DESTAQUES = ['kit-gabby', 'pel-sp-ursinhos-realeza', 'kit-patrulha-canina', 'kit-sonic', 'pel-sp-safari-elefante-girafa', 'paineis-lilas-rosa', 'kit-safari-baby', 'pel-sp-ursinhos-aviadores', 'kit-dourado-rosas', 'kit-abelhinha', 'kit-realeza-rosa', 'pel-super-mario'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
   var circles = function (pts, cls) {
@@ -292,7 +326,7 @@
       return g + ' · ' + grupos[g].map(function (l, i) { return i ? l.toLowerCase() : l; }).join(' e ');
     }).join(' / ');
   };
-  var fullCat = function (p) { var u = pubLabel(p); return catLabel(p.cat) + (u ? ' (' + u + ')' : ''); };
+  var fullCat = function (p) { var u = pubLabel(p); return p.cat === 'pelucias' ? u : catLabel(p.cat) + (u ? ' (' + u + ')' : ''); };
   /* Busca sem acento e sem maiúsculas: "pequeno principe" acha "Pequeno Príncipe" */
   var norm = function (t) { return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
   var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
@@ -364,7 +398,7 @@
           ? '<div class="product-media is-zoom" data-zoom role="button" tabindex="0" aria-label="Ampliar foto: ' + esc(p.nome) + '" data-title="' + esc(p.nome) + '" data-cat="' + esc(fullCat(p)) + '">' + mediaHtml(p) + '<span class="product-zoom" aria-hidden="true">' + zoomIcon + '</span>'
           : '<div class="product-media">' + mediaHtml(p)) + (p.badge ? '<span class="product-badge">' + esc(p.badge) + '</span>' : '') + '</div>' +
         '<div class="product-body">' +
-          '<span class="product-cat">' + esc(p.publico ? (p.cat === 'kits' ? '' : catLabel(p.cat) + ' · ') + pubLabel(p) : catLabel(p.cat)) + '</span>' +
+          '<span class="product-cat">' + esc(p.publico ? (p.cat === 'kits' || p.cat === 'pelucias' ? '' : catLabel(p.cat) + ' · ') + pubLabel(p) : catLabel(p.cat)) + '</span>' +
           '<h3>' + esc(p.nome) + '</h3>' +
           '<span class="product-ref">Ref. ' + esc(ref(p)) + '</span>' +
           (MOSTRAR_PRECOS && p.preco ? '<span class="product-price">a partir de <b>' + brl(p.preco) + '</b></span>' : '') +
@@ -394,8 +428,9 @@
   var chips = $$('.chip', chipsEl);
 
   /* Subfiltro por público: Infantil (menino, menina) e Adulto (masculino, feminino),
-     nas categorias que têm peças com "publico" (kits pegue e monte e suportes para doces) */
-  var COM_PUBLICO = ['kits', 'doces'];
+     nas categorias que têm peças com "publico" (kits pegue e monte e suportes para doces).
+     Em Pelúcias o mesmo subfiltro separa as especiais Silvia Polito das demais. */
+  var COM_PUBLICO = ['kits', 'doces', 'pelucias'];
   var publico = 'all';
   var subEl = document.createElement('div');
   subEl.className = 'subchips'; subEl.hidden = true;

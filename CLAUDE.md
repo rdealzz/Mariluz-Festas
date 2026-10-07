@@ -27,6 +27,10 @@
   ilustração `art: 'minitable'`. Fotos repetidas na mesma leva entram uma vez só.
 - `assets/img/pn-*.webp` são composições de **Painéis e mesas** (`cat: 'moveis'`): só as 3 que a
   Mariluz indicou (arco off-white com mesa cone, arcos lilás e rosa, arcos cinza e rosa).
+- `assets/img/pel-*.webp` são **Pelúcias** (`cat: 'pelucias'`, `tag: RETIRA`), enviadas em 07/10/2026. O subfiltro
+  separa as **especiais Silvia Polito** (`pel-sp-*`, `publico: ['silvia-polito']`, cartazes com fundo decorado,
+  selo "Silvia Polito") das **demais pelúcias** de personagens e bichinhos (fundo branco, `publico: ['personagens']`).
+  Algumas pelúcias ficam também nos destaques da aba "Todos".
 - Cada foto existe em 600px, 1200px e na versão máxima (Full HD, 1920px no lado maior), em `.webp`.
 - Algumas fotos chegam com a estrelinha ✦ de editor de imagem no canto inferior direito: apague antes de
   publicar (cobrir só a marca com o fundo vizinho, sem cortar a foto).
