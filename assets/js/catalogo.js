@@ -15,7 +15,8 @@
   var STORE = 'mariluz-lista';
 
   /* ---------- Catálogo: edite aqui ----------
-     img: foto em assets/img (opcional). Sem foto, o card usa a ilustração em "art".
+     img: foto em assets/img. Só entram no catálogo peças com foto (a ilustração "art" ficou
+     de reserva e não é mais usada nos cards).
      badge: selo opcional ("Mais procurado").
      tag: como a peça sai da loja.
      preco: valor em reais (só aparece no site com MOSTRAR_PRECOS = true).
@@ -134,17 +135,6 @@
     { id: 'kit-muro-ingles-industrial', cat: 'kits', publico: ['masculino'], nome: 'Kit Muro inglês industrial', desc: 'Muro inglês, tonel preto, cômoda preta, mesa de ferro, caixote, cactos, costela-de-adão e peças douradas.', img: 'assets/img/pm-muro-ingles-industrial.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-rustico-fazenda', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Rústico fazenda', desc: 'Muro inglês com roda de carroça, aparador e baú de madeira, caixotes, botas, gramado, pinheiros e lampião.', img: 'assets/img/pm-rustico-fazenda.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'kit-rustico-vintage', cat: 'kits', publico: ['masculino', 'feminino'], nome: 'Kit Rústico vintage', desc: 'Mesa e baú de madeira, bicicleta, ventilador e lampião antigos, pinheiros em vasos azuis e suportes pretos.', img: 'assets/img/pm-rustico-vintage.webp', tag: PEGUE, badge: 'Novidade' },
-    /* Kits pegue e monte · ainda sem foto */
-    { id: 'mini-table-circo-rosa', cat: 'kits', publico: ['menina'], nome: 'Kit Circo Rosa', desc: 'Tema circo em tons de rosa, numa mesa pequena e delicada.', art: 'minitable', tag: PEGUE, preco: 320 },
-    { id: 'mini-table-ariel', cat: 'kits', publico: ['menina'], nome: 'Kit Ariel', desc: 'Tema Pequena Sereia em composição leve e enxuta.', art: 'minitable', tag: PEGUE, preco: 420 },
-    { id: 'mini-table-barbie', cat: 'kits', publico: ['menina'], nome: 'Kit Barbie', desc: 'Tema Barbie numa mesa pequena e marcante.', art: 'minitable', tag: PEGUE, preco: 420 },
-    { id: 'kit-oh-baby', cat: 'kits', publico: ['menina', 'cha'], nome: 'Kit Oh Baby', desc: 'Chá de bebê em rosé, verde e dourado, com flores e arco de balões.', art: 'minitable', tag: PEGUE, badge: 'Mais procurado' },
-    { id: 'kit-cha-fraldas-menina', cat: 'kits', publico: ['menina', 'cha'], nome: 'Kit chá de fraldas menina (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas da menina.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-batman', cat: 'kits', publico: ['menino'], nome: 'Kit Batman', desc: 'Tonel, plantas e personagem para uma mesa marcante.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-praia', cat: 'kits', publico: ['menino'], nome: 'Kit Praia e surf', desc: 'Prancha, remo e boia para uma festa leve e solar.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-star-wars', cat: 'kits', publico: ['menino'], nome: 'Kit Star Wars', desc: 'Personagens e peças da galáxia para os pequenos fãs.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-cha-fraldas-menino', cat: 'kits', publico: ['menino', 'cha'], nome: 'Kit chá de fraldas menino (mamãe coruja)', desc: 'Tema mamãe coruja para o chá de fraldas do menino.', art: 'minitable', tag: PEGUE },
-    { id: 'kit-galinha-pintadinha', cat: 'kits', publico: ['menino', 'menina'], nome: 'Kit provençal Galinha Pintadinha', desc: 'Kit provençal básico no tema Galinha Pintadinha.', art: 'minitable', tag: PEGUE },
 
     /* Pelúcias · especiais Silvia Polito (cartazes de 07/10; pos mostra os bichinhos no card quadrado) */
     { id: 'pel-sp-ursinhos-realeza', cat: 'pelucias', publico: ['silvia-polito'], nome: 'Casal de ursinhos realeza', desc: 'Pelúcia especial Silvia Polito, com roupinha feita à mão. Ursinho príncipe com coroa e capa e ursinha princesa de vestido rosa.', img: 'assets/img/pel-sp-ursinhos-realeza.webp', pos: 'center 64%', tag: RETIRA, badge: 'Silvia Polito' },
@@ -199,40 +189,14 @@
     { id: 'kit-verde-menta', cat: 'doces', publico: ['menina', 'menino', 'cha'], nome: 'Kit de suportes Verde menta torneado', desc: 'Trio de suportes de madeira com pé torneado em verde menta, em três alturas.', img: 'assets/img/kit-verde-menta.webp', tag: RETIRA, badge: 'Novidade' },
     { id: 'kit-verde-musgo', cat: 'doces', publico: ['menino', 'masculino', 'feminino'], nome: 'Kit de suportes Verde musgo torneado', desc: 'Trio de suportes de madeira com pé torneado em verde musgo, em três alturas.', img: 'assets/img/kit-verde-musgo.webp', tag: RETIRA, badge: 'Novidade' },
     { id: 'kit-azul-marinho-torneado', cat: 'doces', publico: ['menino', 'masculino'], nome: 'Kit de suportes Azul marinho torneado', desc: 'Quatro suportes de madeira com pé torneado em azul marinho, em alturas variadas.', img: 'assets/img/kit-azul-marinho-torneado.webp', tag: RETIRA, badge: 'Novidade' },
-    /* Suportes para doces · peças avulsas */
-    { id: 'suporte-colonial', cat: 'doces', nome: 'Suporte para doces pé colonial', desc: 'Branco e liso, em alturas variadas para compor a mesa.', art: 'stand', tag: RETIRA, badge: 'Mais procurado' },
-    { id: 'kit-porcelana', cat: 'doces', nome: 'Kit suportes de porcelana', desc: 'Suportes de porcelana para doces, em alturas variadas.', art: 'trio', tag: RETIRA, preco: 90 },
-    { id: 'trio-suportes', cat: 'doces', nome: 'Trio de suportes para doces', desc: 'Três alturas, ideal para mesas pequenas e composições enxutas.', art: 'trio', tag: RETIRA },
-    { id: 'bandejas-espelhadas', cat: 'doces', nome: 'Bandejas espelhadas', desc: 'Reflexo delicado para doces finos e lembrancinhas.', art: 'tray', tag: RETIRA },
-    { id: 'bolo-cenografico', cat: 'doces', nome: 'Bolo cenográfico', desc: 'Andares decorados para o centro da mesa e para as fotos.', art: 'cake', tag: RETIRA },
-    { id: 'kit-ceramica', cat: 'doces', nome: 'Kit decorativo de cerâmica', desc: 'Peças de cerâmica para completar a mesa do bolo.', art: 'ceramic', tag: RETIRA },
 
     /* Painéis e mesas · composições com foto */
     { id: 'painel-off-white-rosas', cat: 'moveis', nome: 'Painel em arco off-white com mesa cone', desc: 'Painel em arco off-white, mesa cone branca, suporte dourado, vaso e cesto de rosas e tapete felpudo.', img: 'assets/img/pn-off-white-rosas.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'paineis-lilas-rosa', cat: 'moveis', nome: 'Painéis em arco lilás e rosa com mesas douradas', desc: 'Dois painéis em arco, mesas e banqueta douradas com tampo de madeira, rosas, lanternas e número iluminado.', img: 'assets/img/pn-lilas-rosa.webp', tag: PEGUE, badge: 'Novidade' },
     { id: 'paineis-cinza-rosa', cat: 'moveis', nome: 'Painéis em arco cinza e rosa com mesas douradas', desc: 'Dois painéis em arco, mesas e banqueta douradas com tampo de madeira, rosas, lanternas e número iluminado.', img: 'assets/img/pn-cinza-rosa.webp', tag: PEGUE, badge: 'Novidade' },
-    /* Painéis e mesas · peças avulsas */
-    { id: 'mesa-provencal', cat: 'moveis', nome: 'Mesa provençal', desc: 'Pés torneados e acabamento clássico, o centro da composição.', art: 'provencal', tag: PEGUE, badge: 'Mais procurado' },
-    { id: 'mesa-espelhada', cat: 'moveis', nome: 'Mesa espelhada', desc: 'Linhas retas e brilho discreto para festas modernas.', art: 'mirror', tag: PEGUE },
-    { id: 'aparador-azul', cat: 'moveis', nome: 'Aparador envelhecido azul', desc: 'Acabamento envelhecido com charme provençal.', art: 'sideboard', tag: PEGUE },
-    { id: 'estante-lembrancinhas', cat: 'moveis', nome: 'Estante shabby chic para lembrancinhas', desc: 'Para expor as lembrancinhas com charme.', art: 'shelf', tag: PEGUE },
-    { id: 'lounge-luis-xv', cat: 'moveis', nome: 'Lounge decorativo Luís XV', desc: 'Estofados clássicos para um canto de estar elegante.', art: 'sofa', tag: PEGUE },
-    { id: 'trio-cilindros', cat: 'moveis', nome: 'Trio de cilindros', desc: 'Três alturas para apoiar o bolo, os doces e os personagens.', art: 'cylinders', tag: PEGUE },
-    { id: 'painel-redondo', cat: 'moveis', nome: 'Painel redondo', desc: 'Fundo neutro que recebe balões, flores e o nome do homenageado.', art: 'round', tag: PEGUE },
-    { id: 'painel-floresta', cat: 'moveis', nome: 'Painel sublimado 3D floresta', desc: 'Fundo de floresta para festas de safári, jardim e aventura.', art: 'forest', tag: PEGUE },
-    { id: 'colunas-espelhadas', cat: 'moveis', nome: 'Par de colunas espelhadas com arranjo', desc: 'Colunas espelhadas com arranjo artificial para entradas e corredores.', art: 'mirrorColumns', tag: PEGUE },
-    { id: 'cortinado', cat: 'moveis', nome: 'Cortinado com estrutura', desc: 'Tecido em várias cores, com a estrutura para sustentar.', art: 'curtain', tag: PEGUE },
-    { id: 'muro-ingles', cat: 'moveis', nome: 'Muro inglês', desc: 'Parede verde para cenários de fotos e mini weddings.', art: 'hedge', tag: PEGUE },
 
-    { id: 'arco-desconstruido', cat: 'baloes', nome: 'Arco de balões desconstruído', desc: 'Montado no local, nas cores da sua festa.', art: 'arch', tag: MONTAGEM, badge: 'Mais procurado' },
-    { id: 'painel-com-baloes', cat: 'baloes', nome: 'Painel redondo com balões', desc: 'Painel com arranjo orgânico de balões, pronto para as fotos.', art: 'roundBalloons', tag: MONTAGEM },
-    { id: 'coluna-baloes', cat: 'baloes', nome: 'Par de colunas de balões', desc: 'Para a entrada ou para emoldurar a mesa principal.', art: 'column', tag: MONTAGEM },
-    { id: 'suporte-chao-baloes', cat: 'baloes', nome: 'Suporte de chão para balões', desc: 'Estrutura de metal para montar colunas e buquês de balões.', art: 'balloonStand', tag: PEGUE },
-
-    { id: 'vasos-de-vidro', cat: 'detalhes', nome: 'Vasos de vidro', desc: 'Vaso liso, taça canelada e duas taças bico de jaca em vidro, para arranjos e centros de mesa.', img: 'assets/img/vasos-de-vidro.webp', pos: 'center 78%', tag: PEGUE, badge: 'Novidade' },
-    { id: 'letras-mdf', cat: 'detalhes', nome: 'Letras em MDF', desc: 'Iniciais e palavras em MDF para noivados e aniversários.', art: 'letters', tag: PEGUE },
-    { id: 'arranjo-orquideas', cat: 'detalhes', nome: 'Arranjo de orquídeas para mesa', desc: 'Arranjo para as mesas dos convidados.', art: 'orchid', tag: PEGUE },
-    { id: 'suqueira', cat: 'detalhes', nome: 'Suqueira 5 litros', desc: 'Para sucos e drinks na mesa de bebidas.', art: 'jar', tag: PEGUE }
+    /* Detalhes */
+    { id: 'vasos-de-vidro', cat: 'detalhes', nome: 'Vasos de vidro', desc: 'Vaso liso, taça canelada e duas taças bico de jaca em vidro, para arranjos e centros de mesa.', img: 'assets/img/vasos-de-vidro.webp', pos: 'center 78%', tag: PEGUE, badge: 'Novidade' }
   ];
   /* Vitrine: cada aba mostra primeiro as peças mais bonitas (até LIMITE) e o restante
      aparece no botão "Conferir todos os modelos". DESTAQUES vale para "Todos";
@@ -416,7 +380,10 @@
 
   /* Filtros */
   var active = 'all';
-  var chipDefs = [{ id: 'all', label: 'Todos' }].concat(CATEGORIES);
+  /* Só aparecem as abas com peças (ex.: Balões volta quando chegarem as fotos) */
+  var chipDefs = [{ id: 'all', label: 'Todos' }].concat(CATEGORIES.filter(function (c) {
+    return CATALOG.some(function (p) { return p.cat === c.id; });
+  }));
   chipDefs.forEach(function (c) {
     var n = c.id === 'all' ? CATALOG.length : CATALOG.filter(function (p) { return p.cat === c.id; }).length;
     var b = document.createElement('button');

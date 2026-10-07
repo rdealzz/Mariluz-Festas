@@ -23,10 +23,11 @@
   em duas levas (Gabby, Sonic, Minecraft, Safári baby, Patrulha Canina, Mundo Bita, Pooh, Santo Anjo,
   Chá revelação, Boho dourado, Momentos, Wandinha, Super-heróis, Coritiba, Corrida, Baleia rosa, e os
   adultos de 05/10 à tarde: Rústico fazenda, Rústico vintage, Muro inglês industrial, Marsala e dourado,
-  Happy Birthday rosé, Love verde-água, Preto e branco, Arcos nude e dourado, Arcos terra e areia etc.). Os kits pegue e monte que ainda não têm foto usam a
-  ilustração `art: 'minitable'`. Fotos repetidas na mesma leva entram uma vez só.
+  Happy Birthday rosé, Love verde-água, Preto e branco, Arcos nude e dourado, Arcos terra e areia etc.). Fotos repetidas na mesma leva entram uma vez só.
 - `assets/img/pn-*.webp` são composições de **Painéis e mesas** (`cat: 'moveis'`): só as 3 que a
   Mariluz indicou (arco off-white com mesa cone, arcos lilás e rosa, arcos cinza e rosa).
+- **Só entram no catálogo peças com foto.** Os cards com ilustração em branco foram tirados a pedido
+  (07/10/2026); abas sem nenhuma peça (ex.: Balões) somem sozinhas até chegarem fotos.
 - `assets/img/pel-*.webp` são **Pelúcias** (`cat: 'pelucias'`, `tag: RETIRA`), enviadas em 07/10/2026. O subfiltro
   separa as **especiais Silvia Polito** (`pel-sp-*`, `publico: ['silvia-polito']`, cartazes com fundo decorado,
   selo "Silvia Polito") das **demais pelúcias** de personagens e bichinhos (fundo branco, `publico: ['personagens']`).
