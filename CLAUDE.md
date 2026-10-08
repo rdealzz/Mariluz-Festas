@@ -42,7 +42,7 @@
 Subfiltro `publico` dos kits: Infantil (`menino`, `menina`), Adulto (`masculino`, `feminino`) e Bebê
 (`batizado`, `cha` = chá de bebê, de fraldas e revelação).
 
-Vitrine: cada aba mostra até 12 peças (`VITRINE`/`DESTAQUES` em `catalogo.js`) e o botão "Conferir todos
+Vitrine: cada aba mostra até 20 peças (5 linhas no computador), com as categorias misturadas em "Todos" (`VITRINE`/`DESTAQUES` em `catalogo.js`) e o botão "Conferir todos
 os modelos" abre o resto. A busca por tema procura no catálogo inteiro.
 
 Próximas fotos prometidas pela Mariluz: mais suportes para doces, festas montadas com balões, painéis e

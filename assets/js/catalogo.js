@@ -208,14 +208,15 @@
   /* Vitrine: cada aba mostra primeiro as peças mais bonitas (até LIMITE) e o restante
      aparece no botão "Conferir todos os modelos". DESTAQUES vale para "Todos";
      VITRINE define a ordem dentro de cada categoria (o que não está listado vem depois). */
-  var LIMITE = 12;
+  var LIMITE = 20;
   var VITRINE = {
-    kits: ['kit-gabby', 'kit-sonic', 'kit-safari-baby', 'kit-abelhinha', 'kit-ursinho-baloes', 'kit-patrulha-canina-pm', 'kit-coelhinha-baloes', 'kit-minecraft', 'kit-chuva-de-amor', 'kit-boho-dourado', 'kit-dragon-ball', 'mini-table-mundo-bita'],
-    pelucias: ['pel-sp-ursinhos-realeza', 'pel-sp-safari-elefante-girafa', 'pel-sp-ursinhos-aviadores', 'pel-sp-bichinhos-bailarinas', 'pel-super-mario', 'pel-sp-ursinhos-candy', 'pel-sp-safari-leao', 'pel-alice', 'pel-sp-bonecas-capuz', 'pel-pokemon', 'pel-sp-bonecas-vestido', 'pel-metoo'],
+    kits: ['kit-gabby', 'kit-sonic', 'kit-boho-dourado', 'kit-safari-baby', 'kit-abelhinha', 'kit-happy-birthday-rose', 'kit-patrulha-canina-pm', 'kit-cha-revelacao', 'kit-coelhinha-baloes', 'kit-minecraft', 'kit-marsala-dourado', 'kit-batizado', 'kit-chuva-de-amor', 'kit-super-herois', 'kit-ursinho-baloes', 'kit-rustico-fazenda', 'mini-table-wandinha', 'kit-dragon-ball', 'kit-pooh', 'mini-table-mundo-bita'],
+    pelucias: ['pel-sp-ursinhos-realeza', 'pel-super-mario', 'pel-sp-safari-elefante-girafa', 'pel-tigre', 'pel-sp-ursinhos-aviadores', 'pel-alice', 'pel-sp-bichinhos-bailarinas', 'pel-leoes', 'pel-pokemon', 'pel-sp-ursinhos-candy', 'pel-simba', 'pel-bonecas-lol', 'pel-sp-safari-leao', 'pel-coala', 'pel-metoo', 'pel-sp-bonecas-capuz', 'pel-dalmata', 'pel-frozen', 'pel-sp-bonecas-vestido', 'pel-galinha-pintadinha'],
     moveis: ['paineis-lilas-rosa', 'painel-off-white-rosas', 'paineis-cinza-rosa'],
     doces: ['kit-patrulha-canina', 'kit-candy-pastel', 'kit-realeza-rosa', 'kit-branco-rose-gold', 'kit-dourado-rosas', 'kit-vermelho', 'kit-cristal', 'kit-verde-oliva', 'kit-ursinhos-lilas', 'kit-rose-nude', 'kit-azul-marinho-dourado', 'kit-amarelo']
   };
-  var DESTAQUES = ['kit-gabby', 'pel-sp-ursinhos-realeza', 'kit-patrulha-canina', 'kit-sonic', 'pel-sp-safari-elefante-girafa', 'paineis-lilas-rosa', 'kit-safari-baby', 'pel-sp-ursinhos-aviadores', 'kit-dourado-rosas', 'kit-abelhinha', 'kit-realeza-rosa', 'pel-super-mario'];
+  /* Todos: cada linha mistura kit, suporte para doces, pelúcia e painel */
+  var DESTAQUES = ['kit-gabby', 'pel-sp-ursinhos-realeza', 'kit-patrulha-canina', 'paineis-lilas-rosa', 'kit-sonic', 'kit-dourado-rosas', 'pel-super-mario', 'kit-boho-dourado', 'pel-sp-safari-elefante-girafa', 'kit-happy-birthday-rose', 'kit-candy-pastel', 'kit-safari-baby', 'kit-cha-revelacao', 'pel-sp-ursinhos-aviadores', 'kit-cristal', 'kit-minecraft', 'painel-off-white-rosas', 'kit-abelhinha', 'pel-tigre', 'kit-realeza-rosa'];
 
   /* ---------- Ilustrações em linha (peças ainda sem foto) ---------- */
   var circles = function (pts, cls) {
