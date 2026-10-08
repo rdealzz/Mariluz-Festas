@@ -32,6 +32,8 @@
 - `assets/img/pel-*.webp` são **Pelúcias** (`cat: 'pelucias'`, `tag: RETIRA`), enviadas em 07/10/2026. O subfiltro
   separa as **especiais Silvia Polito** (`pel-sp-*`, `publico: ['silvia-polito']`, cartazes com fundo decorado,
   selo "Silvia Polito") das **demais pelúcias** de personagens e bichinhos (fundo branco, `publico: ['personagens']`).
+  Em 08/10 chegaram mais 9 bichinhos (leões, Simba, tigre, elefante, hipopótamo, coala, dálmata, pastor-alemão,
+  cachorrinhos); o coala veio repetido (fundo de madeira e branco) e entrou só o de fundo branco.
   Algumas pelúcias ficam também nos destaques da aba "Todos".
 - Cada foto existe em 600px, 1200px e na versão máxima (Full HD, 1920px no lado maior), em `.webp`.
 - Algumas fotos chegam com a estrelinha ✦ de editor de imagem no canto inferior direito: apague antes de

@@ -163,6 +163,16 @@
     { id: 'pel-urso-gigante-cinza', cat: 'pelucias', publico: ['personagens'], nome: 'Urso gigante cinza', desc: 'Urso de pelúcia grande, cinza com laço xadrez.', img: 'assets/img/pel-urso-gigante-cinza.webp', tag: RETIRA, badge: 'Novidade' },
     { id: 'pel-urso-gigante-creme', cat: 'pelucias', publico: ['personagens'], nome: 'Urso gigante creme', desc: 'Urso de pelúcia grande, creme e bem fofinho.', img: 'assets/img/pel-urso-gigante-creme.webp', tag: RETIRA, badge: 'Novidade' },
     { id: 'pel-ursos-polares', cat: 'pelucias', publico: ['personagens'], nome: 'Ursos polares marinheiros', desc: 'Família de ursos polares de roupa listrada azul-marinho.', img: 'assets/img/pel-ursos-polares.webp', tag: RETIRA, badge: 'Novidade' },
+    /* Pelúcias · bichinhos de 08/10 (fundo claro) */
+    { id: 'pel-leoes', cat: 'pelucias', publico: ['personagens'], nome: 'Casal de leões', desc: 'Dois leões de pelúcia de juba fofinha, para festas de safári e Rei Leão.', img: 'assets/img/pel-leoes.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-simba', cat: 'pelucias', publico: ['personagens'], nome: 'Simba (Rei Leão)', desc: 'Simba filhote de pelúcia, para festas do Rei Leão.', img: 'assets/img/pel-simba.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-tigre', cat: 'pelucias', publico: ['personagens'], nome: 'Tigre grande deitado', desc: 'Tigre de pelúcia grande e realista, para festas de safári e selva.', img: 'assets/img/pel-tigre.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-elefante-cinza', cat: 'pelucias', publico: ['personagens'], nome: 'Elefante cinza', desc: 'Elefante de pelúcia em pé, com presas, para festas de safári.', img: 'assets/img/pel-elefante-cinza.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-hipopotamo-elefante', cat: 'pelucias', publico: ['personagens'], nome: 'Hipopótamo e elefantinho', desc: 'Hipopótamo e elefantinho cinza de pelúcia, para safári baby e chá de bebê.', img: 'assets/img/pel-hipopotamo-elefante.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-coala', cat: 'pelucias', publico: ['personagens'], nome: 'Coala', desc: 'Coala cinza de pelúcia bem fofinho.', img: 'assets/img/pel-coala.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-dalmata', cat: 'pelucias', publico: ['personagens'], nome: 'Dálmata com laço rosa', desc: 'Dálmata de pelúcia deitado, com lacinho rosa.', img: 'assets/img/pel-dalmata.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-pastor-alemao', cat: 'pelucias', publico: ['personagens'], nome: 'Pastor-alemão', desc: 'Cachorro pastor-alemão de pelúcia, deitado.', img: 'assets/img/pel-pastor-alemao.webp', tag: RETIRA, badge: 'Novidade' },
+    { id: 'pel-cachorrinhos', cat: 'pelucias', publico: ['personagens'], nome: 'Casal de cachorrinhos', desc: 'Dois cachorrinhos de pelúcia, um creme e um caramelo e branco.', img: 'assets/img/pel-cachorrinhos.webp', tag: RETIRA, badge: 'Novidade' },
 
     /* Suportes para doces · kits com foto (infantil e adulto) */
     { id: 'kit-patrulha-canina', cat: 'doces', publico: ['menino'], nome: 'Kit de suportes Patrulha Canina', desc: 'Marshall, Rubble e Chase com vasos vermelhos, topiarias, suportes e bandejas em vermelho, azul e amarelo.', img: 'assets/img/kit-patrulha-canina.webp', tag: RETIRA, badge: 'Novidade' },
