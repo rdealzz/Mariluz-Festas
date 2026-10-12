@@ -26,6 +26,10 @@ assets/img/             fotos das decorações
   `robots.txt`, `sitemap.xml`, `favicon.ico` e `site.webmanifest` precisam ficar na raiz.
 - Endereço oficial: `https://www.mariluzfestas.com.br/` (canonical, `og:url`, sitemap e dados do Google).
   Configure na hospedagem o redirecionamento de `mariluzfestas.com.br` (sem www) e de `http` para ele.
+- Hospedagem: GitHub Pages (Settings → Pages → Deploy from a branch → `main` / root). O arquivo `CNAME`
+  guarda o domínio e o `.nojekyll` publica os arquivos como estão. DNS no Registro.br: `www` CNAME
+  `rdealzz.github.io` e, no domínio sem www, os A `185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
+  `185.199.111.153` (o GitHub redireciona o sem www para o www).
 - A prévia de link no WhatsApp e no Facebook usa `assets/img/og-mariluz.jpg` (1200x630).
 - Depois de publicar: cadastre o domínio no Google Search Console, envie o `sitemap.xml` e peça a indexação.
 
