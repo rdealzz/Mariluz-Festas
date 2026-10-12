@@ -35,6 +35,14 @@
   Em 08/10 chegaram mais 9 bichinhos (leões, Simba, tigre, elefante, hipopótamo, coala, dálmata, pastor-alemão,
   cachorrinhos); o coala veio repetido (fundo de madeira e branco) e entrou só o de fundo branco.
   Algumas pelúcias ficam também nos destaques da aba "Todos".
+- `assets/img/fb-*.webp` são **Festas com balões** (`cat: 'baloes'`, `tag: MONTAGEM`, subfiltro por público),
+  73 festas montadas enviadas em 09/10/2026. Fotos repetidas ficaram de fora (Gabby, Baleia rosa, 15 anos marsala,
+  Patinho com arco verde e cilindros brancos). As marcas "Dola AI" (Encanto e Toy Story) saíram cortando uma faixa
+  fina do rodapé; o ícone de vídeo da Bluey e as estrelinhas ✦ foram apagados.
+- Em 09/10 entraram também 5 pelúcias (onça, cachorrinho na caminha, zebra, dálmata sentado, Stitch); o Simba de
+  fundo de madeira era repetido.
+- Fotos novas recebem realce de cor leve (`-contrast-stretch 0.2%x0.2% -modulate 101,112,100 -sigmoidal-contrast 1.5,50%`,
+  sempre no canal geral: por canal deixa a parede roxa).
 - Cada foto existe em 600px, 1200px e na versão máxima (Full HD, 1920px no lado maior), em `.webp`.
 - Algumas fotos chegam com a estrelinha ✦ de editor de imagem no canto inferior direito: apague antes de
   publicar (cobrir só a marca com o fundo vizinho, sem cortar a foto).
