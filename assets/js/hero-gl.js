@@ -13,7 +13,15 @@ const saveData = navigator.connection && navigator.connection.saveData;
 const touch = matchMedia('(hover: none), (pointer: coarse)').matches || innerWidth < 900;
 /* No celular nem testa o WebGL: criar o contexto já custa um quadro */
 const supportsGL = !touch && (() => {
-  try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; }
+  try {
+    const c = document.createElement('canvas'), gl = c.getContext('webgl2') || c.getContext('webgl');
+    if (!gl) return false;
+    /* Computador sem aceleração de vídeo (WebGL desenhado pelo processador): a cena travaria a rolagem,
+       então fica a abertura em foto, igual ao celular */
+    const info = gl.getExtension('WEBGL_debug_renderer_info');
+    const gpu = info ? String(gl.getParameter(info.UNMASKED_RENDERER_WEBGL)) : '';
+    return !/swiftshader|llvmpipe|softpipe|software|basic render/i.test(gpu);
+  } catch (e) { return false; }
 })();
 
 const IMAGES = [

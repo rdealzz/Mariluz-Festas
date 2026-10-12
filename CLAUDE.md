@@ -59,11 +59,18 @@ mesas e bolos fakes. Ela avisou que o acervo é maior do que cabe no site.
 Ao receber fotos novas, pergunte ou confirme pela conversa se são suportes para doces ou pegue e
 monte antes de cadastrar. Na dúvida, suportes/boleiras/bandejas = `doces`.
 
+## Domínio e publicação
+
+- Endereço oficial: `https://www.mariluzfestas.com.br/` (canonical, `og:url`, JSON-LD, `sitemap.xml`, `robots.txt`).
+  Prévia de link: `assets/img/og-mariluz.jpg` (1200x630, JPG para o WhatsApp). Links antigos caem no `404.html`.
+
 ## Fluidez no celular (a maioria das clientes acessa pelo celular)
 
 - Nada de `backdrop-filter` em elementos que se repetem (cards, selos, lupas): use fundo quase opaco.
 - No toque/telas < 900px (`lite` em `main.js`): sem Lenis, parallax, giro 3D, troca de cor do fundo
   e WebGL. Efeitos novos presos à rolagem (`scrub`) devem respeitar `lite`.
+- A cena WebGL da abertura (`hero-gl.js`) não liga em computador sem aceleração de vídeo (SwiftShader,
+  llvmpipe etc.): ali o WebGL roda no processador e travava a rolagem; fica a abertura em foto.
 - Galeria e cards usam `sizes` que levam o celular a baixar a versão de 600px; a de 1200px fica para
   telas maiores e a versão máxima só abre na foto ampliada.
 - O fundo da abertura no celular usa `hero-bg-*.webp` (pequeno e já desfocado); ao trocar as fotos da

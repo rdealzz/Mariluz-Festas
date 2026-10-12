@@ -20,10 +20,18 @@ assets/fonts/           Inter variável (fallback do SF Pro)
 assets/img/             fotos das decorações
 ```
 
-## Antes de publicar
+## Publicação (www.mariluzfestas.com.br)
 
-- **Fotos:** as imagens atuais foram recortadas de capturas de tela do Google. Substitua pelos
-  arquivos originais em alta resolução mantendo os mesmos nomes em `assets/img/`.
+- O site é estático: publique a pasta inteira na raiz do domínio. `index.html`, `404.html`,
+  `robots.txt`, `sitemap.xml`, `favicon.ico` e `site.webmanifest` precisam ficar na raiz.
+- Endereço oficial: `https://www.mariluzfestas.com.br/` (canonical, `og:url`, sitemap e dados do Google).
+  Configure na hospedagem o redirecionamento de `mariluzfestas.com.br` (sem www) e de `http` para ele.
+- A prévia de link no WhatsApp e no Facebook usa `assets/img/og-mariluz.jpg` (1200x630).
+- Depois de publicar: cadastre o domínio no Google Search Console, envie o `sitemap.xml` e peça a indexação.
+
+## Manutenção
+
+- **Fotos:** cada foto existe em 600px, 1200px e na versão máxima, em `.webp` (veja `CLAUDE.md`).
 - **Catálogo:** os produtos ficam na lista `CATALOG` no início de `assets/js/catalogo.js`
   (nome, categoria, descrição, selo "Mais procurado" e forma de retirada). Só entram peças com foto:
   coloque o arquivo em `assets/img/` e preencha `img` (ex.: `img: 'assets/img/suporte-colonial.webp'`). Os kits de suportes para doces (`kit-*.webp`) ficam
@@ -41,7 +49,7 @@ assets/img/             fotos das decorações
   da foto em si não pode ser anexado.
 - **Preços:** cada peça pode ter `preco`. Os valores preenchidos vieram da loja online antiga e só
   aparecem no site com `MOSTRAR_PRECOS = true` (início de `assets/js/catalogo.js`), depois de
-  confirmados pela Mariluz. `DESTAQUES` define as 12 peças da vitrine inicial.
+  confirmados pela Mariluz. `DESTAQUES` define as 20 peças da vitrine inicial.
 - **Depoimentos:** avaliações reais publicadas no Casamentos.com.br. Para incluir as do Google, edite
   a lista `TESTIMONIALS` no início de `assets/js/main.js` com o texto exato e o nome da cliente.
 - **Vídeo do hero (opcional):** coloque um vídeo em `assets/video/hero.mp4` e preencha
