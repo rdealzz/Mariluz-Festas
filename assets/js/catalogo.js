@@ -383,7 +383,9 @@
   var fullCat = function (p) { var u = pubLabel(p); return p.cat === 'pelucias' ? u : catLabel(p.cat) + (u ? ' (' + u + ')' : ''); };
   /* Busca sem acento e sem maiúsculas: "pequeno principe" acha "Pequeno Príncipe" */
   var norm = function (t) { return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
-  var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
+  /* Escapa por texto (sem criar elemento a cada chamada) e cobre aspas dos atributos */
+  var escMap = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
+  var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return escMap[c]; }); };
 
   /* ---------- Lista (persistida só neste navegador) ---------- */
   var list = {};
@@ -441,12 +443,10 @@
   /* Vitrine: destaques primeiro, depois o restante na ordem do catálogo */
   var ordered = DESTAQUES.map(function (id) { return byId[id]; }).filter(Boolean);
   CATALOG.forEach(function (p) { if (ordered.indexOf(p) < 0) ordered.push(p); });
-  ordered.forEach(function (p) {
-    var li = document.createElement('li');
-    li.className = 'product'; li.dataset.cat = p.cat; li.dataset.id = p.id;
-    li.dataset.search = norm(p.nome + ' ' + p.desc + ' ' + fullCat(p));
-    if (p.publico) li.dataset.publico = p.publico.join(' ');
-    li.innerHTML =
+  /* Todos os cards num único innerHTML: um parse só em vez de 224 (abre mais rápido no celular) */
+  grid.insertAdjacentHTML('beforeend', ordered.map(function (p) {
+    return '<li class="product" data-cat="' + esc(p.cat) + '" data-id="' + esc(p.id) + '" data-search="' + esc(norm(p.nome + ' ' + p.desc + ' ' + fullCat(p))) + '"' +
+      (p.publico ? ' data-publico="' + esc(p.publico.join(' ')) + '"' : '') + '>' +
       '<article>' +
         (p.img
           ? '<div class="product-media is-zoom" data-zoom role="button" tabindex="0" aria-label="Ampliar foto: ' + esc(p.nome) + '" data-title="' + esc(p.nome) + '" data-cat="' + esc(fullCat(p)) + '">' + mediaHtml(p) + '<span class="product-zoom" aria-hidden="true">' + zoomIcon + '</span>'
@@ -463,9 +463,8 @@
             '<button type="button" class="product-add" aria-pressed="false" data-add="' + p.id + '" aria-label="Adicionar ' + esc(p.nome) + ' à lista" title="Adicionar à lista">' + plus + '</button>' +
           '</div>' +
         '</div>' +
-      '</article>';
-    grid.appendChild(li);
-  });
+      '</article></li>';
+  }).join(''));
   var cards = $$('.product', grid);
 
   /* Filtros */
