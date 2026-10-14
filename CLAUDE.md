@@ -41,6 +41,10 @@
   fina do rodapé; o ícone de vídeo da Bluey e as estrelinhas ✦ foram apagados.
 - Em 09/10 entraram também 5 pelúcias (onça, cachorrinho na caminha, zebra, dálmata sentado, Stitch); o Simba de
   fundo de madeira era repetido.
+- Em 14/10 chegaram 10 pelúcias de fundo branco (Chase, abelhinhas, trio de cavalos, girafas, bonecas de pano lilás,
+  ursinhos de laço, ursinhos de tricô, família de ursas de vestido, ovelhinhas, cavalinhos deitados) e 2 kits de suportes
+  rosa e cinza (`kit-rosa-cinza`, `kit-rosa-cinza-nude`). Fotos largas ou altas foram completadas com o fundo branco
+  até ficarem quadradas, para nada sair cortado no card. Chase, família de ursas e kit rosa e cinza entraram nos destaques.
 - Fotos novas recebem realce de cor leve (`-contrast-stretch 0.2%x0.2% -modulate 101,112,100 -sigmoidal-contrast 1.5,50%`,
   sempre no canal geral: por canal deixa a parede roxa).
 - Cada foto existe em 600px, 1200px e na versão máxima (Full HD, 1920px no lado maior), em `.webp`.
